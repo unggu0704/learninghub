@@ -22,7 +22,7 @@ image:
 - HTML에서 JavaScript를 사용하려면 `<script>` 태그를 사용
     - `src` 와 `type` 속성등을 사용하여 js를 선언
 
-![Untitled](resources/JavaScript%20(24%2003%2007)%201a1f5b5696aa4185825d6ba0a877097e/Untitled.png)
+![Untitled]({{ site.baseurl }}{{ page.url }}/resources/JavaScript%20(24%2003%2007)%201a1f5b5696aa4185825d6ba0a877097e/Untitled.png)
 
 - HTML 파일 내부의 어디서나 선언이 가능 (body 안에 권장)
 
@@ -64,7 +64,7 @@ image:
 
 ### 자료형
 
-![Untitled](resources/JavaScript%20(24%2003%2007)%201a1f5b5696aa4185825d6ba0a877097e/Untitled%201.png)
+![Untitled]({{ site.baseurl }}{{ page.url }}/resources/JavaScript%20(24%2003%2007)%201a1f5b5696aa4185825d6ba0a877097e/Untitled%201.png)
 
 - `undefined` : 값이 초기화 되지 않음
 - 문자열의 경우 ` 을 이용한 경우 $ {} 를 통해 변수 표현 가능
