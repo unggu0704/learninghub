@@ -1,5 +1,5 @@
 ---
-title: Azure Web Application Firewall
+title: Azure Load Balancer와 Ingress
 author: "unggu"
 date: 2024-12-19 21:13:04 +0800
 categories: [Azure, Azure 공부]
@@ -34,9 +34,6 @@ image:
 **내부 Load Balancer**
 
 - **내부 트래픽**: VNet 내에서 Load Balancer를 통해 이동하는 트래픽에도 비용이 발생
-
-
-##  Azure Load Balancer
 
 
 
