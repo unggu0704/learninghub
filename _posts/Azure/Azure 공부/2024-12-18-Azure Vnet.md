@@ -1,7 +1,7 @@
 ---
 title: Azure Vnet
 author: "unggu"
-date: 2023-11-04 05:37:22 +0800
+date: 2024-11-05 05:37:22 +0800
 categories: [Azure, Azure 공부]
 tags: [Azure, AKS, Kubernets, Container, DevOps]
 render_with_liquid: true

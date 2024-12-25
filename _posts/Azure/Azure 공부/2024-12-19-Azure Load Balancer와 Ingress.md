@@ -1,7 +1,7 @@
 ---
 title: Azure Load Balancer와 Ingress
 author: "unggu"
-date: 2024-12-19 21:13:04 +0800
+date: 2024-12-17 21:13:04 +0800
 categories: [Azure, Azure 공부]
 tags: [Azure, AKS, Kubernets, Container, DevOps]
 render_with_liquid: true

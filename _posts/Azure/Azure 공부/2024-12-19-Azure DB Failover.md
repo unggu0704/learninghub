@@ -1,7 +1,7 @@
 ---
 title: Azure DB Failover란?
 author: "unggu"
-date: 2024-12-19 15:34:21 +0800
+date: 2024-12-18 15:34:21 +0800
 categories: [Azure, Azure 공부]
 tags: [Azure, AKS, Kubernets, Container, DevOps, DB]
 render_with_liquid: true
