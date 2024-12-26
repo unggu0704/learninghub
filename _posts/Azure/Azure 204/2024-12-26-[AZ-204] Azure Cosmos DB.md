@@ -1,6 +1,18 @@
+---
+author: "unggu"
+title: "[AZ-204] Azure Cosmos DB"
+date: 2024-12-26 21:43:35 +0800
+categories: [Azure, Azure 204]
+tags: [Azure, AKS, AZ204, DB]
+render_with_liquid: true
+comments: true
+image:
+  path: _posts/Azure/Azure 204/img/Azure_Cosmos_DB.svg.png
+---
+
 # Azure Cosmos DB
 
-![image]({{ site.baseurl }}{{ page.url }}/image/Pasted image 20241226150830.png)
+![image]({{ site.baseurl }}{{ page.url }}/img/cosmos-entities.png)
 ### Cosmos DB 주요 이점 파악
 
 - 전역 복제
@@ -14,7 +26,7 @@
 - 데이터베이스
 - 컨테이너
     - 그리고 그 항목…
-![image]({{ site.baseurl }}{{ page.url }}/image/Pasted image 20241226145904.png)
+![image]({{ site.baseurl }}{{ page.url }}/img/cosmos-entities.png)
 
 **데이터베이스 계정** 자체는 고가용성을 위한 기본 단위로써 계정 자체에 고유한 DNS가 제공된다. 이를 통해 여러 Azure 지역의 고가용성을 보장하는 시스템이다.
 하나의 Azure 구독은 최대 50개의 DB계정을 보유할 수 있는데 그 밑에 Azure Cosmos DB 컨테이너 (*스케일링 성능을 위한 기본단위*) 가 존재한다. 이 컨테이너는 무제한의 프로비전과 무제한의 처리량을 가질 수 있다..
@@ -44,7 +56,7 @@
 
 
 Azure Cosmos DB는 선택사항 스펙트럼으로 다양한 데이터 일관성에 접근할 수 있다. 
-![image]({{ site.baseurl }}{{ page.url }}/image/Pasted image 20241226151002.png)
+![image]({{ site.baseurl }}{{ page.url }}/img/five-consistency-levels.png)
 **강력한 일관성**
 요청과 동시에 처리하는 것이며 사용자는 최신 커밋쓰기와 읽기를 제공하지만, 클라이언트는 커밋되지 않은 부분에 있어 읽기 쓰기가 불가능하다. -> 선영화 가능성의 보장
 
@@ -74,8 +86,7 @@ ex) 리트윗, 좋아요 같은 예
 
 ### 요청 단위
 
-![[Pasted image 20241226150808.png]]
-![image]({{ site.baseurl }}{{ page.url }}/image/Pasted image 20241226150808.png)
+![image]({{ site.baseurl }}{{ page.url }}/img/request-units.png)
 모든 데이터베이스의 작업 비용은 Azure Cosmos DB에서 정규화 되고 이러한 화폐는 요청단위(*RU*)로 보장한다. (1KB = 1RU read 기준)
 
 ### 정리
