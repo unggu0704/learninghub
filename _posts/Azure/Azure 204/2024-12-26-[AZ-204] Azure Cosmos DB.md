@@ -1,7 +1,7 @@
 ---
 author: "unggu"
 title: "[AZ-204] Azure Cosmos DB"
-date: 2024-12-26 21:43:35 +0800
+date: 2024-12-26 18:43:35 +0800
 categories: [Azure, Azure 204]
 tags: [Azure, AKS, AZ204, DB]
 render_with_liquid: true
@@ -37,7 +37,7 @@ image:
 
 컨테이너를 생성시 다음 두가지 모드 중 하나로 처리량을 구성하는디
 - *전용 처리량* : 처리량은 선택된 컨테이너 전용으로 예약된다.
-- *공유 처리랴* : 처리량은 DB 수준으로 최대 25개의 컨테이너와 공유된다. 
+- *공유 처리량* : 처리량은 DB 수준으로 최대 25개의 컨테이너와 공유된다. 
 
 **Azure Cosmos DB가 지원되는 API**
 
