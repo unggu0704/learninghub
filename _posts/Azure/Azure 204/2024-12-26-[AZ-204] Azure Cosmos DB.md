@@ -12,7 +12,7 @@ image:
 
 # Azure Cosmos DB
 
-![image]({{ site.baseurl }}{{ page.url }}/img/cosmos-entities.png)
+![image]({{ site.baseurl }}{{ page.url }}/img/archi.png)
 ### Cosmos DB 주요 이점 파악
 
 - 전역 복제
