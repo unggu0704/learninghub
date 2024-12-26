@@ -7,7 +7,7 @@ tags: [Azure, AKS, AZ204, DB]
 render_with_liquid: true
 comments: true
 image:
-  path: _posts/Azure/Azure 204/img/Azure_Cosmos_DB.svg.png
+  path: assets/img/metaimg/azure204/Azure_Cosmos_DB.svg.png
 ---
 
 # Azure Cosmos DB
@@ -87,10 +87,10 @@ ex) 리트윗, 좋아요 같은 예
 ### 요청 단위
 
 ![image]({{ site.baseurl }}{{ page.url }}/img/request-units.png)
-모든 데이터베이스의 작업 비용은 Azure Cosmos DB에서 정규화 되고 이러한 화폐는 요청단위(*RU*)로 보장한다. (1KB = 1RU read 기준)
+모든 데이터베이스의 작업 비용은 Azure Cosmos DB에서 정규화 되고 이러한 화폐는 요청단위(RU)로 보장한다. *1KB = 1RU read 기준*
 
 ### 정리
-우리는 이 단원에서 아래와 같은 것을 배웠습니다. 
+우리는 이 단원에서 아래와 같은 것을 배웠다. 
 -  Azure Cosmos DB에서 제공하는 주요 식별과 구성 
 - 다양한 일관성과 그 적합한 수준 
 - 비용과 지원하는 API
