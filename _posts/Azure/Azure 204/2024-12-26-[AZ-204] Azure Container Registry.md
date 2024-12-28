@@ -39,15 +39,17 @@ Arm
 64386 |
 | Windows | AMD64 |
 
-### 일반적인 ACR 시나리오
+### 일반적인 ACR 시나리오 (Git Action을 사용한)
+
+![alt text](https://miro.medium.com/v2/resize:fit:1048/1*wBcz95q3xz_-L9DBgsuToA.png)_Git Action을 사용한 파이프라인_
 
 1. ACR 생성
-2. DockerFile에서 이미지 푸쉬 
+2. DockerFile에서 이미지 푸쉬(Git Action) 
 3. 결과 확인
 4. ACR 이미지 실행
 5. 리소스 정리 
 
- **
+
 
 ### ACR 서비스 계층
 
