@@ -19,14 +19,14 @@ title: Unggu # the main title
 tagline: 야근하기 싫어요 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  개발자 김규형입니다.
+  LightHouse.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: https://unggu.xyz
 
 github:
-  username: unggu0704 # change to your GitHub username
+  username: test # change to your GitHub username
 
 # twitter:
 #   username: twitter_username # change to your Twitter username
@@ -38,10 +38,10 @@ social:
   email: kyuhyeong.kim@kt.com
   links:
     # The first element serves as the copyright owner's link
-    - https://github.com/unggu0704 # change to your GitHub homepage
+    # - https://github.com/unggu0704 # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/%EA%B7%9C%ED%98%95-%EA%B9%80-5b5b10299
+    # - https://www.linkedin.com/in/%EA%B7%9C%ED%98%95-%EA%B9%80-5b5b10299
 
 # Site Verification Settings
 webmaster_verifications:
