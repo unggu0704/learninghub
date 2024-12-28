@@ -1,6 +1,6 @@
 ---
 author: "unggu"
-title: "[AZ-204] Azure Cosmos DB"
+title: "[AZ-204] Azure Container Registry"
 date: 2024-12-28 18:48:15 +0800
 categories: [Azure, Azure 204]
 tags: [Azure, AKS, AZ204, Docker]
