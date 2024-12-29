@@ -29,16 +29,6 @@ ACR(Azure Container Registry)는 배포 파이프라인을 통해 Azure에서 �
 
 위와 같은 시나리오로 작성이 가능하다. 
 
-### 지원하는 이미지 플랫폼
-
-| OS | 아키텍처 |
-| --- | --- |
-| Linux | AMD64
-Arm
-Arm
-64386 |
-| Windows | AMD64 |
-
 ### 일반적인 ACR 시나리오 (Git Action을 사용한)
 
 ![alt text](https://miro.medium.com/v2/resize:fit:1048/1*wBcz95q3xz_-L9DBgsuToA.png)_Git Action을 사용한 파이프라인_
