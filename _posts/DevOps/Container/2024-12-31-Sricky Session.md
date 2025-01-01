@@ -7,7 +7,7 @@ tags: [Container, Docker, Kubernetes, Cloud, DevOps]
 render_with_liquid: true
 comments: true
 image:
-  path: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOCrvcXJF6MW0GXDdW_aR54l4LToSk3B2DIg&s
+  path: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbsmfOGVH_DT-XFBw1YRfhOPh05tA4dZyCg&s
 ---
 
 ![image](https://smjeon.dev/assets/img/loadbalancing/before-lb.png)_Load Balancer를 통해 여러대의 pod(서버)로 요청을 분리_
