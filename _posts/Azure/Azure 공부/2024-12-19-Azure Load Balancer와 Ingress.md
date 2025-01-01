@@ -35,7 +35,24 @@ image:
 
 - **내부 트래픽**: VNet 내에서 Load Balancer를 통해 이동하는 트래픽에도 비용이 발생
 
+### L4 LoadBalancer VS L7 LoadBalncer
 
+**L4 로드밸런서**는 일반적으로 TCP와 UDP기반으로 트래픽을 분산시킨다.
+- 주로 IP주소와 Port 로드밸런싱 -> 빠른 속도를 보장하지만 낮은 유연성
+**L7 로드밸런서**는 HTTP 및 HTTPS 프로토콜 기반으로 서버의 트래픽을 분산 
+- 주로 URL, 헤더, 쿠키 로드밸런싱 -> 늦은 속도를 제공하지만 높은 유연성
+
+| 항목        | L4 로드 밸런서      | L7 로드 밸런서            |
+| --------- | -------------- | -------------------- |
+| 작동 계층     | 전송 계층(Layer 4) | 애플리케이션 계층(Layer 7)   |
+| 주요 프로토콜   | TCP, UDP       | HTTP, HTTPS          |
+| 로드 밸런싱 기준 | IP 주소, 포트      | 요청 내용(URL, 헤더, 쿠키 등) |
+| 처리 속도     | 상대적으로 빠름       | 상대적으로 느림             |
+| 기능 및 유연성  | 상대적으로 제한적      | 다양한 기능 및 유연성         |
+
+**Azure 환경에서는?**
+Azure에서는 일반적으로 **Public Load Balancer**(인터넷 -> Azure)와 **Internel Load Balancer**(Azure VNet -> Azure VNet)에서 L4 로드밸런싱을 사용한다. 
+반대로 **Azure Application Gateway**에서 L7 로드밸런싱을 사용하는데 URL 기반 라우팅과 쿠키기반 세션 지속성(Session Affinity), SSL 종료 기능에 사용된다. 
 
 
 ## Ingress
