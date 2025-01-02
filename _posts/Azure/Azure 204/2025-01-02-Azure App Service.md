@@ -30,7 +30,7 @@ Azure App Service는 컨테이너화 된 앱을 ACR 또는 Docker Hub등에서 �
 
 > ***배포 슬롯이란?**
 일반적인 (PRD/DEV) 환경을 나누는 것으로 **Production Slot**과 **Staging Slot**으로 나눈다. 
-****이를 통해 Prodcution 환경에서 문제 발생시 롤백 전략을 사용할 수 있게 된다..*
+이를 통해 Prodcution 환경에서 문제 발생시 롤백 전략을 사용할 수 있게 된다..*
 > 
 
 ### Azure App Service의 구조
