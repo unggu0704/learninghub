@@ -1,6 +1,6 @@
 ---
 author: 김규형
-date: 2024-12-15 14:10:00 +0800
+date: 2023-09-11 14:10:00 +0800
 categories: [NHN Academy, ETC]
 tags: [CS, NHN Acedemy]
 render_with_liquid: true
