@@ -1,7 +1,7 @@
 ---
 author: "unggu"
 title: "[AZ-204] Azure App Service"
-date: 2025-01-02 01:33:43 +0800
+date: 2025-01-02 22:33:43 +0800
 categories: [Azure, Azure 204]
 tags: [Azure, AKS, AZ204]
 render_with_liquid: true

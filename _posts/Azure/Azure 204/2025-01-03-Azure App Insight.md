@@ -1,7 +1,7 @@
 ---
 author: "unggu"
 title: "[AZ-204] Azure App Insight"
-date: 2025-01-03 00:01:11 +0800
+date: 2025-01-03 01:01:11 +0800
 categories: [Azure, Azure 204]
 tags: [Azure, App Insight, AZ204, Azure Monitor]
 render_with_liquid: true
