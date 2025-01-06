@@ -18,7 +18,7 @@ Azure에서는 Redis를 사용하여 이러한 서비스를 제공한다.
 
 ### Azure Redis 주요 사용 패턴
 
-![image.png]({{ site.baseurl }}{{ page.url }}/img/image31.png)
+![image.png]({{ site.baseurl }}{{ page.url }}/img/image32.png)
 
 **데이터 캐시**
 
@@ -115,7 +115,7 @@ jedis.setex("tempKey", 300, "This will expire in 300 seconds");
 
 전 세계에 걸쳐 배포된 노드에 콘텐츠를 캐시하여 사용자 성능 및 사용자 환경을 향상한다. 이러한 에지 서버 방식을 사용해 원본 서버로 전송되는 트래픽의 양을 감소 시킨다. (이러한 CDN 프로필은 구독 유형에 따라 제한됨)
 
-![image.png]({{ site.baseurl }}{{ page.url }}/img/image32.png)
+![image.png]({{ site.baseurl }}{{ page.url }}/img/image31.png)
 
 어느날 Alice는 하나의 File을 요청하였다. DNS는 이를 사용해서 가장 성능이 좋은 PoP위치로 라우팅 하였다. 
 
