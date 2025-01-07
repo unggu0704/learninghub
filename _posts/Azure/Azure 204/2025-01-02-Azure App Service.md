@@ -22,6 +22,13 @@ image:
 
 Azure App Service는 자동적으로 스케일을 조정해주는데 이러한 리소스에는 가능한 코어 수와 RAM크기가 포함(스케일 업/다운), 머신의 인스턴스 수를 조절(스케일 인/아웃) 기능이 포함되어 있다. 
 
+### 가격 계층 구조
+
+- **Standard**: 자동 확장, 로드 밸런싱, 스테이징 슬롯 지원
+- **Premium**: 고성능 VM, 30개의 인스턴스, 높은 비용
+- **Isolated**: VNet의 격리된 환경, 100개 인스턴스, 매우 높은 비용 
+- **Premium V3**: 기존의 Premium 보다 가성비가 훌륭함 
+
 **컨테이너 및 CI/CD 지원**
 
 Azure App Service는 컨테이너화 된 앱을 ACR 또는 Docker Hub등에서 가져와 배포하고 실행 할 수 있다. CI/CD에서는 Gitun와 Azure Devops 같은 곳과 연결하여 배포를 진행한다. 
@@ -85,3 +92,8 @@ App Service의 네트워크 기능은 Inboud 트래픽과 Outbound 트래픽을 
 
 온프레미스 환경 통합(사내 시스템)으로 연동을 가능하게 하며, VNet을 통해 다른 리소스(*ex) 데이터베이스)*와 통신을 제공한다.
 여기서 사용되는 Outbound 주소는 `possibleOutboundIpAddresses` 에서 선택되며 Azure Portal 또는 CLI를 통해 확인이 가능하다.
+
+### Azure WebJobs
+
+Azure App Service에서 백그라운드 작업을 실행하는데 사용되는 기능으로 AP와 통합된 백그라운드 처리를 쉽게 구현할 수 있다. 
+Azure Storage와 Service Bus등과 트리거 기반 기능 설정 및 연속적 실행이 가능하다.

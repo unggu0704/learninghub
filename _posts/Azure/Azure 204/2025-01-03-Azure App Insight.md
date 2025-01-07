@@ -27,6 +27,8 @@ Azure App Insight는 Log Analytics와 함께 Azure Monitor의 두 가지 구성�
 
 이렇게 수집된 로그는 Log Analytics에서 *KQL 쿼리*라는 것을 사용하여 세밀하게 분석되어 통합 로그 관리까지 이루어진다.
 
+Azure Log Analytics는 다양한 신호 유형을 지원하는데 Metrics(시스템 리소스 사용량 분석), Logs(로그 데이터 기반 정보, Activity log(Azure 리소스 이벤트 기반 로그)를 제공한다.
+
 ### Application Insight의 기능
 
 일반적인 모니터링 솔루션의 진단 및 분석 기능 뿐만 아닌 **분산 추적**을 제공하는데 이는 여러 다양한 여러 서비스를 사용하는 요청 흐름을 추적하여 병목 현상 등을 발견하는데 도움을 준다.  또한 성능 문제가 발생하는 곳을 특정 조건에 따라 경고를 발생하기도 하여 통합된 Azure 시스템에 있어 큰 이점을 가진다.

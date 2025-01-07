@@ -7,7 +7,7 @@ tags: [Azure, AKS, AZ204]
 render_with_liquid: true
 comments: true
 image:
-  path: https://www.hugobarona.com/az204-study-guide-23/featured-image.png
+  path: assets/img/metaimg/azure204/featured-image.png
 ---
 
 # Azure 사용자 인증
@@ -50,7 +50,8 @@ API Management는 시스템 그룹이 존재하는데 **관리자**, **개발자
 ![image](https://github.com/unggu0704/learninghub/raw/backup/cloud%20computing/azure/Azure-204/Azure%20Key%20Vault%20%26%20API/Azure%20Key%20Vault%20&%20API%20121b01a7807e802fb7eddb1ec057d5b4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-10-16_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.00.05.png)
 
 서비스에는 몇가지 엔드포인트가 존재한다. 하지만 이런 엔드포인트를 그대로 노출시키는 것은 코드의 복잡성과 추적성에 있어 비효율적이다. 
-이를 해결하기위해 **API Management Gateway**로써 클라이언트와 서비스 사이에 배치되어 요청을 라우팅하는 *(역방향 프록시)* 로 사용된다. SSL 종료 및 혼잡성 제어 기능도 제공한다. -> **디자인 패턴의 완성**
+이를 해결하기위해 **API Management Gateway**로써 클라이언트와 서비스 사이에 배치되어 요청을 라우팅하는 *(역방향 프록시)* 로 사용된다. HTTPS 통신을 할때 클라이언트 인증서를 사용학거나 혼잡성 제어 기능도 제공한다. -> **디자인 패턴의 완성**
+
 
 API Management는 관리형과 자체 호스팅 모두 지원하는데
 **관리형**은 Azure에 배포된 기본 게이트웨이의 구성 요소로 관리형 게이트웨이를 허용하면 모든 API 트래픽이 Azure로 통과되는 형식이다.
