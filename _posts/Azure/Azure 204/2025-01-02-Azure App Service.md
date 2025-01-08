@@ -29,11 +29,12 @@ Azure App Service는 자동적으로 스케일을 조정해주는데 이러한 �
 - **Isolated**: VNet의 격리된 환경, 100개 인스턴스, 매우 높은 비용 
 - **Premium V3**: 기존의 Premium 보다 가성비가 훌륭함 
 
-**컨테이너 및 CI/CD 지원**
+**컨테이너 지원**
 
 Azure App Service는 컨테이너화 된 앱을 ACR 또는 Docker Hub등에서 가져와 배포하고 실행 할 수 있다. CI/CD에서는 Gitun와 Azure Devops 같은 곳과 연결하여 배포를 진행한다. 
 
 또한 배포 할때  프로덕선 슬롯과 배포 슬롯을 지원하여 두 배포 슬롯간의 교환이 가능하다.
+또한 슬롯 swap전 특정 메서드를 미리 선언해 스크립트를 실행할 수 있다.
 
 > ***배포 슬롯이란?**
 일반적인 (PRD/DEV) 환경을 나누는 것으로 **Production Slot**과 **Staging Slot**으로 나눈다. 
@@ -97,3 +98,26 @@ App Service의 네트워크 기능은 Inboud 트래픽과 Outbound 트래픽을 
 
 Azure App Service에서 백그라운드 작업을 실행하는데 사용되는 기능으로 AP와 통합된 백그라운드 처리를 쉽게 구현할 수 있다. 
 Azure Storage와 Service Bus등과 트리거 기반 기능 설정 및 연속적 실행이 가능하다.
+
+### Azure Web App Continuous Deployment
+
+Azure Webb App으로 CI/CD를 구성하기 위해서는 다양한 방식이 있을 수 있다.
+
+**`.deployment`파일**
+*[config]* 섹션에서 명령어나 스크립트를 지정하면 배포시에 app service는 `.deployment` 파일에 정의된 스크립트를 우선적으로 실행한다. 
+```
+[config]
+command = generate_and_deploy.cmd
+```
+
+**Kudu 서비스**
+`deply.cmd` 같은 사용자 정의 스크립트를 작성하여 배포를 자동화가 가능하다. 또한 Deployment Logs나 Console의 기능을 제공한다.
+
+**PreBuild와 PostBuild**
+PreBuild를 사용하면 배포전에 필요한 리소스 또는 정적 콘텐츠 생성 스크립트를 작성할 수 있다.
+```
+<Target Name="PreBuild" BeforeTargets="Build">
+  <Exec Command="npm run build-static" />
+</Target>
+```
+마찬가지로 PostBuild를 사용한다면 빌드후 아티팩트를 복사하거나 추가 작업을 실행할 수 있다.
