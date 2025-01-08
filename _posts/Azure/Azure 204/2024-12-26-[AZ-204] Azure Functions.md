@@ -154,3 +154,24 @@ Functions들이 유후 상태로 대기 후 즉시 실행되는 방식, VNet에 
 ![스크린샷 2024-10-14 오후 3.49.34.png]({{ site.baseurl }}{{ page.url }}/img/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-10-14_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.49.34.png)
 
 - Azure Queue Storage 메세지 표시 → Azure Table Storage에 새 행을 작성하는 예제
+
+## Azure Durable Function
+
+Azure Functions의 확장 기능으로 비동기 작업을 쉽게 관리할 수 있게 해주는 기능이다.
+
+**함수 체이닝**
+![imaeg](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/media/durable-functions-concepts/function-chaining.png)
+복잡한 비즈니스 프로세스를 정의하는데 있어 여러 Functions들을 조합하며 순차적 또는 병렬로 실행이 가능하다.
+
+**팬아웃/팬인**
+![image](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/media/durable-functions-concepts/fan-out-fan-in.png)
+여러 함수의 병렬 실행하고 모든 함수의 완료를 기다린다. 
+
+**비동기 HTTP API**
+![image](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/media/durable-functions-concepts/async-http-api.png)
+외부 트리거에 반응하여 실행될 수 있으며, HTTP 엔드포인트에서 장기 실행 작업을 트리거한다. 이러한 방식으로 작업의 분할처리가 가능해 뻐른 처리가 가능하다. 
+Durable Functions는 이 패턴에 대해 기본 제공 지원을 제공하며 이러한 오케스트레이션을 관리하는 HTTP API를 기본적으로 제공한다.
+
+
+
+
