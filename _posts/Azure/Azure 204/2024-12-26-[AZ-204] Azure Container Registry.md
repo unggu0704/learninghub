@@ -88,6 +88,8 @@ ACR은 일반적으로 미사용시 암호화 기능을 제공하는데ㅔ 서�
 
 ## Azure Contaier Apps
 
+![alt text]({{ site.baseurl }}{{ page.url }}/img/image.png)
+
 Azure Container Apps는 AKS기반 Serverless 플랫폼에서 컨테이너나 어플리케이션을 실행할 수 있다. 주로 API 엔드포인트 배포, MSA 실행, 이벤트 기반 처리 수행등의 기능을 수행하여 HTTP 트래픽이나 Event 기반으로 동적 확장이 가능하다.
 
 또한 Azure service app처럼 배포 slot을 지원하며 로그 기반 모니터링이 가능하다. 
