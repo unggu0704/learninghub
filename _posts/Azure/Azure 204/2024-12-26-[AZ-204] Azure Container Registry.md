@@ -86,6 +86,68 @@ ACR은 일반적으로 미사용시 암호화 기능을 제공하는데ㅔ 서�
     - OnFailure
 - 이외에도 환경 변수 설정 가능
 
+## Azure Contaier Apps
+
+Azure Container Apps는 AKS기반 Serverless 플랫폼에서 컨테이너나 어플리케이션을 실행할 수 있다. 주로 API 엔드포인트 배포, MSA 실행, 이벤트 기반 처리 수행등의 기능을 수행하여 HTTP 트래픽이나 Event 기반으로 동적 확장이 가능하다.
+
+또한 Azure service app처럼 배포 slot을 지원하며 로그 기반 모니터링이 가능하다. 
+
+### Azure Container Apps 환경
+
+컨테이너 앱 그룹을 중심으로 단일 Container Apps 환경에 배포하거나 다른 환경에 배포할 수 있는데 동일한 환경에 배포시, 관련 서비스나 동일한 로그 분석이 가능하고 다른 환경에서 배포시 두 어플리케이션은 통신이 어려우며 컴퓨팅 리소스를 공유하지 않는다. **특히 PRD/DEV의 분리에 있어 다중 환경 관리는 필수적이다.**
+
+### Azure Container Apps 컨테이너
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1492c136-60a9-4775-bb85-d42621a8a8ec/2d5440b9-bf9d-4545-8f68-8b3fbd358621/image.png)
+
+Azure Container Apps는 Linux기반 컨케이너 이미지를 지원한다. 이러한 단일 컨테이너 앱에서 여러 컨테이너를 추가로 정의하여 *사이드카* 패턴을 구현할 수 있다.
+
+또한 MS ID를 포함한 다양한 ID 공급자를 지원한다.
+
+**Dapr와 연동되어 안정적인 상호 통신 기능을 제공한다.**
+
+### Azure Container Apps의 수정모드(Revision) 및 비밀 관리
+
+수정 버전을 만들어 컨테이너의 앱 버전을 관리한다. 이때 `az containerpp update` 명령어를 사용하며 아래와 같은 형식을 가진다.
+
+```yaml
+az containerapp update \
+  --name <APPLICATION_NAME> \
+  --resource-group <RESOURCE_GROUP_NAME> \
+  --image <IMAGE_NAME>
+```
+
+이러한 수정모드는 두가지로 이루어져있다.
+
+**단일 수정 모드**
+
+하나의 리비전만 활성화 되며 새 리비전이 배포되면 기존 리비전은 비활성화 되는 방식
+
+**단일 수정 모드에서도 무중단 배포는 가능하다!!!**
+
+**다중 수정모드**
+
+여러 리비전을 동시에 실행하고 트래픽을 분산시킨다. 
+
+배포시에는 점진적 배포를 통해 안정성이 높다 
+
+만약 App이 사용중에 비밀을 추가 업데이트 되는 경우 새 수정본을 배포하거나, 기존 버전을 재시작한다. 삭제되는 비밀은 앱에 영향을 주지 않는다.
+
+또한 Azure Key Vault를 지원하지는 않지만 관리ID를 통해 SDK를 사용해 비밀을 엑세스할 수 있다. 
+
+### 비밀  정의
+
+컨테이너 앱을 만들 때 `--secrets` 매개 변수를 사용하여 비밀을 정의한다. 주로 이름/값 쌍세트로 허용되며 쌍은 `=` 로 구분된다. 
+
+```yaml
+az containerapp create \
+  --resource-group "my-resource-group" \
+  --name queuereader \
+  --environment "my-environment-name" \
+  --image demos/queuereader:v1 \
+  --secrets "queue-connection-string=$CONNECTION_STRING"
+```
+
 ---
 
 ### 요약
@@ -95,3 +157,4 @@ ACR은 일반적으로 미사용시 암호화 기능을 제공하는데ㅔ 서�
 - ACR의 기능 및 이점
 - ACR의 배포 자동화 시나리오
 - ACI의 구조
+- Azure Container Apps
