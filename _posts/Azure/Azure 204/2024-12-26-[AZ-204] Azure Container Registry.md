@@ -88,7 +88,7 @@ ACR은 일반적으로 미사용시 암호화 기능을 제공하는데ㅔ 서�
 
 ## Azure Contaier Apps
 
-![alt text]({{ site.baseurl }}{{ page.url }}/img/image.png)
+![alt text]({{ site.baseurl }}{{ page.url }}/img/ACA.png)
 
 Azure Container Apps는 AKS기반 Serverless 플랫폼에서 컨테이너나 어플리케이션을 실행할 수 있다. 주로 API 엔드포인트 배포, MSA 실행, 이벤트 기반 처리 수행등의 기능을 수행하여 HTTP 트래픽이나 Event 기반으로 동적 확장이 가능하다.
 
@@ -100,7 +100,7 @@ Azure Container Apps는 AKS기반 Serverless 플랫폼에서 컨테이너나 어
 
 ### Azure Container Apps 컨테이너
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1492c136-60a9-4775-bb85-d42621a8a8ec/2d5440b9-bf9d-4545-8f68-8b3fbd358621/image.png)
+![image.png]({{ site.baseurl }}{{ page.url }}/img/acaarch.png)
 
 Azure Container Apps는 Linux기반 컨케이너 이미지를 지원한다. 이러한 단일 컨테이너 앱에서 여러 컨테이너를 추가로 정의하여 *사이드카* 패턴을 구현할 수 있다.
 
