@@ -71,6 +71,11 @@ Azure Key Vault는 서비스와 비밀을 통신할 때 TLS 프로토콜을 사�
 
 Azure Key Vault에서 제공하는 **로깅**과 **백업**, **복구 옵션**등을 적극적으로 사용하는 것도 올바른 방법이다.
 
+### Azure App Configuration
+Azure Key를 그룹화 하는 방식에는 Azure App Configuration에서 **접두사**또는 **레이블**을 통해 Key를 그룹화 할 수 있다.
+
+또한 Key 네임스페이스 계층구조를 만든다면 각각의 키이름은 `:`로 구분이 가능하다. (`*`,`,``\`는 이미 예약된 예약어라서 사용할 수 없음)
+
 ---
 
 ## Azure RBAC이란?
