@@ -53,11 +53,16 @@ Azure Cache for Redis는 아래와 같은 계층으로 사용이 가능하다.
 - Basic : 단일 VM을 통해 OSS Redis 캐시
 - Standard : 복제된 구성의 두가지 VM OSS Redis 캐시
 - Premium : 고성능 OSS Redis 캐시, 강력한 VM
-- Enterprise : 높은 가용성, redis enterprise sw로 구동되는 캐시 (*RediSearch, RedisBloom* 등의 기능을 지원)
+- Enterprise : 높은 가용성, redis enterprise sw로 구동되는 캐, **Redis 모듈 지원** (*RediSearch, RedisBloom* 등의 기능을 지원)
 - Enterprise Flash : 대용량 캐시 VM의 DRAM보다 저렴한 비휘발성 메모리로 확장
 
 > *일반적으로 캐시는 휘발성 메모리이지만 Azure의 데이터 지속성을 제공하여 데이터 손실을 방지할 수 있다.*
 > 
+
+**Redis 모듈이란?**
+일반적인 Redis 명령 이외에 모듈을 통해 복잡한 연산을 수행 할 수 있다. 거기에는 RediSearch, RedisBloom 등의 모듈이 존재하며 
+대규모 AP의 데이터 인덱싱, 고속 JSON I/O, 머신 러닝의 사용 등에 기용된다. 
+
 
 ### 실습
 

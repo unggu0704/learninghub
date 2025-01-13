@@ -74,6 +74,7 @@ https://myaccount.blob.core.windows.net/mycontainer
 **Blob**
 
 Azure Storage는 세가지 유형의 Blob을 제공하는데 **블록 Blob**은 텍스터 및 이미지를 저장하며 **추가 Blob**은 추가 데이터를 저장하는데 최적화 되어 있어 로깅 같은 시나리오에 적합하다. **페이지 Blob**은 임의 엑세스 파일을 저장하는데 Azure VM의 디스크에 사용된다 
+HTTP의 `PUT` 메서드를 사용하여 메타 데이터의 값을 저장할 수 있다.
 
 ```yaml
 https://myaccount.blob.core.windows.net/mycontainer/myblob
