@@ -91,7 +91,7 @@ Azure Functions는 코드 실행을 시작하는 **트리거** 방식으로 작�
 ### 소비 계획
 
 Azure Functions의 기본 요금제로 함수가 실행 중일 때만 비용을 지불하는 방식이다. 
-경제적이지만 소비계획은 함수가 트리거되는데 몇분이 걸릴수도 있다.
+경제적이지만 소비계획은 함수가 트리거되는데 Delay가 있다.(*Cold Start*)
 
 ### Flex 사용량 계획
 
@@ -161,15 +161,21 @@ Functions들이 유후 상태로 대기 후 즉시 실행되는 방식, VNet에 
 Azure Functions의 확장 기능으로 비동기 작업을 쉽게 관리할 수 있게 해주는 기능이다.
 
 **함수 체이닝**
+
 ![imaeg](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/media/durable-functions-concepts/function-chaining.png)
+
 복잡한 비즈니스 프로세스를 정의하는데 있어 여러 Functions들을 조합하며 순차적 또는 병렬로 실행이 가능하다.
 
 **팬아웃/팬인**
+
 ![image](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/media/durable-functions-concepts/fan-out-fan-in.png)
+
 여러 함수의 병렬 실행하고 모든 함수의 완료를 기다린다. 
 
 **비동기 HTTP API**
+
 ![image](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/media/durable-functions-concepts/async-http-api.png)
+
 외부 트리거에 반응하여 실행될 수 있으며, HTTP 엔드포인트에서 장기 실행 작업을 트리거한다. 이러한 방식으로 작업의 분할처리가 가능해 뻐른 처리가 가능하다. 
 Durable Functions는 이 패턴에 대해 기본 제공 지원을 제공하며 이러한 오케스트레이션을 관리하는 HTTP API를 기본적으로 제공한다.
 
