@@ -33,13 +33,16 @@ Azure App Service는 자동적으로 스케일을 조정해주는데 이러한 �
 
 Azure App Service는 컨테이너화 된 앱을 ACR 또는 Docker Hub등에서 가져와 배포하고 실행 할 수 있다. CI/CD에서는 Gitun와 Azure Devops 같은 곳과 연결하여 배포를 진행한다. 
 
-또한 배포 할때  프로덕선 슬롯과 배포 슬롯을 지원하여 두 배포 슬롯간의 교환이 가능하다.
-또한 슬롯 swap전 특정 메서드를 미리 선언해 스크립트를 실행할 수 있다.
+배포 할때  프로덕선 슬롯과 배포 슬롯을 지원하여 두 배포 슬롯간의 교환이 가능하다.
+Auto Swap으로 배포가 완료되면 자동으로 Prd 슬롯으로 전환되게 할 수 있다. 
+또한 슬롯 swap전 특정 메서드를 미리 선언해 스크립트를 실행할 수 있다. 이를 위해서는 `applicationInitialization` 구성 요소를 web.config 파일에 추가하여야한다.
 
 > ***배포 슬롯이란?**
 일반적인 (PRD/DEV) 환경을 나누는 것으로 **Production Slot**과 **Staging Slot**으로 나눈다. 
 이를 통해 Prodcution 환경에서 문제 발생시 롤백 전략을 사용할 수 있게 된다..*
-> 
+>
+
+
 
 ### Azure App Service의 구조
 
