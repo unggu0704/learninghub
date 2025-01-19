@@ -86,6 +86,8 @@ Azure Functions는 코드 실행을 시작하는 **트리거** 방식으로 작�
 
 둘다 servless를 사용하는 Azure 서비스이지만 Azure Logic Apps는 serverless 워크플로 통합 플랫폼이다. Azure Functions이 코드 중심적인 반면, Logic Apps는 선언적(디자이너)의 느낌이 강하다.
 
+> Azure Logic Apps는 **백그라운드**에서 실행이 가능하다. 
+
 ## Azure Functions 호스팅 계획
 
 ### 소비 계획
@@ -154,7 +156,15 @@ Functions들이 유후 상태로 대기 후 즉시 실행되는 방식, VNet에 
 
 ![스크린샷 2024-10-14 오후 3.49.34.png]({{ site.baseurl }}{{ page.url }}/img/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-10-14_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.49.34.png)
 
-- Azure Queue Storage 메세지 표시 → Azure Table Storage에 새 행을 작성하는 예제
+- Azure Queue Storage 메세지 표시 → Azure Table Storage에 새 행을 작성하는 
+
+### Azure Function 타임아웃
+
+일반적으로 소비 계획(5분 ~ 10분)을 제외하고 모든 계획에 기본값은 30분으로 지정되어 있으며 
+타임아웃 설정은 `host.json` 파일의 `functionTimeout` 속성을 통해 이를 제한 없이 변경할 수 있다. 
+
+**하지만 HTTP 트리거 타임아웃의 경우 230초(4분)으로 고정된다.**
+이유는 Azure Load Balancer의 기본 설정에 의해 제한된다고 한다.
 
 ## Azure Durable Function
 
