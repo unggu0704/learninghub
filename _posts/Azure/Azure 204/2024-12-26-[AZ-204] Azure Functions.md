@@ -91,7 +91,8 @@ Azure Functions는 코드 실행을 시작하는 **트리거** 방식으로 작�
 ### 소비 계획
 
 Azure Functions의 기본 요금제로 함수가 실행 중일 때만 비용을 지불하는 방식이다. 
-경제적이지만 소비계획은 함수가 트리거되는데 Delay가 있다.(*Cold Start*)
+경제적이지만 소비계획은 함수가 트리거되는데 Delay가 있다.(*Cold Start 최악의 경우 1분*)
+개별적 실행 기간은 5분이며 Durable Function일 경우 10분도 가능하다.
 
 ### Flex 사용량 계획
 
