@@ -53,6 +53,25 @@ URL에 ping 테스트와 유사하게 가용성을 확인하는 방식으로 엔
 
 클래식한 방식이지만 이를 사용해 고급 기능과 결합 가능
 
+### OpenTelemetry
+
+OpenTelemetry는 분산 시스템에서 **추적, 메트릭 및 로그를 수집**하는 오픈 소스 표준
+Application과 외부 서비스 간의 상관관계를 유지하기 위해 **Context Propagation(문맥 전파)**를 사용함
+추가적으로 추적과 관련없는 메타 데이터를 사용하기 위해 **CorrelationContext**도 사용함
+
+**Context Propagation(상관관계 전파)란?**
+
+요청(request)와 작업(task)이 여러 서비스 간에 오가면서 어떠한 요청이 같은 트랜잭션인지 식별할 수 있는 데이터
+이걸 OpenTelemetry는 **Text Context**를 통해 상관관계를 유지 
+
+Text Context는 TraceId(트랜잭션 ID), SpanId(작업 ID), TraceFlags(샘플링 상태)
+
+이걸 활용하여 A가 B에게 요청을 보냈다면 B는 header를 읽어 기존 TraceID와 SpanID와 연결 새로운 SpanID를 생성하여 회신한다. 
+이러한 과정을 Applcation Insight는 관측
+
+
+
+
 ### 어플리케이션 맵
 
 어플리케이션 맵은 병목 현상과 실패 지점을 디버깅하는데 큰 도움을 주는 시각적 지표이다. 

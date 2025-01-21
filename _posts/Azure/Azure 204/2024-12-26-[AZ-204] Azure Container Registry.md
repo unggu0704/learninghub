@@ -45,7 +45,7 @@ ACR(Azure Container Registry)는 배포 파이프라인을 통해 Azure에서 �
 
 기본적으로 **Basic**은 비용 최적화된 진입점으로 표준적인 프로그래밍 기능을 제공한다. 하지만 스토리지나 이미지 처리량은 낮기에 이를 향상시킨 **Standard** 계층이 존재한다. 
 
-**Premium** 계층은 동시 작업 수가 가장 높으며 고용향 시나리오를 제공하며, 지역 복제, 이미지 태그, 그리고 엑세스를 제한하며 PE(Private Endpoint)를 사용한 프라이빗 링크를 제공한다. 
+**Premium** 계층은 동시 작업 수가 가장 높으며 고용향 시나리오를 제공하며, 지역 복제, 이미지 태그, 그리고 엑세스를 제한하며 PE(Private Endpoint)를 사용한 프라이빗 링크를 제공한다.  
 
 ### 스토리지 기능
 
@@ -98,6 +98,9 @@ Azure Container Apps는 AKS기반 Serverless 플랫폼에서 컨테이너나 어
 
 컨테이너 앱 그룹을 중심으로 단일 Container Apps 환경에 배포하거나 다른 환경에 배포할 수 있는데 동일한 환경에 배포시, 관련 서비스나 동일한 로그 분석이 가능하고 다른 환경에서 배포시 두 어플리케이션은 통신이 어려우며 컴퓨팅 리소스를 공유하지 않는다. **특히 PRD/DEV의 분리에 있어 다중 환경 관리는 필수적이다.**
 
+**Azure Container App 만들기**
+`az containerapp up` , `--source .` -> DockerFile로 만들어진 image의 Azure Container App으로 배포
+
 ### Azure Container Apps 컨테이너
 
 ![image.png]({{ site.baseurl }}{{ page.url }}/img/acaarch.png)
@@ -110,8 +113,11 @@ Azure Container Apps는 Linux기반 컨케이너 이미지를 지원한다. 이�
 
 ### Azure Container Apps의 수정모드(Revision) 및 비밀 관리
 
-수정 버전을 만들어 컨테이너의 앱 버전을 관리한다. 이때 `az containerpp update` 명령어를 사용하며 아래와 같은 형식을 가진다.
+수정 버전(**Revision 모델**)을 만들어 컨테이너의 앱 버전을 관리한다. 이런 revision을 **Label**을 사용하여 관리할 수 있는데 
+특정 리비전으로 트래픽의 라우팅이 필요할때 사용될 수 있다. 
 
+
+`az containerpp update` 명령어를 사용하여 만드는 예제 코드
 ```yaml
 az containerapp update \
   --name <APPLICATION_NAME> \
@@ -125,7 +131,7 @@ az containerapp update \
 
 하나의 리비전만 활성화 되며 새 리비전이 배포되면 기존 리비전은 비활성화 되는 방식
 
-> 단일 수정 모드에서도 무중단 배포는 가능하다!!!
+**단일 수정 모드에서도 무중단 배포는 가능하다!!!**
 
 **다중 수정모드**
 
