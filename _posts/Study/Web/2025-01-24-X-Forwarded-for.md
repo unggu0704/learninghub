@@ -1,4 +1,3 @@
-
 ---
 title: "[Web] X-Forwarded-For & X-Forwarded-By"
 author: 김규형
