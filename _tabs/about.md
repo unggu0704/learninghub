@@ -16,17 +16,17 @@ Java 기반의 웹 환경과 Swift 기반의 모바일 환경에서 개발 경�
 ## 🛠️ Tech Stacks
 
 **Java/Web**
-![Java](https://img.shields.io/badge/Java-007396?style=flat-square&logo=Oracle&logoColor=white)
- <img src="https://img.shields.io/badge/Spring-9ACD32?style=flat&logo=Spring&logoColor=white"/>   <img src="https://img.shields.io/badge/SpringBoot-9ACD32?style=flat&logo=SpringBoot&logoColor=white"/> 
+ ![Java](https://img.shields.io/badge/Java-007396?style=flat-square&logo=Oracle&logoColor=white)
+ ![Spring](https://img.shields.io/badge/Spring-9ACD32?style=flat&logo=Spring&logoColor=white)
+ ![SpringBoot](https://img.shields.io/badge/SpringBoot-9ACD32?style=flat&logo=SpringBoot&logoColor=white)
   ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=PostgreSQL&logoColor=white)
   ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white)
 
-**Swift/Mobile**
-![Swift](https://img.shields.io/badge/Swift-FA7343?style=flat-square&logo=Swift&logoColor=white)
+**Swift/Mobile**![Swift](https://img.shields.io/badge/Swift-FA7343?style=flat-square&logo=Swift&logoColor=white) 
   ![SwiftUI](https://img.shields.io/badge/SwiftUI-007ED5?style=flat-square&logo=Swift&logoColor=white)
-  ![Core Data](https://img.shields.io/badge/Core_Data-007AFF?style=flat-square&logo=Apple&logoColor=white) 
+   ![Core Data](https://img.shields.io/badge/Core_Data-007AFF?style=flat-square&logo=Apple&logoColor=white) 
 
-**Devops**
+
 ![Azure Cloud](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=Microsoft-Azure&logoColor=white)
   ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=Kubernetes&logoColor=white)
   ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white)

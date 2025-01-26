@@ -24,7 +24,7 @@ Azure Message Queue에는 Storage Queue와 Service Bus Queue 두개가 존재한
 
 ## Azure Service Bus
 
-### Azure Service Bus
+### Azure Service Bus란
 
 Service Bub는 AP와 Service를 분리하는 목적으로 주로 사용된다. **메세지**를 사용하여 서로 다른 AP와 통신한다.
 주로 주문, 판매 같은 *1:n* 서비스에 있어 주로 사용되어진다.
@@ -107,7 +107,7 @@ Service Bus는 다양한 라우팅 방식을 지원한다.
 
 대량의 메세지를 저장하며 HTTP, HTTPS를 사용하여 메세지에 엑세스 할 수 있다. 이러한 큐의 크기는 64KB로 이러한 큐는 스토리지 계정 용량의 한계까지 수백만개의 메세지를 포함할 수 있다. 
 
-이러한 큐를 **URL형식([`https://myaccount.queue.core.windows.net/images-to-download`](https://myaccount.queue.core.windows.net/images-to-download) )를 사용하여 제공가능하며 큐의 이름은 반드시 소문자여야한다.
+이러한 큐를 **URL형식([`https://myaccount.queue.core.windows.net/images-to-download`](https://myaccount.queue.core.windows.net/images-to-download))**를 사용하여 제공가능하며 큐의 이름은 반드시 소문자여야한다.
 
 TTL을 지정할 수 있으며 기본 TTL과 최대 TTL은 7일이다.
 
