@@ -157,7 +157,7 @@ Functions들이 유후 상태로 대기 후 즉시 실행되는 방식, VNet에 
 
 ![스크린샷 2024-10-14 오후 3.49.34.png]({{ site.baseurl }}{{ page.url }}/img/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-10-14_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.49.34.png)
 
-- Azure Queue Storage 메세지 표시 → Azure Table Storage에 새 행을 작성하는 
+- Azure Queue Storage 메세지 표시 → Azure Table Storage에 새 행을 작성하는 예제
 
 ### Azure Function 타임아웃
 
