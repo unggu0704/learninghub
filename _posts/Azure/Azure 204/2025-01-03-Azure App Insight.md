@@ -70,7 +70,19 @@ Text Context는 TraceId(트랜잭션 ID), SpanId(작업 ID), TraceFlags(샘플�
 이러한 과정을 Applcation Insight는 관측
 
 
+### 데이터 수집
 
+**Sampling**
+Application insight에서 수집하는 데이터량을 조절해 성능 최적화 
+
+**Telemetry Channel**
+수집한 데이터를 Application insight에 전송하는 역할
+
+**Telemetry Processor**
+수집한 데이터를 전송하기 전에 필터링한다. 
+
+**Telemetry Intializer**
+원격 데이터의 측정에 속성을 추가하거나 버전 번호를 붙인다.
 
 ### 어플리케이션 맵
 

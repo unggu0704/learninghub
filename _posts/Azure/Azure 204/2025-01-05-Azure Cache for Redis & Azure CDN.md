@@ -64,6 +64,41 @@ Azure Cache for Redis는 아래와 같은 계층으로 사용이 가능하다.
 대규모 AP의 데이터 인덱싱, 고속 JSON I/O, 머신 러닝의 사용 등에 기용된다. 
 
 
+## Azure Redis 메모리 관리
+
+### 제거(Eviction) 정책
+Azure Redis는 AP단에서 작동하는 **제거(Eviction) 정책**을 사용하는데 기본 정책은 `volatile-lru`로 *EXPIRE* 명령으로 설정된 TTL이 있는 Key만 제거 대상이다. -> *Key에 TTL 값이 없으면 일반적으로 제거 대상이 아니다*
+만약 메모리 부족으로 시스템에서 주기적으로 Key를 제거해야하는 경우 `allkeys-lru` 정책을 사용할 수도 있다. 
+
+**주요 제거(Eviction) 정책**
+- volatile-lru: TTL이 설정된 키 중 가장 최근에 덜 사용된 키를 제거 
+- volatile-ttl: TTL 만료 시간에 가장 가까운 키를 제거
+- volatile-random: TTL이 설정된 키 중 랜덤
+- allkeys-lru: 모든 키 중 가장 최근에 덜 사용된 키 
+- allkeys-random: 모든 키 중 임의의 키 제거 
+- noeviction: 키를 제거하지 않고 메모리를 추가 할당함
+
+
+### 예약 메모리 관리 지정
+
+**`maxmemory-reversed`**를 설정하여 Redis 안의 사용가능한 메모리 중 일부를 예약(reserve)하여 비 Redis 작업에 사용하도록 설정한다. 이를 통해 메모리 부족으로 인한 Redis **OOM**을 방지한다.
+
+주로 쓰기 작업이 많은 워크로드 및 100kb이상을 캐시에 저장하는 경우에 주로 설정된다.
+
+
+### 메모리 영속성 설정
+
+메모리 기반 데이터 저장소이지만, 데이터의 영속성(presistence)를 유지하기 위해 사용되는 방식
+
+**RDB**
+스냅샷 방식으로 Redis의 데이터를 바이너리 파일 형태로 디스크에 저장 
+저장 및 성능 효율성이 좋지만 데이터 유실 가능성이 존재한다.
+
+**AOP**
+모든 명령어를 로그파일에 저장 
+저장 및 성능은 떨어지지만 데이터의 영속성이 보장되어진다.
+
+
 ### 실습
 
 아래 코드는 Java에서 Redis를 사용하고 이를 Azure Redis에 저장하는 방식이다.
