@@ -103,8 +103,8 @@ Azure Redis는 AP단에서 작동하는 **제거(Eviction) 정책**을 사용하
 
 
 ### 실습
-
-아래 코드는 Java에서 Redis를 사용하고 이를 Azure Redis에 저장하는 방식이다.
+ss
+아래 코드는 Java에서 Redis를 사용하고 이를 Azure Redis에s저장하는 방식이다.
 
 ```jsx
 import redis.clients.jedis.Jedis;
