@@ -84,6 +84,22 @@ Application insight에서 수집하는 데이터량을 조절해 성능 최적�
 **Telemetry Intializer**
 원격 데이터의 측정에 속성을 추가하거나 버전 번호를 붙인다.
 
+### 데이터 모델
+
+**Application Insights Dependency**
+외부 서비스나 리소스(DB, API)에 대한 의존선 추적으로 의존성에 대한 호출 결과를 기록한다.
+주로 외부 서비스의 성능을 모니터링하는데 사용된다. 
+
+**Application Insights Event**
+사용자 정의 이벤트를 기록하고 저장한다. 
+주로 정책 작업에 대한 실행 추적
+
+**Application Insights Trace**
+디버깅이나 로그 목적으로 텍스트 메세지를 저장하며 소스코드 단에서 발생하는 예외를 추적하는데 주로 사용된다. 
+
+**Application Insights Metric**
+시스템 성능과 관련된 숫자 기반 데이터를 기록하면서 **스케일링 요구사항**을 모니터링한다. 
+
 ### 어플리케이션 맵
 
 어플리케이션 맵은 병목 현상과 실패 지점을 디버깅하는데 큰 도움을 주는 시각적 지표이다. 
