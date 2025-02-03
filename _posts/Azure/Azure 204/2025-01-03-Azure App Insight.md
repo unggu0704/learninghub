@@ -69,7 +69,35 @@ Text Context는 TraceId(트랜잭션 ID), SpanId(작업 ID), TraceFlags(샘플�
 이걸 활용하여 A가 B에게 요청을 보냈다면 B는 header를 읽어 기존 TraceID와 SpanID와 연결 새로운 SpanID를 생성하여 회신한다. 
 이러한 과정을 Applcation Insight는 관측
 
+### 데이터 수집
 
+**Sampling**
+Application insight에서 수집하는 데이터량을 조절해 성능 최적화 
+
+**Telemetry Channel**
+수집한 데이터를 Application insight에 전송하는 역할
+
+**Telemetry Processor**
+수집한 데이터를 전송하기 전에 필터링한다. 
+
+**Telemetry Intializer**
+원격 데이터의 측정에 속성을 추가하거나 버전 번호를 붙인다.
+
+### 데이터 모델
+
+**Application Insights Dependency**
+외부 서비스나 리소스(DB, API)에 대한 의존선 추적으로 의존성에 대한 호출 결과를 기록한다.
+주로 외부 서비스의 성능을 모니터링하는데 사용된다. 
+
+**Application Insights Event**
+사용자 정의 이벤트를 기록하고 저장한다. 
+주로 정책 작업에 대한 실행 추적
+
+**Application Insights Trace**
+디버깅이나 로그 목적으로 텍스트 메세지를 저장하며 소스코드 단에서 발생하는 예외를 추적하는데 주로 사용된다. 
+
+**Application Insights Metric**
+시스템 성능과 관련된 숫자 기반 데이터를 기록하면서 **스케일링 요구사항**을 모니터링한다. 
 
 ### 어플리케이션 맵
 

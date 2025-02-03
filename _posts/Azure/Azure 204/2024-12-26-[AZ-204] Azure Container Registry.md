@@ -147,7 +147,7 @@ az containerapp update \
 
 ### 비밀  정의
 
-컨테이너 앱을 만들 때 `--secrets` 매개 변수를 사용하여 비밀을 정의한다. 주로 이름/값 쌍세트로 허용되며 쌍은 `=` 로 구분된다. 
+컨테이너 앱을 만들 때 `secureValue` 속성을 지정하는 환경변수를 만들거나 `--secrets` 매개 변수를 사용하여 비밀을 정의한다. 주로 이름/값 쌍세트로 허용되며 쌍은 `=` 로 구분된다. 
 
 ```yaml
 az containerapp create \

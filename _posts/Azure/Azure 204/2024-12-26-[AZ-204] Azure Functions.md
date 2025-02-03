@@ -93,7 +93,8 @@ Azure Functions는 코드 실행을 시작하는 **트리거** 방식으로 작�
 ### 소비 계획
 
 Azure Functions의 기본 요금제로 함수가 실행 중일 때만 비용을 지불하는 방식이다. 
-경제적이지만 소비계획은 함수가 트리거되는데 Delay가 있다.(*Cold Start*)
+경제적이지만 소비계획은 함수가 트리거되는데 Delay가 있다.(*Cold Start 최악의 경우 1분*)
+개별적 실행 기간은 5분이며 Durable Function일 경우 10분도 가능하다.
 
 ### Flex 사용량 계획
 
@@ -156,7 +157,7 @@ Functions들이 유후 상태로 대기 후 즉시 실행되는 방식, VNet에 
 
 ![스크린샷 2024-10-14 오후 3.49.34.png]({{ site.baseurl }}{{ page.url }}/img/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-10-14_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.49.34.png)
 
-- Azure Queue Storage 메세지 표시 → Azure Table Storage에 새 행을 작성하는 
+- Azure Queue Storage 메세지 표시 → Azure Table Storage에 새 행을 작성하는 예제
 
 ### Azure Function 타임아웃
 
