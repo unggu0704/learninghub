@@ -170,6 +170,23 @@ Functions들이 유후 상태로 대기 후 즉시 실행되는 방식, VNet에 
 
 Azure Functions의 확장 기능으로 비동기 작업을 쉽게 관리할 수 있게 해주는 기능이다.
 
+### Azure Durable 구성 요소 
+
+**Orchestrator**
+- Workflow의 정의 및 활동(Activity)의 실행 순서와 조건을 관리한다. 
+
+**Activity**
+- 오케스트라(Orchestrator)가 호출하는 작업의 단위로 각자 독립적인 작업을 처리한다. 
+
+**Client**
+- 오케스트라(Orchestrator)의 트리거를 담당(HTTP, Queue...)
+
+**Entity**
+- Durable Entity를 저장하고 소규모 상태 관리
+
+
+### Azure Durable Function의 패턴 
+
 **함수 체이닝**
 
 ![imaeg](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/media/durable-functions-concepts/function-chaining.png)
@@ -189,6 +206,10 @@ Azure Functions의 확장 기능으로 비동기 작업을 쉽게 관리할 수 
 외부 트리거에 반응하여 실행될 수 있으며, HTTP 엔드포인트에서 장기 실행 작업을 트리거한다. 이러한 방식으로 작업의 분할처리가 가능해 뻐른 처리가 가능하다. 
 Durable Functions는 이 패턴에 대해 기본 제공 지원을 제공하며 이러한 오케스트레이션을 관리하는 HTTP API를 기본적으로 제공한다.
 
+
+### SendGrid
+
+Functions을 사용하는데 있어 특정 이벤트에 대한 이메일 알람 서비스 소비계획에서도 작동한다. 
 
 
 

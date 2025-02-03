@@ -71,7 +71,6 @@ Text Context는 TraceId(트랜잭션 ID), SpanId(작업 ID), TraceFlags(샘플�
 
 
 
-
 ### 어플리케이션 맵
 
 어플리케이션 맵은 병목 현상과 실패 지점을 디버깅하는데 큰 도움을 주는 시각적 지표이다. 

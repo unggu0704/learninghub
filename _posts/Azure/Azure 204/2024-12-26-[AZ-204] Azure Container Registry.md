@@ -86,6 +86,8 @@ ACR은 일반적으로 미사용시 암호화 기능을 제공하는데 서비�
     - OnFailure
 - 이외에도 환경 변수 설정 가능
 
+> *Azure Container Instance는 자동 복구 및 자동 크기 조절을 지원하지 않는다!*
+
 ## Azure Contaier Apps
 
 ![alt text]({{ site.baseurl }}{{ page.url }}/img/ACA.png)

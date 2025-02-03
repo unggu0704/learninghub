@@ -162,7 +162,7 @@ Azure Logic apps와 Azure Function은 자동적으로 해당 유효성을 검사
 
 또한 **Azuure 스키마 레지스트리**라는 중앙 집중식 레포지터리를 제공하는데 네임스페이스와 함께 무료로 제공된다. 
 
-추가적으로 Azure Stream Analytics와 실시간 통합하여 스트림처리를 제공하는데 이를 통해 쿼리 언어를 실행하여 데이터 분석 기능을 제공한다.  ****
+추가적으로 Azure Stream Analytics와 실시간 통합하여 스트림처리를 제공하는데 이를 통해 쿼리 언어를 실행하여 데이터 분석 기능을 제공한다.  
 
 즉 Azure Event hubs는 생산자 AP(Kafka)와 EventHub/Kafka 토픽등을 사용해 로그를 추척할 수 있으며 파티션을 통해 스트리밍 처리량을 조절하며 소비자 AP를 통해 데이터를 사용가능하다.
 
