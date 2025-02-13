@@ -1,5 +1,6 @@
 ---
 author: 김규형
+title: Spring과 Static 필드
 date: 2025-02-12 18:31:16 +0800
 categories: [Framework, Spring Essentials]
 tags: [BackEnd, SpringBoot, Spring]
