@@ -102,4 +102,4 @@ telnet: Unable to connect to remote hostq
 
 방화벽 란에 자신의 IP를 추가하여 접속을 허용한다.
 
-**연결이 성립�
+**연결이 성립�
