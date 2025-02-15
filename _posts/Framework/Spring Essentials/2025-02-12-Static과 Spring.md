@@ -1,6 +1,6 @@
 ---
 author: 김규형
-title: [Spring] Static 필드와 Instance 필드에서 객체 주입
+title: "[Spring] Static 필드와 Instance 필드에서 객체 주입"
 date: 2025-02-12 18:31:16 +0800
 categories: [Framework, Spring Essentials]
 tags: [BackEnd, SpringBoot, Spring]
