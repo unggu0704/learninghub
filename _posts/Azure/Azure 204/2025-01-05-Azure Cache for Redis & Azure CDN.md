@@ -79,6 +79,7 @@ Azure Redis는 AP단에서 작동하는 **제거(Eviction) 정책**을 사용하
 - `allkeys-random`: 모든 키 중 임의의 키 제거 
 - `noeviction`: 키를 제거하지 않고 메모리를 추가 할당함
 
+> 요청의 인기도가 거듭 제곱일 경우 `allkeys-lru`를 사용한다. *(일부 요소가 나머지 보다 아득히 자주 엑세스 될것이라 예상 될 경우)* 
 
 ### 예약 메모리 관리 지정
 
@@ -91,7 +92,7 @@ Azure Redis는 AP단에서 작동하는 **제거(Eviction) 정책**을 사용하
 
 메모리 기반 데이터 저장소이지만, 데이터의 영속성(presistence)를 유지하기 위해 사용되는 방식
 
-**RDB**
+**RDB (데이터 영역 중복성 불가)**
 
 스냅샷 방식으로 Redis의 데이터를 바이너리 파일 형태로 디스크에 저장 
 저장 및 성능 효율성이 좋지만 데이터 유실 가능성이 존재한다.
@@ -104,7 +105,7 @@ Azure Redis는 AP단에서 작동하는 **제거(Eviction) 정책**을 사용하
 
 ### 실습
 ss
-아래 코드는 Java에서 Redis를 사용하고 이를 Azure Redis에s저장하는 방식이다.
+아래 코드는 Java에서 Redis를 사용하고 이를 Azure Redis에 저장하는 방식이다.
 
 ```jsx
 import redis.clients.jedis.Jedis;
