@@ -1,6 +1,6 @@
 ---
 author: 김규형
-title: Spring과 Static 필드
+title: [Spring] Static 필드와 Instance 필드에서 객체 주입
 date: 2025-02-12 18:31:16 +0800
 categories: [Framework, Spring Essentials]
 tags: [BackEnd, SpringBoot, Spring]
@@ -59,4 +59,4 @@ protected void init() {
 
 `PropertyService` 객체를 직접 **sigleton** 객체로 만드는 방식도 생각을 했지만 이미 다른 곳에서 `@Autowired`로 주입 받으면서 시스템에 대한 영향도의 파악이 힘들어 Service 로직을 수정하지는 못하고 이정도 수준으로 타협해야할 것으로 보인다.
 
-이러한 구현을 거치며 가능한 `static` 필드를 사용하는 것을 지양하고 (이번 case는 이미 static으로 code가 구현된 상태에서 수정되어야만 했음) Spring의 DI를 염두하여 코드를 설계할 필요성을 느낀다.
+이러한 구현을 거치며 가능한 `static` 필드를 사용하는 것을 지양하고 (이번 case는 이미 static으로 code가 구현된 상태에서 수정되어야만 했음) Spring의 DI를 염두하여 코드

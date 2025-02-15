@@ -1,5 +1,5 @@
 ---
-title: "07. Azure MySQL 만들기"
+title: "07. [Azure/Spring] Azure MySQL 만들기"
 author: "unggu"
 date: 2025-01-11 19:27:13 +0800
 categories: [Azure, AKS로 Spring Web 배포하기]
