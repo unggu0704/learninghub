@@ -53,14 +53,10 @@ AP구성 및 기능 플래그들을 중앙에서 관리하는 서비스(JSON, Ke
 
 Key Vault와 연동하여 민감한 정보 보호가 가능며 다양한 인증 방식을 통해 접근이 가능하다.
 
-**Azure Entra ID**
-Entra ID에서 엑세스 토큰을 요청하고 이를 통해 접근하는 방법
+- **Azure Entra ID** : Entra ID에서 엑세스 토큰을 요청하고 이를 통해 접근하는 방법
+- **관리 ID** : App configuration에서 관리 ID 사용 설정 후 역할 할당에서 대상 지정
 
-**관리 ID**
-App configuration에서 관리 ID 사용 설정 후 역할 할당에서 대상 지정
-
-**OAut 2.0을 사용한 수동 토큰 요청**
-*https://<yourstorename>.azconfig.io*에 수동으로 엑세스 토큰을 요청한다.
+- **OAut 2.0을 사용한 수동 토큰 요청** : _https://<yourstorename>.azconfig.io_에 수동으로 엑세스 토큰을 요청한다.
 
 --- 
 ## API Management
