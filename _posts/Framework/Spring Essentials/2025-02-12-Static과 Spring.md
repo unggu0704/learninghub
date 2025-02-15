@@ -7,7 +7,7 @@ tags: [BackEnd, SpringBoot, Spring]
 render_with_liquid: true
 comments: true
 image: 
-  path: assets/img/metaimg/spring.png
+  path: assets\img\metaimg\spring.png
 ---
 
 ### Spring DI와 Static 필드
