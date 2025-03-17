@@ -1,6 +1,6 @@
 ---
 author: "unggu"
-title: "[CKA] 쿠버네티스 핵심 리스"
+title: "[CKA] 쿠버네티스 핵심 리소스"
 date: 2025-03-14 21:11:12 +0800
 categories: [k8s, CKA]
 tags: [CKA, k8s, Container, Docker]
