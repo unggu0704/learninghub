@@ -7,9 +7,10 @@ tags: [Azure, AKS, Kubernets, Container, DevOps, Key Vault]
 render_with_liquid: true
 comments: true
 image:
-  path: https://azure.microsoft.com/svghandler/application-gateway/?width=600&height=315
+  path: assets\img\metaimg\azure204\keyvault.png
 ---
 
+### AKS <-> Azure Key Vault 이용하기
 
 ![[Pasted image 20250312192324.png]]({{ site.baseurl }}{{ page.url }}/image/Pasted image 20250312192324.png)
 
