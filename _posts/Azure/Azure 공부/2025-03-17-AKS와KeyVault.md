@@ -11,7 +11,7 @@ image:
 ---
 
 
-![[Pasted image 20250312192324.png]]
+![[Pasted image 20250312192324.png]]({{ site.baseurl }}{{ page.url }}/image/Pasted image 20250312192324.png)
 
 AKS에 컨테이너 기반 개발을 하다보면 비밀에 대한 고민을 많이 하게 된다.
 중요정보 또는 개인정보를 `properties` 내부에 암호화를 하고 이를 복호화 할 수 있는 **Key**나 DB에 접속하기 위해 사용되는 **Username/Password**는 `Java` 파일이나 `yaml`에 저장하는것은 옳지 않다. 
@@ -21,7 +21,7 @@ AKS에 컨테이너 기반 개발을 하다보면 비밀에 대한 고민을 많
 이러한 비밀들을 안전하게 저장할 수 있게 Azure에서는 **Azure Key Vault**라는 리소스를 제공하는데 지금부터 AKS에서 어떤식으로 Azure Key Vault의 비밀을 저장하는지 알아보겠다.
 
 ### Azure 비밀 만들기
-![[Pasted image 20250312192942.png]]
+![[Pasted image 20250312192942.png]]({{ site.baseurl }}{{ page.url }}/image/Pasted image 20250312192942.png)
 
 아래와 같이 비밀(DB 계정정보)를 저장했다고 가정한다.
 
@@ -118,7 +118,7 @@ spec:
 Pod의 비정상 상황에 있어, Pod가 재기동 되어질 때, Pod의 설정들은 휘발성이기에 데이터가 사라지게 된다.
 
 기존 Pod에 `/data/a`라는 파일이 있는 상태가 있고 추가적으로 Pod가 운영 중에 `/data/b`가 생겼다고 가정하자.
-![[Pasted image 20250317090442.png]]
+![[Pasted image 20250317090442.png]]({{ site.baseurl }}{{ page.url }}/image/Pasted image 20250317090442.png)
 어떠한 문제로 인해 Pod가 삭제되어진다면 기존에 저장한 `/data/b`는 유실되게 된다.
 
 이러한 이슈를 해결하기 위해 **로컬 Node 저장소**를 이용하는 방법이 있지만 결국 Pod가 어떤 Node위에서 기동 될지는 `kube-scheduler`가 결정하기에 권장되는 방법이라고는 볼 수 없다.
