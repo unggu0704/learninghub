@@ -10,6 +10,8 @@ image:
   path: assets/img/metaimg/cka/cka.png
 ---
 
+본 글은 [Udemy Certified Kubernetes Administrator (CKA)](https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/?couponCode=KEEPLEARNING) 강의를 참조해 정리한 내용을 기록했습니다.
+
 ## Kubernetes 클러스터 핵심 개념
 
 ## **Master와 Worker Node**
