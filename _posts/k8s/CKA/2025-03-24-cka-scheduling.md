@@ -10,6 +10,8 @@ image:
   path: assets/img/metaimg/cka/cka.png
 ---
 
+본 글은 [Udemy Certified Kubernetes Administrator (CKA)](https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/?couponCode=KEEPLEARNING) 강의를 참조해 정리한 내용을 기록했습니다.
+
 ### Manual Scheduling
 
 앞서 배운 `kube-scheduler`는 자동으로 pod를 적절한 노드에 배치한다. 
