@@ -60,9 +60,9 @@ spec:
     args: ["-c", "echo Hello CKA && sleep 3600"]
 ```
 
-**EntrtPoint**
+**EntryPoint**
 
-일반적으로 컨테이너들은 기본적인 EntryPoint가 있는데 nginx 같은 경우 기본적으로 `nginx -g 'daemon off;` 가 사용된다. 
+일반적으로 컨테이너들은 기본적인 EntryPoint가 있는데 nginx 같은 경우 기본적으로 `nginx -g 'daemon off;` 명령어가 사용된다. 
 
 이걸 **`command:`** 를 사용해 변경할 수 있는데 아래와 같이 `"/bin/sh"` 를 사용한다면 nginx가 실행되지 않고 커스텀 명령어를 사용할 수 있게 된다.
 
