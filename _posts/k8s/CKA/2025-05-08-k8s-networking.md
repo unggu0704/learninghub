@@ -1,7 +1,7 @@
 ---
 author: "unggu"
-title: "[CKA] 컨테이너 저장소"
-date: 2025-04-21 11:11:12 +0800
+title: "[CKA] 쿠버네티스 네트워킹"
+date: 2025-05-08 11:11:12 +0800
 categories: [k8s, CKA]
 tags: [CKA, k8s, Container, Docker, Pod, Storage]
 render_with_liquid: true
