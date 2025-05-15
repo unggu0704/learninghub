@@ -219,3 +219,53 @@ spec:
 당연하게 `secretName`등은 이전에 만든 secret과 이름이 일치해야한다. 
 
 이렇게 설정하면 Ingress Controller는 TLS Secret을 지속적으로 감시하고 만약 변경시에는 자동으로 로딩되어 새로 갱신하는 작업을 진행한다.
+
+## GateWay API
+
+단일 진입점이 되는 **Ingress**를 **GateWay**, **HTTPRout**, **GatewayClass**등으로 분리하고  HTTP,HTTPS를 넘어 TCP, UDP를 관리한다. 
+
+**GateWayClass**
+해당 Gateway가 어떤 종류의 Gateway인지 정의한다. Nginx, istio 등등..
+
+**GateWay** 
+실제 네트워크가 진입하는 리소스
+
+**HTTPRoute**
+URL 경로 및 호스트 기반하여 라우팅을 정의한다.
+
+주로 GateWay + HTTPRoute를 사용하여 서비스를 라우팅한다.
+
+GateWay.yml
+```yml
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: example-gateway
+spec:
+  gatewayClassName: example-class
+  listeners:
+  - name: http
+    protocol: HTTP
+    port: 80
+```
+
+HTTPRoute.yml
+```yml
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: example-httproute
+spec:
+  parentRefs:
+  - name: example-gateway
+  hostnames:
+  - "www.example.com"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /login
+    backendRefs:
+    - name: example-svc
+      port: 8080
+```
