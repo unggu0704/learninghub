@@ -174,3 +174,59 @@ Node Affinity의 동작 방식은 **Pod가 스케줄링 될 때**에만 적용�
 - Label을 통해 제한함
 
 일반적으로 Taints & Tolerations는 **특정 Node에서 Pod를 퇴출**하는데 사용되고 **Node에 특정 Pod를 배치**하는데는 Node Affinity가 선호된다.
+
+### Multiple Schedulers
+
+**kube-scheduler**가 Node에 pod를 할당시키지만 **하나 이상의 스케줄러**도 실행할 수 있다!
+또한 pod의 `yaml`에 `spec.schedulerName` 필드를 사용하면 특정 스케줄러를 고를 수 도 있다. 
+
+**pod에서 특정 scheduler를 지정**
+
+```yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-custom
+spec:
+  schedulerName: my-scheduler
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+my-scheduler를 만드는 방법은 기본으로 존재한 `kube-scheduler`를 복사하여 만들 수가 있다.  
+기존의 yml을 복사하여 수정하는 방법
+```yml
+sudo cp /etc/kubernetes/manifests/kube-scheduler.yaml /etc/kubernetes/manifests/my-scheduler.yaml
+```
+이렇게 별도로 복사해서 아래와 같이 수정하면된다. 이렇게 해서 배포하면 `kubelet`은 이걸 **static pod**으로 감지하여 실행시킨다.
+
+```yml
+spec:
+  containers:
+  - command:
+    - kube-scheduler
+    - --scheduler-name=my-scheduler
+    - --leader-elect=false        # 하나만 띄울 거면 이 옵션을 false로
+    - --config=/etc/kubernetes/scheduler-config.yaml
+
+```
+
+## Admission Controller
+![image.png]({{ site.baseurl }}{{ page.url }}/img/admission_controller1.png)
+
+`get`이나 `create` 명령을 수행하는데 있어, 이 요청을 검사 또는 수정하는 k8s 플러그인 중 하나이다. **API Server** 내부에서 실행되는 Admission Controller는 **web hook**을 통해 사용자의 요청을 검사(*인증 또는 권한을 확인*)하여 **거부** 또는 **수정**을 할 수 있다.
+
+사용자가 요청을 명령을 요청할때 순서는 아래와 같다.
+```
+Client → API Server → Authentication → Authorization → Admission Controller → etcd 저장
+```
+여기서 Admission Controller는 리소스가 etcd에 저장되기전 최종 검증자 역할을 실행한다.
+
+### Admission Controller의 유형
+
+ **Validating Admission Controller** - 리소스를 유요한지 검증만
+
+ **Mutating Admission Controller** - 리소스를 검증하고 변경도 가능 
+
+이를 통해 외부 웹서버(WebHook)과 통신하여 요청을 조작 및 감시가 가능하다.
