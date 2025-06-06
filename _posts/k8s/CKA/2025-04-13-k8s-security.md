@@ -10,6 +10,22 @@ image:
   path: assets/img/metaimg/cka/cka.png
 ---
 
+### TLS in Kubernetes
+
+통신 데이터를 암호화해 인증을 보장해주는 보안 프로토콜 TLS는 k8s에서의 내부 통신에서 주로 사용된다. 
+kube-apisever, kubelet, ETCD 등등... control-plane의 구성요소들과 k8s의 작업을 위해 통신시 사용되어지고 있다.
+
+![image.png]({{ site.baseurl }}{{ page.url }}/img/k8s_tls.png)
+
+일반적으로 인증서는 `/etc/kubernetes/pki` 경로에 저장되며 추후 trouble shooting이나 인증서 관련 Node 이슈가 발생하면 해당 경로를 조사해보면 된다.
+
+**인증서의 유효기간 확인하기**
+```yaml
+kubeadm certs check-expiration
+```
+
+유효기간 만료 이외에도 누락, 설정(`kubectl config`) 등 다양한 인증서 관련 이슈로 TLS 관련 시나리오가 출제된다.
+
 ### Authentication
 
 k8s에서 인증은 사용자가 누구인지 확인하는 단계로 클러스터에 요청한 사람의 신원을 확인하는 방식이다. 이러한 사람의 신원에 대한 정보는 `kube-config`에 저장되어 있으며, 권한을 부여 받으며 클러스터에 접근하여 작업(`get pods`, `delete secrets` 방식을 사용한다. 
