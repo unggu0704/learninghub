@@ -28,7 +28,8 @@ kubeadm certs check-expiration
 
 ### Authentication
 
-k8s에서 인증은 사용자가 누구인지 확인하는 단계로 클러스터에 요청한 사람의 신원을 확인하는 방식이다. 이러한 사람의 신원에 대한 정보는 `kube-config`에 저장되어 있으며, 권한을 부여 받으며 클러스터에 접근하여 작업(`get pods`, `delete secrets` 방식을 사용한다. 
+k8s에서 인증은 사용자가 누구인지 확인하는 단계로 클러스터에 요청한 사람의 신원을 확인하는 방식이다. 
+이러한 사람의 신원에 대한 정보는 `kube-config`에 저장되어 있으며, 권한을 부여 받으며 클러스터에 접근하여 작업(`get pods`, `delete secrets`등)을 할 수 있도록 **역할**을 지정한다. 
 
 이러한 권한을 주는데는 주로 **RBAC** 방식을 사용한다.
 
@@ -37,18 +38,18 @@ k8s에서 인증은 사용자가 누구인지 확인하는 단계로 클러스�
 ```yaml
 kubectl auth can-i <verb> <resource> [flags]
 
-kubectl auth can-i get pods
-kubectl auth can-i delete secrets --namespace=dev
-kubectl auth can-i list nodes --as=dev-user
+kubectl auth can-i get pods # get pods를 할 수 있는 사용자 목록을 원합니다.
+kubectl auth can-i delete secrets --namespace=dev # dev ns에서 secret을 지울 수 있는 사용자들을 원합니다.
+kubectl auth can-i list nodes --as=dev-user dev-user # dev-user는 node list를 나열 할 수 있는지요?
 ```
 
-`get pods`를 할 수 있는 사용자는 누구인가> `--as` 특정 사용자로 어떤 node에 접근할 수 있는지 시뮬레이션 하며 `--namespace`에 대한 권한을 확인한다. 
+`get pods`를 할 수 있는 사용자는 누구인가? `--as` 특정 사용자로 어떤 node에 접근할 수 있는지 시뮬레이션 하며 `--namespace`에 대한 권한을 확인한다. 
 
 ### RBAC이란?
 
 k8s에서 리소스에 대한 접근을 역할(Role)기반으로 정의하고 사용자나 서비스 계정에 연결하는 시스템이다. 
 
-단순히 k8s에서만 사용되지 않고 Azure 같은 곳에서도 잘 사용된다.
+단순히 k8s에서만 사용되지 않고 Azure 같은 곳에서도 사용되는 역할 개념이다.
 
 **RBAC 구성요소**
 
@@ -70,7 +71,8 @@ rules:
   verbs: ["get", "list"]
 ```
 
-`dev` 네임스페이스에 pod 조회 권한을 부여하는 Role이다. 이거를 단순히 만들고 사용자에게 연결시켜줘야한다.
+`dev` 네임스페이스에 pod 조회 권한을 부여하는 Role
+이런 Role을 만든다고 바로 사용자에게 연결이 되지는 않는다. **RoleBinding**으로 role을 연결 시켜줘야한다.
 
 **RoleBinding 예시 `yaml`**
 
