@@ -1,4 +1,14 @@
-# Troubleshooting(2)
+---
+author: "unggu"
+title: "[CKA] TroubleShooting - 1"
+date: 2025-05-08 11:11:12 +0800
+categories: [k8s, CKA]
+tags: [CKA, k8s, Container, Docker]
+render_with_liquid: true
+comments: true
+image:
+  path: assets/img/metaimg/cka/cka.png
+---
 
 ## Case 1-1. Service의 이름이 잘못 명명됨
 
