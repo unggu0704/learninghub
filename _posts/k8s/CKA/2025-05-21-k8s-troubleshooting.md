@@ -211,7 +211,7 @@ kube-scheduler-controlplane            1/1     Running   1 (22s ago)   53s
 
 스케줄러가 정상적으로 가동되어진다.
 
-### Case 2-2. deployment가 정상적으로 작동하지 않음
+### Case 2-2. deployment가 정상적으로 작동하지 않음 (scailing 문제)
 
 ```yaml
 controlplane /etc/kubernetes/manifests ➜  k get deploy
@@ -257,6 +257,7 @@ controlplane /etc/kubernetes/manifests ➜  vi kube-controller-manager.yaml
 
 `kube-controller-manager`의 설정 파일의 이름이 `--kubeconfig=/etc/kubernetes/controller-manager-XXXX.conf`로 되어 있다. 뒤의 `XXXX`를 제거하여 수정 후 이를 `kubelet`이 자동으로 감지하여 재배포하도록 한다.
 
+**잘못된 `k8s-certs`를 올바른 path로 변경하기**
 ```yaml
   k8s-certs:
     Type:          HostPath (bare host directory volume)
@@ -269,4 +270,17 @@ controlplane /etc/kubernetes/manifests ➜  vi kube-controller-manager.yaml
     Path:          /etc/kubernetes/pki
     HostPathType:  DirectoryOrCreate
   kubeconfig:
+```
+
+정상적으로 `kube-system`의 pod들이 가동되고 deploy 또한 적절하게 scaling이 되어졌다.
+```yaml
+controlplane /etc/kubernetes/manifests ➜  k get pods -n kube-system
+NAME                                   READY   STATUS             RESTARTS      AGE
+coredns-7484cd47db-hzkmf               1/1     Running            0             16m
+coredns-7484cd47db-kbgwt               1/1     Running            0             16m
+etcd-controlplane                      1/1     Running            0             16m
+kube-apiserver-controlplane            1/1     Running            0             16m
+kube-controller-manager-controlplane   0/1     CrashLoopBackOff   4 (42s ago)   2m15s
+kube-proxy-qwz8v                       1/1     Running            0             16m
+kube-scheduler-controlplane            1/1     Running            2 (65s ago)   3m34s
 ```
