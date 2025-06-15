@@ -161,6 +161,11 @@ spec:
         configMapKeyRef:
           name: my-config  # ConfigMap 이름
           key: APP_MODE    # ConfigMap 내부 Key
+    - name: NODE_NAME
+      valueFrom:
+        filedRef: # 동적으로 변하는 metadata를 env로 가져오기
+          fieldPath: spec.nodeName
+
 ```
 
 **2. `envFrom`으로 모든 환경 변수 불러와 사용**
