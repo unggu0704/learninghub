@@ -64,7 +64,7 @@ spec:
 
 일반적으로 컨테이너들은 기본적인 EntryPoint가 있는데 nginx 같은 경우 기본적으로 `nginx -g 'daemon off;` 명령어가 사용된다. 
 
-이걸 **`command:`** 를 사용해 변경할 수 있는데 아래와 같이 `"/bin/sh"` 를 사용한다면 nginx가 실행되지 않고 커스텀 명령어를 사용할 수 있게 된다.
+이걸 **`command:`** 를 사용해 변경할 수 있는데 아래와 같이 `"/bin/sh"` 를 사용한다면 nginx가 실행되지 않고 커스텀 명령어를 사용할 수 있게 된다. (명령어를 칠수 있는 환경)
 
 ```yaml
 apiVersion: v1
@@ -161,11 +161,6 @@ spec:
         configMapKeyRef:
           name: my-config  # ConfigMap 이름
           key: APP_MODE    # ConfigMap 내부 Key
-    - name: NODE_NAME
-      valueFrom:
-        filedRef: # 동적으로 변하는 metadata를 env로 가져오기
-          fieldPath: spec.nodeName
-
 ```
 
 **2. `envFrom`으로 모든 환경 변수 불러와 사용**
