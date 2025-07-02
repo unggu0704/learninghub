@@ -29,7 +29,7 @@ pub-sub 패턴을 구현하기 위해 **Azure Event Hub**을 사용하여  **느
 
 ### 느슨한 결합
 
-![image.png]({{ site.baseurl }}{{ page.url }}/img/제목 없는 다이어그램.drawio 1.png)
+![image.png]({{ site.baseurl }}{{ page.url }}/img/제목 없는 다이어그램.drawio.png)
 
 B는 더이상 A의 주소를 몰라도 됩니다. 
 자신이 데이터를 직접 Azure Event Hub에 발행해놓으면 B는 여기서 데이터를 받아오기만 하면됩니다.
