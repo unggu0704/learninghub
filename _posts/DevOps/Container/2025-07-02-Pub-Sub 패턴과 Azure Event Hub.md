@@ -1,10 +1,23 @@
-![[Pasted image 20250702211455.png]]
+---
+title: "[Cloud Design Pattern] SpringBoot에서 Azure Event Hub를 통한 pub-sub 패턴 구현"
+author: "unggu"
+date: 2025-07-02 12:34:12 +0800
+categories: [DevOps, Container]
+tags: [Kubernets, Container, DevOps, pubsub, Azure, Eventhub, springboot]
+render_with_liquid: true
+comments: true
+image:
+  path: assets/img/metaimg/pubsub.png
+---
+
+
 ## Pub-Sub 패턴이란
 
 송신자(publisher)와 수신자(Subscriber)가 서로 알지 못한 상태로도 비동기 통신할 수 있도록 하는 메세징 패턴입니다.
 
 ### 일반적인 통신(Rest API)
-![[ssss.drawio.png]]
+![image.png]({{ site.baseurl }}{{ page.url }}/img/ssss.drawio.png)
+
 **A라는 publisher 서비스**와 **B라는 Consumer**라고 가정하겠습니다. 
 B서비스는 A서비스에게 요청하기 위해서는 아래와 같은 제약사항이 존재합니다.
 - **A의 IP 주소를 알아야함**
@@ -16,7 +29,7 @@ pub-sub 패턴을 구현하기 위해 **Azure Event Hub**을 사용하여  **느
 
 ### 느슨한 결합
 
-![[제목 없는 다이어그램.drawio 1.png]]
+![image.png]({{ site.baseurl }}{{ page.url }}/img/제목 없는 다이어그램.drawio 1.png)
 
 B는 더이상 A의 주소를 몰라도 됩니다. 
 자신이 데이터를 직접 Azure Event Hub에 발행해놓으면 B는 여기서 데이터를 받아오기만 하면됩니다.
@@ -39,7 +52,9 @@ A 서비스가 장애가 나더라도 그동안 A가 보낸 메세지는 Event h
 MVP 프로젝트 하이소피 (Spring Boot기반 MSA 프로젝트) 어플리케이션에서 Azure Eventhub를 연동하여 pub-sub 패턴을 구현한 예시를 확인해보도록 하겠습니다. 
 
 해당 서비스의 아키텍쳐는 아래와 같습니다.
-![[pubsub.drawio.png]]
+
+![image.png]({{ site.baseurl }}{{ page.url }}/img/pubsub.drawio.png)
+
 Store와 Review는 Spring Boot기반 컨테이너 환경에서 MSA로 구현되어 있습니다.
 Store는 외부 가게 리뷰(카카오맵)에서 데이터를 크롤링하여 가져옵니다. 
 이를 Review는 자신의  review 데이터베이스에 저장을 해야합니다.
@@ -366,4 +381,4 @@ private void handleExternalReviewSyncEvent(Long storeId, Map<String, Object> eve
 
 **최종 흐름도**
 
-![[제목 없는 다이어그램.drawio (1).png]]
+![image.png]({{ site.baseurl }}{{ page.url }}/img/제목 없는 다이어그램.drawio (1).png)
