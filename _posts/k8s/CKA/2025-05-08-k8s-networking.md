@@ -129,6 +129,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx        # IngressClass 이름 참조
   rules:
   - host: example.com
     http:
@@ -154,6 +155,7 @@ kind: Ingress
 metadata:
   name: multi-host-ingress
 spec:
+  ingressClassName: nginx        # IngressClass 이름 참조
   rules:
   - host: app1.example.com
     http:
