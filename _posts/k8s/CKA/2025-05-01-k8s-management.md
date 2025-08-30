@@ -39,19 +39,23 @@ kubectl get events         # 클러스터 이벤트 확인 (CrashLoopBackOff 등
 
 **설정 `yaml`**
 
+일시적으로 라도 비활성화되는 pod는 없어야하고 새로운 버전의 pod가 기동되어야지, 이전 pod가 삭제 된다.
 ```yaml
 strategy:
   type: RollingUpdate
   rollingUpdate:
     maxSurge: 1          
-    maxUnavailable: 1    
+    maxUnavailable: 0    
 ```
 
 `maxSurge`는 새 버전의 pod를 몇 개까지 더 추가할지를 뜻하며, `maxUnavailable`은 롤링 업데이트 중 사용할 수 없는  pod가 몇개인지를 설정한다. 
 
+**deployment 업그레이드 하기**
+`kubectl set image deployment/nginx-deploy nginx=nginx:1.17`
+
 ### Rollback
 
-최근 변경된 Deploy를 이전버전으로 되돌리는 작업으로 `rollout`을 통해 배포 실패나 장애 발생시 유용하다.
+최근 업그레이드된 Deploy를 이전버전으로 되돌리는 작업으로 `rollout`을 통해 배포 실패나 장애 발생시 유용하다.
 
 ```yaml
 kubectl rollout undo deployment myapp-deployment

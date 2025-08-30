@@ -174,7 +174,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: my-sa
-  namespace: dev
+  namespace: dev # group과는 달리 SA를 사용할때 ns는 무조건 지정해줘야함.
 roleRef:
   kind: Role
   name: pod-reader

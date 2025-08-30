@@ -129,6 +129,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx        # IngressClass 이름 참조
   rules:
   - host: example.com
     http:
@@ -154,6 +155,7 @@ kind: Ingress
 metadata:
   name: multi-host-ingress
 spec:
+  ingressClassName: nginx        # IngressClass 이름 참조
   rules:
   - host: app1.example.com
     http:
@@ -222,7 +224,7 @@ spec:
 
 ## GateWay API
 
-단일 진입점이 되는 **Ingress**를 **GateWay**, **HTTPRout**, **GatewayClass**등으로 분리하고  HTTP,HTTPS를 넘어 TCP, UDP를 관리한다. 
+단일 진입점이 되는 **Ingress**를 멀티 테넌시를 지원하는 **GateWay**, **HTTPRout**, **GatewayClass**등으로 분리하고  HTTP,HTTPS를 넘어 TCP, UDP를 관리한다. 
 
 **GateWayClass**
 해당 Gateway가 어떤 종류의 Gateway인지 정의한다. Nginx, istio 등등..
@@ -268,4 +270,50 @@ spec:
     backendRefs:
     - name: example-svc
       port: 8080
+```
+
+### Storage Class
+
+> 동적 volume provisoning을 제공 PVC 생성시 자동으로 PV를 만들어준다.
+
+기존 관리자가 PV를 만들면 사용자나 시스템이 PVC를 만들어 적합한 PV <-> PVC 바인딩을 진행하였다. 
+
+하지만 StorageClass는 사용자가 SC를 통해 PVC를 만들면 StorageClass가 자동으로 적합한 PV를 생성과 동시에 이를 바인딩하는 기능을 제공한다.
+
+**예시**
+```yml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: my-storage-class
+provisioner: kubernetes.io/no-provisioner  # 중요!
+parameters:  # provisioner별로 다름
+  type: gp2
+reclaimPolicy: Delete  # Delete, Retain, Recycle
+allowVolumeExpansion: true  # 볼륨 확장 허용
+volumeBindingMode: Immediate  # Immediate, WaitForFirstConsumer
+```
+yml 파일 중 `provisioner`에 대해서 AWS나 Azure 같은 GCP에 의해 달라진다.
+
+
+---
+
+#### Exercise
+
+`local-sc`라는 StorageClass를 만들어야한다. 이에 대한 명세(Specification)은 아래와 같다. 
+
+- provisioner는 `kubernetes.io/no-provisioner`여야한다. 
+- `WaitForFirstConsumer` Volume과 바인딩 되어야한다. 
+- Volume의 확장은 허용되어야한다.
+
+
+**Solution**
+```yml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-sc
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
 ```
