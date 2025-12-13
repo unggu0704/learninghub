@@ -69,7 +69,6 @@ Text Context는 TraceId(트랜잭션 ID), SpanId(작업 ID), TraceFlags(샘플�
 이걸 활용하여 A가 B에게 요청을 보냈다면 B는 header를 읽어 기존 TraceID와 SpanID와 연결 새로운 SpanID를 생성하여 회신한다. 
 이러한 과정을 Applcation Insight는 관측
 
-
 ### 데이터 수집
 
 **Sampling**

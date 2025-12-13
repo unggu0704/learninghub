@@ -31,6 +31,8 @@ Service Bub는 AP와 Service를 분리하는 목적으로 주로 사용된다. *
 
 주요 기능으로는 예약 배달, 순서를 지정 저장하는 메세지 세션, 중복 검색, 유후 상태에서 자동 삭제를 지정할 수 있다.
 
+Azure Service Bus에서 Queue와 같은 FIFO를 보증하기 위해서는 **메세지 세션**을 설정해야한다.
+
  **Service Bus 계층**
 
 - Standard : 가변적 처리량, 가변 대기시간, 256kb의 메세지 크기
@@ -63,6 +65,12 @@ Service Bus가 소비자로부터 요청을 받고 Service Bus는 이걸 사용�
 받는 기능 → 구독 
 
 이것은 부하 분산과 경쟁 소비자를 가능하게 한다.
+
+**추가 필터**
+
+구독 필터를 통해 메세지를 효율적으로 라우팅이 가능하다. 
+필터에 사용할 수 있는 유형은 **SQL, Correlation, Boolean**이 있다.
+
 
 ### 규칙 및 동작
 
@@ -106,6 +114,7 @@ Service Bus는 다양한 라우팅 방식을 지원한다.
 ![image.png]({{ site.baseurl }}{{ page.url }}/img/image51.png)
 
 대량의 메세지를 저장하며 HTTP, HTTPS를 사용하여 메세지에 엑세스 할 수 있다. 이러한 큐의 크기는 64KB로 이러한 큐는 스토리지 계정 용량의 한계까지 수백만개의 메세지를 포함할 수 있다. 
+
 
 이러한 큐를 **URL형식([`https://myaccount.queue.core.windows.net/images-to-download`](https://myaccount.queue.core.windows.net/images-to-download))**를 사용하여 제공가능하며 큐의 이름은 반드시 소문자여야한다.
 

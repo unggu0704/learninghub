@@ -1,5 +1,5 @@
 ---
-title: "07. Azure MySQL 만들기"
+title: "07. [Azure/Spring] Azure MySQL 만들기"
 author: "unggu"
 date: 2025-01-11 19:27:13 +0800
 categories: [Azure, AKS로 Spring Web 배포하기]
@@ -102,6 +102,5 @@ telnet: Unable to connect to remote hostq
 
 방화벽 란에 자신의 IP를 추가하여 접속을 허용한다.
 
-**연결이 성립되었다!**
 
----
+**연결이 성립되었다!**

@@ -86,6 +86,8 @@ ACR은 일반적으로 미사용시 암호화 기능을 제공하는데 서비�
     - OnFailure
 - 이외에도 환경 변수 설정 가능
 
+> *Azure Container Instance는 자동 복구 및 자동 크기 조절을 지원하지 않는다!*
+
 ## Azure Contaier Apps
 
 ![alt text]({{ site.baseurl }}{{ page.url }}/img/ACA.png)
@@ -145,7 +147,7 @@ az containerapp update \
 
 ### 비밀  정의
 
-컨테이너 앱을 만들 때 `--secrets` 매개 변수를 사용하여 비밀을 정의한다. 주로 이름/값 쌍세트로 허용되며 쌍은 `=` 로 구분된다. 
+컨테이너 앱을 만들 때 `secureValue` 속성을 지정하는 환경변수를 만들거나 `--secrets` 매개 변수를 사용하여 비밀을 정의한다. 주로 이름/값 쌍세트로 허용되며 쌍은 `=` 로 구분된다. 
 
 ```yaml
 az containerapp create \
