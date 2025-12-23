@@ -142,7 +142,7 @@ order: 4
         <div class="d-flex align-items-center">
           <i class="fas fa-certificate fa-2x text-primary me-3"></i>
           <div>
-            <h6 class="mb-0 small">Microsoft Certified: Azure Developer Associate(AZ-204)</h6>
+            <h6 class="mb-0 small">Azure Developer Associate(AZ-204)</h6>
             <small class="text-muted">2025.02</small>
           </div>
         </div>
@@ -155,7 +155,7 @@ order: 4
         <div class="d-flex align-items-center">
           <i class="fas fa-certificate fa-2x text-success me-3"></i>
           <div>
-            <h6 class="mb-0 small">Microsoft Certified: Azure Fundamentals(AZ-900)</h6>
+            <h6 class="mb-0 small">Azure Fundamentals(AZ-900)</h6>
             <small class="text-muted">2024.11</small>
           </div>
         </div>
@@ -296,7 +296,7 @@ order: 4
     </div>
     
     <details>
-      <summary class="btn btn-sm btn-outline-info mb-0" style="cursor: pointer;">상세 내용 보기</summary>
+      <summary class="btn btn-sm btn-outline-primary mb-0" style="cursor: pointer;">상세 내용 보기</summary>
       <div class="mt-3 ps-3 border-start border-info border-3">
         <h6>💡 프로젝트 배경</h6>
         <p>입사 후 첫 프로젝트로, Docker/Kubernetes 지식이 거의 없는 상태에서 시작했지만
@@ -495,12 +495,12 @@ order: 4
           <p class="mb-0">SSAFY 프로젝트를 단순히 끝내지 않고, 실무에서 사용되는 DevOps 기술을 적용하여 
           클라우드 네이티브 애플리케이션으로 발전시키며 업무 역량 향상에 큰 도움이 되었습니다.</p>
         </div>
+        <a href="https://github.com/JourneyJinni" class="btn btn-sm btn-dark mt-3" target="_blank">
+          <i class="fab fa-github"></i> GitHub Repository
+        </a>
       </div>
     </details>
     
-    <a href="https://github.com/JourneyJinni" class="btn btn-sm btn-dark mt-3" target="_blank">
-      <i class="fab fa-github"></i> GitHub Repository
-    </a>
   </div>
 </div>
 
@@ -545,17 +545,16 @@ order: 4
           <p class="mb-0">실제 사용자가 있는 앱을 3년간 운영하면서, 버그 수정, 기능 개선, 
           iOS 버전 업데이트 대응 등 앱 개발 실무와 유사한 경험을 쌓을 수 있었습니다.</p>
         </div>
+        <a href="https://apps.apple.com/kr/app/나주시-버스/id6459411077" class="btn btn-sm btn-dark mt-3" target="_blank">
+          <i class="fab fa-app-store"></i> App Store
+        </a>
+        <a href="https://github.com/unggu0704/naju-busInfo" class="btn btn-sm btn-dark mt-3" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
       </div>
     </details>
-    
-    <div class="d-flex gap-2 mt-3">
-      <a href="https://apps.apple.com/kr/app/나주시-버스/id6459411077" class="btn btn-sm btn-primary" target="_blank">
-        <i class="fab fa-app-store"></i> App Store
-      </a>
-      <a href="https://github.com/unggu0704/naju-busInfo" class="btn btn-sm btn-primary" target="_blank">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-    </div>
+
+
   </div>
 </div>
 
@@ -585,12 +584,12 @@ order: 4
           <li><strong>Chrome Extension API:</strong> 브라우저 확장 프로그램 개발 경험</li>
           <li><strong>JavaScript 심화:</strong> DOM 조작, 이벤트 처리, 로컬 스토리지 활용</li>
         </ul>
+        <a href="https://github.com/unggu0704/boj-extended" class="btn btn-sm btn-dark mt-3" target="_blank">
+          <i class="fab fa-github"></i> GitHub Repository
+        </a>
       </div>
     </details>
-    
-    <a href="https://github.com/unggu0704/boj-extended" class="btn btn-sm btn-dark mt-3" target="_blank">
-      <i class="fab fa-github"></i> GitHub Repository
-    </a>
+  
   </div>
 </div>
 
