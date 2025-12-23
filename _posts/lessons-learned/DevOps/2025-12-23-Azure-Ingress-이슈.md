@@ -25,7 +25,7 @@ image:
 ![image.png]({{ site.baseurl }}{{ page.url }}/img/azure4041.png)
 
 이번에 말썽을 부린건 Ingress 이 친구가 원인이였습니다. 
-쿠버네티스의 리소스인 Ingress는 HTTP/HTTPS 트래픽 라우팅 규칙을 정의하는 기능을 가지고 있지만, 이런 Ingress 자체가 기능을 제공하는 주체가 아닌, 그 상위 리소스인인 **Ingress Controller**가 존재합니다.
+쿠버네티스의 리소스인 Ingress는 HTTP/HTTPS 트래픽 라우팅 규칙을 정의하는 기능을 가지고 있지만, 이런 Ingress 자체가 기능을 제공하는 주체가 아닌, 그 상위 리소스인인 **Ingress Controller**가 실제 기능을 가지고 수행합니다.
 ```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -58,7 +58,7 @@ Ingress Controller의 최종 목표는 `nginx.conf`의 최종 조립이라고 �
 
 ![image.png]({{ site.baseurl }}{{ page.url }}/img/azure4042.png)
 
-kubeapi가 Ingress를 비롯해 관련된 secret, svc, cm 등을 관리하며 변화를 감지하는데 `Ingress.yml`의 변화가 발생하면 kubeapi는 이 변화를 Work Queue에 추가하여 새로운 `nginx.conf`를 생성하여 최종적으로 이 파일을 바탕으로 새로운 Ingress Controller는 동작합니다.
+kube-api가 Ingress를 비롯해 관련된 secret, svc, cm 등을 관리하며 변화를 감지하는데 `Ingress.yml`의 변화가 발생하면 kube-api는 이 변화를 Work Queue에 추가하여 새로운 `nginx.conf`를 생성하여 최종적으로 이 파일을 바탕으로 새로운 Ingress Controller는 동작합니다.
 
 새로운 Ingress Controller가 만들어질 때 두 가지 방식으로 만들어집니다 (reload vs restart)
 
@@ -73,14 +73,14 @@ kubeapi가 Ingress를 비롯해 관련된 secret, svc, cm 등을 관리하며 �
 - TLS Secret 추가/변경
 - Annotation 변경 (`nginx.conf` 구조에 영향을 주는 것)
 
-만약 해당 구조 변경 중 **실패하면 변경사항을 롤백하고 기존 `nginx.conf`를 계속해서 사용!**
+만약 해당 구조 변경 중 **실패하면 변경사항을 롤백하고 기존 `nginx.conf`를 계속해서 사용합니다.**
 
--> **이런 의도치 않은 slient failure가 장애의 원인이 되었습니다.**
+-> **이런 의도치 않은 slient failure가 최종적으로 장애의 원인이 되었습니다.**
 
 
 ## 타임 테이블
 
-10/4부터 약 10일 전 9/24 말쯤  Ingress에 Annotaion 추가 작업을 하고 반영을 하였습니다.
+10/4부터 약 10일 전 9/24쯤  Ingress에 Annotaion 추가 작업이 있었습니다.
 
 ```
 annotations:
@@ -108,11 +108,11 @@ serviceaccount
 ' (작은따옴표)
 ```
 
-즉 해당 설정은 Invaild syntax로 정상적으로 reload되지 못하였고 Ingress는 이전 `nginx.conf` 기반으로 롤백하여 서비스 되었습니다. 
+즉 해당 설정은 Invaild syntax로 정상적으로 reload되지 못하였고, Ingress는 이전 `nginx.conf` 기반으로 롤백하여 서비스 되었습니다. 
 
-그리고 시간이 흘러.. 10/4에 Azure의 App-routing Manenged 영역의 작업이 있었고 이로 인해 nginx pod가 강제 재기동(restart) 되어지게 못하였습니다.
+그리고 시간이 흘러.. 10/4에 Azure의 App-routing Manenged 영역의 작업이 있었고 이로 인해 nginx pod가 강제 재기동(restart) 되어졌습니다. (Azure측 별도 공지X)
  
- Invaild Syntax를 가지고 있던 우리 Ingress는 restart 당시 정상적으로 `nginx.conf`가 생성되지 못하였고 이는 해당 Ingress 리소스 자체가 생성되지 못하는 영향을 발생시켰습니다.
+ Invaild Syntax를 가지고 있던 우리 Ingress는 restart 당시 정상적으로 `nginx.conf`가 생성되지 못하였고, 이는 해당 Ingress 리소스 자체가 생성되지 못하는 영향을 발생시켰습니다.
 
 -> **라우팅 실패로 인한 404 에러 발생**
 
@@ -127,7 +127,7 @@ serviceaccount
   Ingress Annotaion을 변경할려고 한것은 AppGW에서 넘어온 xff 헤더에 대한 값을 변조시킬 필요가 있었기 떄문입니다. 이런 AppGW 환경은 운영 환경에서만 적용이 되어 있었기 때문에 이런 반영은 다른 환경에서 충분한 검토를 할 기회가 없었습니다. 
   
   이를 통해 개발/디버그/운영 환경에서의 환경 통일이 필요할듯 보입니다. 
-  (현재는 예산의 이유로 운영환경에만 설치되어 있던 AppGW 개발환경도 설치 완료)
+  (현재는 예산의 이유로 운영환경에만 설치되어 있음)
 
 **운영은 언제나 clean해야 한다**
 
@@ -158,9 +158,9 @@ serviceaccount
 
   사람은 실수할 수 있음을 인정하고 모니터링 및 사전검증 체계 구축이 필요해보입니다.
 
-  실제로 reload 후 Nginx pod에서 지속적으로 `WARN` 등급의 log가 발생함을 확인하였습니다. 이를 App Insight등을 통해 capture 할 수 있는 방인이 필요해보입니다.
+  실제로 reload 후 Nginx pod에서 지속적으로 `WARN` 등급의 log가 발생함을 확인하였습니다. 이를 App Insight등을 통해 capture 할 수 있는 방안이 필요해보입니다.
 
-  또한 Azure에서 이런 문법에 대해 fast failure를 제공해주지 않기에 CI/CD 파이프라인에 유효성 검증을 하는 절차를 추가하는 것도 좋은 방법이 될 수 있을 것입니다.
+  또한 Azure에서 이런 문법에 대해 fail fast를 제공해주지 않기에 CI/CD 파이프라인에 유효성 검증을 하는 절차를 추가하는 것도 좋은 방법이 될 수 있을 것입니다.
 
 
 ## 끝으로...
