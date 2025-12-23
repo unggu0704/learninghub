@@ -17,36 +17,51 @@ order: 4
   </div>
 </div>
 
-> 클라우드 네이티브 애플리케이션 개발과 DevOps 문화에 관심이 많은 개발자입니다.
-> 특히 Azure 기반의 Kubernetes 환경에서 안정적이고 확장 가능한 시스템을 설계하고 구축하는 것을 좋아합니다.
+> Spring 클라우드 네이티브 애플리케이션과 DevOps 문화에 관심이 많은 주니어 개발자입니다. 
+> 최근 Kubernetes 환경에서 안정적이고 알맞은 구조로 시스템을 설계하고 개발하는데 관심이 많습니다.
 {: .prompt-info }
 
 ---
 
 ## 💼 경력
 
-### KT Corporation
-**Cloud Engineer** | 2024.01 ~ 현재
+### KT DS
+**DevOps Engineer** | 2025.01 ~ 현재
 
-- Azure 기반 클라우드 인프라 설계 및 구축
-- Kubernetes(AKS) 환경에서의 마이크로서비스 운영
+- Azure 기반 클라우드 환경에서 인프라 구축 및 운영
+- Kubernetes(AKS) 환경에서의 대고객 서비스 운영
 - GitOps 기반 CI/CD 파이프라인 구축 및 운영
 - 레거시 시스템의 클라우드 마이그레이션 프로젝트 수행
 
 > **주요 성과:**
-> - KT 외국인샵 Azure Migration 성공 (무중단 전환)
-> - 인프라 운영 비용 35% 절감
+> - KT 대고객 서비스 Azure Migration 무중단 전환 
 > - 배포 자동화로 배포 시간 83% 단축 (30분 → 5분)
+> - 클라우드 기반 환경 구축으로 장애 발생률 감소 (연 2건 -> 0건)
+{: .prompt-tip }
+
+**Software Engineer** | 2024.07 ~ 현재
+
+- Java/Spring 기반 대고객 서비스 개발 및 운영
+- 고객 SR(Service Request) 및 VOC(Voice of Customer) 대응 개발
+- 백오피스 시스템 운영 효율화 및 개선
+
+> **주요 성과:**
+> - 고객 요구사항 기반 SR/VOC 대응률 100% 달성
+> - 자동화된 스모크 테스트 도구 자체 개발로 운영 전수 점검 시간 70% 단축
+> - 성능 측정 모니터링 도구 개발로 운영 효율성 향상
+> - JMeter & Kubernetes 활용 분산 부하테스트 도구로 신규 서비스 사전 성능 검증 자동화
 {: .prompt-tip }
 
 ---
 
 ## 🎓 교육
 
-| 기간 | 학교/기관 | 전공/과정 |
-|------|----------|-----------|
-| 2024.01 ~ 현재 | KT | Cloud & DevOps 실무 |
-| 2020.03 ~ 2024.02 | 대학교 | 컴퓨터공학 전공 |
+| 학교/기관 | 전공/과정 |
+|----------|-----------|
+| KTDS University | MSA 기반 MVP 프로젝트|
+| SSAFY | Spring/Vue.js 기반 WEB 개발 전 과정 |
+| NHN Academy | Java/Servlet & SW 공학 |
+| 전북대학교 | 컴퓨터공학 전공 |
 
 ### 자격증
 
@@ -55,11 +70,10 @@ order: 4
     <div class="card h-100">
       <div class="card-body">
         <h5 class="card-title">
-          <i class="fas fa-certificate text-primary"></i> AZ-204
+          <i class="fas fa-certificate text-info"></i> Certified Kubernetes Administrator (CKA)
         </h5>
-        <p class="card-text">Microsoft Certified: Azure Developer Associate</p>
         <p class="text-muted mb-0">
-          <small>취득일: 2025.02 | 점수: 795점</small>
+          <small>취득일: 2024.08.18 | The Linux Foundation</small>
         </p>
       </div>
     </div>
@@ -68,85 +82,238 @@ order: 4
     <div class="card h-100">
       <div class="card-body">
         <h5 class="card-title">
-          <i class="fas fa-certificate text-success"></i> AZ-900
+          <i class="fas fa-certificate text-primary"></i> Microsoft Certified: Azure Developer Associate (AZ-204)
         </h5>
-        <p class="card-text">Microsoft Certified: Azure Fundamentals</p>
         <p class="text-muted mb-0">
-          <small>취득일: 2024.11 | Pass</small>
+          <small>취득일: 2025.02.07 | Microsoft</small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="fas fa-certificate text-success"></i> Microsoft Certified: Azure Fundamentals (AZ-900)
+        </h5>
+        <p class="text-muted mb-0">
+          <small>취득일: 2024.11.04 | Microsoft</small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="fas fa-certificate text-warning"></i> SQLD
+        </h5>
+        <p class="text-muted mb-0">
+          <small>취득일: 2024.06.21 | 한국데이터산업진흥원</small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="fas fa-certificate text-danger"></i> 정보처리기사
+        </h5>
+        <p class="text-muted mb-0">
+          <small>취득일: 2023.06.09 | 한국산업인력공단</small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="fas fa-language text-primary"></i> TOEIC
+        </h5>
+        <p class="text-muted mb-0">
+          <small>취득일: 2023.03.26 | ETS</small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="fas fa-language text-danger"></i> JLPT
+        </h5>
+        <p class="text-muted mb-0">
+          <small>취득일: 2020.01.19 | 일본국제교류기금</small>
         </p>
       </div>
     </div>
   </div>
 </div>
-
 ---
+
+좋습니다! 기술 스택을 더 논리적으로 재구성하겠습니다.
 
 ## 🛠 기술 스택
 
-### Backend Development
-<div class="mb-3">
-  <span class="badge bg-primary me-1">Java 17</span>
-  <span class="badge bg-primary me-1">Spring Boot 3.x</span>
-  <span class="badge bg-primary me-1">Spring Data JPA</span>
-  <span class="badge bg-primary me-1">Spring Security</span>
-  <span class="badge bg-primary">RESTful API</span>
-</div>
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card h-100 border-primary">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0"><i class="fas fa-code"></i> Backend & API</h5>
+      </div>
+      <div class="card-body">
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge bg-light text-dark border">
+            <i class="fab fa-java"></i> Java 17
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fas fa-leaf text-success"></i> Spring Boot 3.x
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fas fa-plug"></i> RESTful API
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-### DevOps & Cloud
-<div class="mb-3">
-  <span class="badge bg-info me-1">Azure (AKS, ACR, Key Vault)</span>
-  <span class="badge bg-success me-1">Kubernetes</span>
-  <span class="badge bg-success me-1">Docker</span>
-  <span class="badge bg-success me-1">Helm</span>
-  <span class="badge bg-warning text-dark me-1">Argo CD</span>
-  <span class="badge bg-warning text-dark">GitHub Actions</span>
-</div>
+  <div class="col-md-6">
+    <div class="card h-100 border-info">
+      <div class="card-header bg-info text-white">
+        <h5 class="mb-0"><i class="fab fa-microsoft"></i> Cloud Platform</h5>
+      </div>
+      <div class="card-body">
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge bg-light text-dark border">
+            <i class="fab fa-microsoft text-info"></i> Azure AKS
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fab fa-microsoft text-info"></i> Azure ACR
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fab fa-microsoft text-info"></i> Azure Key Vault
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fab fa-microsoft text-info"></i> Azure Monitor
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-### Database & Cache
-<div class="mb-3">
-  <span class="badge bg-secondary me-1">MySQL</span>
-  <span class="badge bg-secondary me-1">PostgreSQL</span>
-  <span class="badge bg-danger">Redis</span>
-</div>
+  <div class="col-md-6">
+    <div class="card h-100 border-success">
+      <div class="card-header bg-success text-white">
+        <h5 class="mb-0"><i class="fas fa-infinity"></i> DevOps & CI/CD</h5>
+      </div>
+      <div class="card-body">
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge bg-light text-dark border">
+            <i class="fas fa-dharmachakra text-primary"></i> Kubernetes
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fab fa-docker text-primary"></i> Docker
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fas fa-helmet-safety"></i> Helm
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fas fa-sync-alt text-warning"></i> Argo CD
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fab fa-github"></i> GitHub Actions
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-### Monitoring & Tools
-<div class="mb-4">
-  <span class="badge bg-dark me-1">Prometheus</span>
-  <span class="badge bg-dark me-1">Grafana</span>
-  <span class="badge bg-dark me-1">Azure Monitor</span>
-  <span class="badge bg-dark">SonarQube</span>
-</div>
+  <div class="col-md-6">
+    <div class="card h-100 border-secondary">
+      <div class="card-header bg-secondary text-white">
+        <h5 class="mb-0"><i class="fas fa-database"></i> Database & Cache</h5>
+      </div>
+      <div class="card-body">
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge bg-light text-dark border">
+            <i class="fas fa-database text-primary"></i> MySQL
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fas fa-elephant text-primary"></i> PostgreSQL
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fas fa-bolt text-danger"></i> Redis
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="col-md-6">
+    <div class="card h-100 border-warning">
+      <div class="card-header bg-warning text-dark">
+        <h5 class="mb-0"><i class="fas fa-users"></i> Collaboration & Tools</h5>
+      </div>
+      <div class="card-body">
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge bg-light text-dark border">
+            <i class="fab fa-jira text-primary"></i> JIRA
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fab fa-git-alt text-danger"></i> Git
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fas fa-note-sticky"></i> Notion
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card h-100 border-danger">
+      <div class="card-header bg-danger text-white">
+        <h5 class="mb-0"><i class="fas fa-chart-line"></i> Monitoring</h5>
+      </div>
+      <div class="card-body">
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge bg-light text-dark border">
+            <i class="fas fa-chart-area text-warning"></i> Jennifer
+          </span>
+          <span class="badge bg-light text-dark border">
+            <i class="fab fa-microsoft text-info"></i> Azure Monitor
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 ---
-
 ## 🚀 프로젝트
 
-### 1. JourneyJinni - 여행 플래너 서비스
+### 1. 하이소피 - AI 기반 리뷰 피드백 시스템
 
 <div class="card mb-3">
   <div class="card-body">
     <div class="row">
       <div class="col-md-8">
-        <h5 class="card-title">GitOps 기반 클라우드 네이티브 여행 플래너</h5>
-        <p class="text-muted">2024.03 ~ 2024.06 (4개월) | 팀 프로젝트 (4인)</p>
+        <h5 class="card-title">소상공인을 위한 AI 리뷰 관리 솔루션</h5>
+        <p class="text-muted">2025.05 ~ 2025.07 (진행중) | 사내 교육 MVP 프로젝트 (6인)</p>
         
-        <p><strong>역할:</strong> Backend 개발 & DevOps 인프라 구축</p>
+        <p><strong>역할:</strong> Java Backend 개발 & MSA 환경 CI/CD 구축</p>
         
-        <p><strong>주요 기능:</strong></p>
-        <ul class="mb-2">
-          <li>AI 기반 여행 일정 추천 시스템</li>
-          <li>실시간 협업 플래너 (WebSocket)</li>
-          <li>소셜 로그인 (OAuth 2.0)</li>
-          <li>지도 기반 여행지 탐색</li>
-        </ul>
+        <p><strong>프로젝트 소개:</strong></p>
+        <p>다양한 플랫폼의 리뷰를 자동 수집·분석하고, ChatGPT API를 활용한 맞춤형 실행계획을 통해 매장 운영 개선을 지원하는 MSA 기반 웹 서비스</p>
       </div>
       <div class="col-md-4">
         <h6>기술 스택</h6>
         <span class="badge bg-primary me-1 mb-1">Spring Boot</span>
-        <span class="badge bg-primary me-1 mb-1">JPA</span>
+        <span class="badge bg-primary me-1 mb-1">React</span>
         <span class="badge bg-success me-1 mb-1">AKS</span>
-        <span class="badge bg-success me-1 mb-1">Argo CD</span>
-        <span class="badge bg-info me-1 mb-1">Azure MySQL</span>
+        <span class="badge bg-success me-1 mb-1">Kafka</span>
+        <span class="badge bg-info me-1 mb-1">PostgreSQL</span>
         <span class="badge bg-danger mb-1">Redis</span>
       </div>
     </div>
@@ -154,125 +321,126 @@ order: 4
 </div>
 
 <details>
-  <summary><strong>🔍 프로젝트 상세 설명 & 느낀점</strong></summary>
+  <summary><strong>🔍 프로젝트 상세 설명</strong></summary>
 
   <div class="mt-3">
 
-#### 💡 이 프로젝트는...
+#### 💡 주요 기능
 
-개인적으로 여행을 좋아하지만, 매번 일정을 계획하는 것이 번거로웠던 경험에서 시작했습니다. 
-특히 여러 명이 함께 여행을 갈 때 의견을 조율하고 일정을 공유하는 과정이 복잡했는데, 
-이를 해결할 수 있는 협업형 여행 플래너를 만들고자 했습니다.
+- **자동 리뷰 수집**: 데이터 크롤링을 통한 다양한 플랫폼 리뷰 통합 관리
+- **AI 기반 분석**: ChatGPT API를 활용한 리뷰 감정 분석 및 인사이트 도출
+- **실행계획 생성**: AI가 추천하는 맞춤형 매장 운영 개선 방안 제공
+- **MSA 아키텍처**: 마이크로서비스 기반 확장 가능한 시스템 설계
 
-#### 🎯 기술적 도전과제
+#### 🎯 기술적 구현
 
-**1. GitOps 기반 자동 배포 시스템 구축**
+**1. MSA 환경 구축**
+- 각 도메인별 독립적인 서비스 분리 (리뷰 수집, 분석, 알림 등)
+- Kafka를 통한 비동기 이벤트 기반 통신
+- PostgreSQL 데이터베이스 서비스별 격리
 
-처음으로 Argo CD를 활용한 GitOps 방식의 배포를 구현했습니다.
+**2. CI/CD 파이프라인 구축**
+- GitHub Actions를 활용한 자동 빌드 및 테스트
+- Argo CD를 통한 GitOps 기반 배포 자동화
+- Azure Kubernetes Service에 마이크로서비스 배포
 
-```yaml
-# Argo CD Application 설정
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: journeyjinni-backend
-spec:
-  source:
-    repoURL: https://github.com/org/k8s-manifests
-    path: overlays/production
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-```
-
-- **효과:** 코드 푸시 → 자동 빌드 → 자동 배포까지 완전 자동화
-- **결과:** 배포 시간 30분 → 5분으로 단축
-
-**2. Azure Key Vault 통합으로 보안 강화**
-
-데이터베이스 비밀번호, API 키 등 민감 정보를 코드에서 완전히 분리했습니다.
-
-```java
-@Configuration
-public class KeyVaultConfig {
-    @Bean
-    public SecretClient secretClient() {
-        return new SecretClientBuilder()
-            .vaultUrl(vaultUrl)
-            .credential(new DefaultAzureCredentialBuilder().build())
-            .buildClient();
-    }
-}
-```
-
-- **배운 점:** 환경별 설정 관리의 중요성과 보안 Best Practice
-- **개선 효과:** 시크릿 로테이션 자동화, 감사 로그 기록
-
-**3. Redis 캐싱으로 성능 최적화**
-
-자주 조회되는 여행지 정보를 캐싱하여 DB 부하를 줄였습니다.
-
-```java
-@Cacheable(value = "destinations", key = "#id")
-public Destination getDestination(Long id) {
-    return repository.findById(id)
-        .orElseThrow(() -> new NotFoundException());
-}
-```
-
-- **성능 개선:** 평균 응답 시간 800ms → 200ms
-- **확장성:** 동시 접속자 처리 능력 4배 향상
-
-#### 😊 느낀점
-
-> **가장 뿌듯했던 순간:**
-> GitHub에 코드를 푸시하면 자동으로 테스트되고, 빌드되고, Kubernetes 클러스터에 배포되는 
-> 전체 파이프라인이 처음 성공했을 때의 성취감은 잊을 수 없습니다.
-{: .prompt-tip }
-
-이 프로젝트를 통해 **"코드형 인프라(Infrastructure as Code)"**의 진정한 의미를 깨달았습니다. 
-단순히 서버를 설정하는 것이 아니라, Git으로 버전 관리되고, 자동으로 배포되며, 
-문제가 생기면 이전 버전으로 즉시 롤백할 수 있는 시스템을 구축하는 과정이 
-개발자로서 큰 성장의 계기가 되었습니다.
+**3. 성능 최적화**
+- Redis 캐싱으로 ChatGPT API 호출 비용 절감
+- 리뷰 데이터 배치 처리로 크롤링 효율성 개선
 
 #### 🔗 관련 링크
 
-- [GitHub Repository](https://github.com/your-org/journeyjinni)
-- [기술 블로그 - GitOps 도입기](/posts/journeyjinni-gitops/)
+- [GitHub Organization](https://github.com/ktds-garage-04)
 
   </div>
 </details>
 
 ---
 
-### 2. KT 외국인샵 Azure Migration
+### 2. 여행지니 - 사진 기반 여행 추천 시스템
 
 <div class="card mb-3">
   <div class="card-body">
     <div class="row">
       <div class="col-md-8">
-        <h5 class="card-title">레거시 시스템 Azure 클라우드 전환</h5>
-        <p class="text-muted">2024.01 ~ 2024.03 (3개월) | KT Corporation</p>
+        <h5 class="card-title">여행을 지니다 + 여행을 추천하다</h5>
+        <p class="text-muted">2024.05 ~ 2024.06 (2개월) | SSAFY 프로젝트 (2인)</p>
         
-        <p><strong>역할:</strong> Cloud Migration Engineer</p>
+        <p><strong>역할:</strong> Full-Stack 개발 & 클라우드 CI/CD 구축</p>
         
-        <p><strong>프로젝트 목표:</strong></p>
-        <ul class="mb-2">
-          <li>KT Cloud → Azure AKS 환경 전환</li>
-          <li>무중단 마이그레이션 (가용성 99.9% 유지)</li>
-          <li>인프라 운영 비용 30% 절감</li>
-          <li>배포 프로세스 자동화</li>
-        </ul>
+        <p><strong>프로젝트 소개:</strong></p>
+        <p>사진 기반으로 여행지를 추천하고 여행 일정을 계획할 수 있는 웹 서비스</p>
+      </div>
+      <div class="col-md-4">
+        <h6>기술 스택</h6>
+        <span class="badge bg-primary me-1 mb-1">Spring Boot</span>
+        <span class="badge bg-primary me-1 mb-1">Vue.js</span>
+        <span class="badge bg-success me-1 mb-1">AKS</span>
+        <span class="badge bg-success me-1 mb-1">Argo CD</span>
+        <span class="badge bg-info mb-1">MySQL</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<details>
+  <summary><strong>🔍 프로젝트 상세 설명</strong></summary>
+
+  <div class="mt-3">
+
+#### 💡 프로젝트 배경
+
+SSAFY 과정 중 2인 팀 프로젝트로 시작했으나, 프로젝트 종료 후 **개인 학습 목적**으로 기존 서비스를 컨테이너화하고 Azure 클라우드 환경에 CI/CD 파이프라인을 구축했습니다.
+
+#### 🎯 주요 개선사항
+
+**기존 프로젝트:**
+- 전통적인 모놀리식 아키텍처
+- 수동 배포 방식
+
+**개선 후:**
+- Docker 컨테이너화로 환경 일관성 확보
+- Kubernetes 기반 오케스트레이션
+- GitOps 방식의 자동 배포 파이프라인 구축
+
+#### 🛠 학습 성과
+
+> **DevOps 실무 경험 축적**
+> 
+> SSAFY 프로젝트를 단순히 끝내지 않고, 실무에서 사용되는 DevOps 기술을 적용하여 
+> 클라우드 네이티브 애플리케이션으로 발전시킨 경험이 현재 업무에 큰 도움이 되었습니다.
+{: .prompt-tip }
+
+#### 🔗 관련 링크
+
+- [GitHub Repository](https://github.com/JourneyJinni)
+
+  </div>
+</details>
+
+---
+
+### 3. 나주 버스 - iOS 버스 정보 앱
+
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8">
+        <h5 class="card-title">나주시 버스 도착 정보 제공 앱</h5>
+        <p class="text-muted">2023.03 ~ 현재 (3년간 운영 중) | 개인 프로젝트</p>
+        
+        <p><strong>역할:</strong> 1인 풀스택 개발 (iOS)</p>
+        
+        <p><strong>프로젝트 소개:</strong></p>
+        <p>SwiftUI 기반으로 개발된 나주시 버스 정보 앱으로, 버스 정류장 및 노선 검색, 실시간 도착 정보 제공</p>
       </div>
       <div class="col-md-4">
         <div class="bg-light p-3 rounded">
-          <h6>달성 성과</h6>
+          <h6>성과</h6>
           <ul class="mb-0 small">
-            <li>✅ 무중단 마이그레이션 성공</li>
-            <li>✅ 응답속도 40% 개선</li>
-            <li>✅ 장애 복구 시간 90% 단축</li>
-            <li>✅ 월 운영비 35% 절감</li>
+            <li>✅ App Store 정식 배포</li>
+            <li>✅ 3년간 안정적 운영</li>
+            <li>✅ 서버리스 아키텍처</li>
           </ul>
         </div>
       </div>
@@ -281,116 +449,89 @@ public Destination getDestination(Long id) {
 </div>
 
 <details>
-  <summary><strong>🔍 프로젝트 상세 설명 & 느낀점</strong></summary>
+  <summary><strong>🔍 프로젝트 상세 설명</strong></summary>
 
   <div class="mt-3">
 
-#### 💡 이 프로젝트는...
+#### 💡 개발 동기
 
-입사 후 첫 번째 프로젝트였습니다. 솔직히 Docker와 Kubernetes에 대한 지식이 거의 없는 상태에서
-"Azure Migration 프로젝트를 해보라"는 지시를 받았을 때는 정말 막막했습니다.
+나주시에는 버스 정보를 제공하는 앱이 없어, 공공 API를 활용하여 직접 개발하게 되었습니다.
 
-하지만 이 프로젝트를 통해 클라우드 인프라의 A부터 Z까지 경험할 수 있었고,
-실제 운영 중인 서비스를 다루면서 책에서는 배울 수 없는 실무 감각을 익힐 수 있었습니다.
+#### 🎯 기술적 특징
 
-#### 🎯 기술적 도전과제
+**서버리스 아키텍처**
+- 공공 API 직접 호출로 별도 백엔드 서버 불필요
+- CoreData를 활용한 로컬 데이터 캐싱
+- 운영 비용 0원으로 3년간 서비스 제공
 
-**1. 무중단 마이그레이션 전략**
-
-> **가장 큰 고민:** 어떻게 서비스 중단 없이 환경을 전환할 것인가?
-{: .prompt-warning }
-
-**Blue-Green Deployment 전략 적용:**
-
-```
-┌─────────────────────────────────────────┐
-│  기존 환경 (Blue) - KT Cloud           │
-│  ↓ 트래픽 100%                          │
-└─────────────────────────────────────────┘
-              ↓ 점진적 전환
-┌─────────────────────────────────────────┐
-│  신규 환경 (Green) - Azure AKS          │
-│  ↓ 트래픽 10% → 50% → 100%              │
-└─────────────────────────────────────────┘
-```
-
-- DNS 가중치 라우팅으로 트래픽 점진적 이동
-- 실시간 모니터링으로 오류율 체크
-- 문제 발생 시 즉시 롤백 가능하도록 준비
-
-**2. 데이터베이스 동기화**
-
-가장 민감한 부분은 고객 데이터였습니다.
-
-```bash
-# Azure Database Migration Service 활용
-az dms create --resource-group rg-migration \
-  --name kt-shop-migration \
-  --source-connection ktcloud-mysql \
-  --target-connection azure-mysql
-```
-
-- **전략:** 실시간 복제로 데이터 일관성 보장
-- **검증:** 자동화된 데이터 무결성 체크 스크립트 작성
-- **결과:** 데이터 손실 0건
-
-**3. Kubernetes 환경 구축**
-
-기존에는 VM 기반이었는데, 컨테이너 기반으로 전환하면서 겪은 시행착오들:
-
-```yaml
-# 초기에는 이렇게 작성했다가...
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: ktshop-backend
-spec:
-  replicas: 1  # ❌ 단일 Pod
-  
-# 이렇게 개선
-spec:
-  replicas: 3  # ✅ HA 구성
-  strategy:
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
-```
-
-- **배운 점:** Pod 개수, 리소스 제한, Health Check의 중요성
-- **실수:** 초기에 메모리 제한을 너무 낮게 설정해서 OOMKilled 발생
-
-#### 📊 성과 측정
-
-| 항목 | AS-IS (KT Cloud) | TO-BE (Azure) | 개선율 |
-|------|------------------|---------------|--------|
-| 평균 응답 시간 | 1,200ms | 720ms | **40% ↓** |
-| 장애 복구 시간 | 60분 | 5분 | **92% ↓** |
-| 월 인프라 비용 | 100만원 | 65만원 | **35% ↓** |
-| 배포 소요 시간 | 3시간 | 10분 | **94% ↓** |
-
-#### 🤔 가장 힘들었던 점
-
-> **네트워크 문제 트러블슈팅**
-> 
-> 배포 후 특정 API만 간헐적으로 타임아웃이 발생하는 문제가 있었습니다.
-> 3일 동안 로그를 분석한 결과, Azure Application Gateway의 타임아웃 설정이 
-> 백엔드 처리 시간보다 짧게 설정되어 있었던 것이 원인이었습니다.
-{: .prompt-danger }
-
-이 경험을 통해 **네트워크 계층에 대한 이해의 중요성**을 깨달았고,
-이후 AZ-204 시험 준비를 하게 된 계기가 되었습니다.
+**SwiftUI 활용**
+- 선언형 UI로 유지보수 용이
+- iOS 네이티브 성능 최적화
+- 다크모드 자동 지원
 
 #### 😊 느낀점
 
-입사 직후 던져진 큰 프로젝트였지만, 오히려 **실전에서 배우는 것이 가장 빠른 성장**이라는 것을 느꼈습니다.
+> **개인 프로젝트의 가치**
+> 
+> 실제 사용자가 있는 앱을 3년간 운영하면서, 버그 수정, 기능 개선, 
+> iOS 버전 업데이트 대응 등 실무와 유사한 경험을 쌓을 수 있었습니다.
+{: .prompt-tip }
 
-특히 인상 깊었던 점은:
-- **실패의 가치:** 수많은 에러 메시지와 실패를 겪으면서 오히려 더 깊이 이해하게 됨
-- **문서화의 중요성:** 트러블슈팅 과정을 기록해두니 팀원들에게도 도움이 됨
-- **협업의 중요성:** 네트워크 팀, 보안 팀과의 협업 없이는 불가능했던 프로젝트
+#### 🔗 관련 링크
 
-이 프로젝트 이후 **"클라우드 엔지니어"**로서의 자신감이 생겼고,
-더 깊이 있는 학습을 위해 AZ-204 자격증에 도전하게 되었습니다.
+- [App Store](https://apps.apple.com/kr/app/나주시-버스/id6459411077)
+- [GitHub Repository](https://github.com/unggu0704/naju-busInfo)
+
+  </div>
+</details>
+
+---
+
+### 4. BOJ-Extended - 오픈소스 기여
+
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8">
+        <h5 class="card-title">백준 크롬 확장 프로그램 기여</h5>
+        <p class="text-muted">2023.03 ~ 2023.06 (3개월) | 교내 오픈소스 프로젝트 (3인)</p>
+        
+        <p><strong>역할:</strong> JavaScript 기능 개발</p>
+        
+        <p><strong>프로젝트 소개:</strong></p>
+        <p>알고리즘 문제 풀이 사이트의 크롬 확장 프로그램에 타이머 기능 추가</p>
+      </div>
+      <div class="col-md-4">
+        <h6>기술 스택</h6>
+        <span class="badge bg-warning text-dark me-1 mb-1">JavaScript</span>
+        <span class="badge bg-warning text-dark me-1 mb-1">HTML5</span>
+        <span class="badge bg-warning text-dark mb-1">CSS3</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<details>
+  <summary><strong>🔍 프로젝트 상세 설명</strong></summary>
+
+  <div class="mt-3">
+
+#### 💡 기여 내용
+
+알고리즘 문제를 풀 때 시간 측정이 필요한 사용자를 위해 **타이머 기능**을 추가하는 오픈소스 기여 프로젝트
+
+#### 🎯 학습 성과
+
+- **오픈소스 협업 경험**: Git Flow, PR, 코드 리뷰 프로세스 학습
+- **Chrome Extension API**: 브라우저 확장 프로그램 개발 경험
+- **JavaScript 심화**: DOM 조작, 이벤트 처리, 로컬 스토리지 활용
+
+#### 🔗 관련 링크
+
+- [GitHub Repository](https://github.com/unggu0704/boj-extended)
+
+  </div>
+</details>
 
 #### 🔗 관련 링크
 
