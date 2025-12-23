@@ -471,7 +471,7 @@ order: 4
     </div>
     
     <details>
-      <summary class="btn btn-sm btn-outline-success mb-0" style="cursor: pointer;">상세 내용 보기</summary>
+      <summary class="btn btn-sm btn-outline-primary mb-0" style="cursor: pointer;">상세 내용 보기</summary>
       <div class="mt-3 ps-3 border-start border-success border-3">
         <h6>💡 프로젝트 배경</h6>
         <p>SSAFY 과정 중 2인 팀 프로젝트로 시작했으나, 프로젝트 종료 후 <strong>개인 학습 목적</strong>으로 기존 서비스를 컨테이너화하고 Azure 클라우드 환경에 CI/CD 파이프라인을 구축했습니다.</p>
@@ -519,7 +519,7 @@ order: 4
     <p class="mb-3">SwiftUI 기반 iOS 앱 - App Store 정식 배포 | 3년간 안정적 운영 | 서버리스 아키텍처</p>
     
     <details>
-      <summary class="btn btn-sm btn-outline-secondary mb-0" style="cursor: pointer;">상세 내용 보기</summary>
+      <summary class="btn btn-sm btn-outline-primary mb-0" style="cursor: pointer;">상세 내용 보기</summary>
       <div class="mt-3 ps-3 border-start border-secondary border-3">
         <h6>💡 개발 동기</h6>
         <p>나주시에는 버스 정보를 제공하는 앱이 없어, 공공 API를 활용하여 직접 개발하게 되었습니다.</p>
@@ -552,7 +552,7 @@ order: 4
       <a href="https://apps.apple.com/kr/app/나주시-버스/id6459411077" class="btn btn-sm btn-primary" target="_blank">
         <i class="fab fa-app-store"></i> App Store
       </a>
-      <a href="https://github.com/unggu0704/naju-busInfo" class="btn btn-sm btn-dark" target="_blank">
+      <a href="https://github.com/unggu0704/naju-busInfo" class="btn btn-sm btn-primary" target="_blank">
         <i class="fab fa-github"></i> GitHub
       </a>
     </div>
@@ -574,7 +574,7 @@ order: 4
     <p class="mb-3">알고리즘 문제풀이 사이트 Chrome Extension에 타이머 기능 추가 (Git Flow, PR, 코드 리뷰 경험)</p>
     
     <details>
-      <summary class="btn btn-sm btn-outline-dark mb-0" style="cursor: pointer;">상세 내용 보기</summary>
+      <summary class="btn btn-sm btn-outline-primary mb-0" style="cursor: pointer;">상세 내용 보기</summary>
       <div class="mt-3 ps-3 border-start border-dark border-3">
         <h6>💡 기여 내용</h6>
         <p>알고리즘 문제를 풀 때 시간 측정이 필요한 사용자를 위해 <strong>타이머 기능</strong>을 추가하는 오픈소스 기여 프로젝트</p>
