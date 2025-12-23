@@ -30,7 +30,6 @@ order: 4
   <div class="position-absolute top-0 start-0 bottom-0" style="width: 2px; background: linear-gradient(to bottom, #0d6efd, #198754);"></div>
   
   <div class="mb-5 position-relative">
-    <div class="position-absolute" style="left: -1.4rem; top: 0; width: 1rem; height: 1rem; background-color: #0d6efd; border-radius: 50%; border: 3px solid white;"></div>
     <div class="card border-primary shadow-sm">
       <div class="card-header bg-primary text-white">
         <h5 class="mb-0">DevOps Engineer @ KT DS</h5>
@@ -56,7 +55,6 @@ order: 4
   </div>
 
   <div class="position-relative">
-    <div class="position-absolute" style="left: -1.4rem; top: 0; width: 1rem; height: 1rem; background-color: #198754; border-radius: 50%; border: 3px solid white;"></div>
     <div class="card border-success shadow-sm">
       <div class="card-header bg-success text-white">
         <h5 class="mb-0">Software Engineer @ KT DS</h5>
@@ -92,7 +90,7 @@ order: 4
     <div class="card h-100 border-primary">
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-primary">KTDS University</h6>
-        <p class="card-text mb-0">MSA 기반 MVP 프로젝트</p>
+        <p class="card-text mb-0">MSA 기반 클라우드 디자인 패턴 학습</p>
       </div>
     </div>
   </div>
@@ -108,7 +106,7 @@ order: 4
     <div class="card h-100 border-info">
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-info">NHN Academy</h6>
-        <p class="card-text mb-0">Java/Servlet & SW 공학</p>
+        <p class="card-text mb-0">Java/Servlet & 올바른 SW 설계법</p>
       </div>
     </div>
   </div>
@@ -131,7 +129,7 @@ order: 4
         <div class="d-flex align-items-center">
           <i class="fas fa-certificate fa-2x text-info me-3"></i>
           <div>
-            <h6 class="mb-0 small">CKA</h6>
+            <h6 class="mb-0 small">Certified Kubernetes Administrator (CKA)</h6>
             <small class="text-muted">2024.08</small>
           </div>
         </div>
@@ -144,7 +142,7 @@ order: 4
         <div class="d-flex align-items-center">
           <i class="fas fa-certificate fa-2x text-primary me-3"></i>
           <div>
-            <h6 class="mb-0 small">AZ-204</h6>
+            <h6 class="mb-0 small">Microsoft Certified: Azure Developer Associate(AZ-204)</h6>
             <small class="text-muted">2025.02</small>
           </div>
         </div>
@@ -157,7 +155,7 @@ order: 4
         <div class="d-flex align-items-center">
           <i class="fas fa-certificate fa-2x text-success me-3"></i>
           <div>
-            <h6 class="mb-0 small">AZ-900</h6>
+            <h6 class="mb-0 small">Microsoft Certified: Azure Fundamentals(AZ-900)</h6>
             <small class="text-muted">2024.11</small>
           </div>
         </div>
@@ -196,7 +194,7 @@ order: 4
         <div class="d-flex align-items-center">
           <i class="fas fa-language fa-2x text-secondary me-3"></i>
           <div>
-            <h6 class="mb-0 small">TOEIC / JLPT</h6>
+            <h6 class="mb-0 small">TOEIC(845) / JLPT(N3)</h6>
             <small class="text-muted">2023 / 2020</small>
           </div>
         </div>
@@ -217,37 +215,23 @@ order: 4
           <i class="fas fa-code"></i> Backend & API
         </h6>
         <ul class="list-unstyled ms-3">
-          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Java 17</li>
-          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Spring Boot 3.x</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Java</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Spring Framework/Spring Boot</li>
           <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>RESTful API</li>
         </ul>
       </div>
-      
-      <div class="col-md-6">
-        <h6 class="text-info mb-3">
-          <i class="fab fa-microsoft"></i> Cloud Platform
-        </h6>
-        <ul class="list-unstyled ms-3">
-          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Azure AKS</li>
-          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Azure ACR</li>
-          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Azure Key Vault</li>
-          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Azure Monitor</li>
-        </ul>
-      </div>
-      
       <div class="col-md-6">
         <h6 class="text-success mb-3">
           <i class="fas fa-infinity"></i> DevOps & CI/CD
         </h6>
         <ul class="list-unstyled ms-3">
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Azure</li>
           <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Kubernetes</li>
           <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Docker</li>
-          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Helm</li>
-          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Argo CD</li>
-          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>GitHub Actions</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Helm & Kustomization</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Git Action & Argo CD</li>
         </ul>
       </div>
-      
       <div class="col-md-4">
         <h6 class="text-secondary mb-3">
           <i class="fas fa-database"></i> Database & Cache
@@ -258,18 +242,16 @@ order: 4
           <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Redis</li>
         </ul>
       </div>
-      
       <div class="col-md-4">
         <h6 class="text-warning mb-3">
           <i class="fas fa-users"></i> Collaboration
         </h6>
         <ul class="list-unstyled ms-3">
-          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>JIRA</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>JIRA & Confluence</li>
           <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Git</li>
           <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Notion</li>
         </ul>
       </div>
-      
       <div class="col-md-4">
         <h6 class="text-danger mb-3">
           <i class="fas fa-chart-line"></i> Monitoring
@@ -286,6 +268,122 @@ order: 4
 ---
 
 ## 🚀 프로젝트
+
+### KT 외국인샵 Azure Migration
+
+<div class="card mb-4 shadow">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+      <div>
+        <h5 class="card-title mb-1">레거시 시스템 Azure 클라우드 전환</h5>
+        <p class="text-muted mb-0"><small>2024.01 ~ 2024.03 | KT Corporation | Cloud Migration Engineer</small></p>
+      </div>
+      <span class="badge bg-secondary">완료</span>
+    </div>
+    
+    <p class="mb-3">KT Cloud에서 Azure AKS 환경으로의 무중단 마이그레이션 프로젝트 (실제 운영 중인 대고객 서비스)</p>
+    
+    <div class="mb-3">
+      <span class="badge bg-success me-1">Kubernetes</span>
+      <span class="badge bg-success me-1">AKS</span>
+      <span class="badge bg-info me-1">Azure MySQL</span>
+      <span class="badge bg-warning text-dark me-1">App Gateway</span>
+      <span class="badge bg-secondary">Helm</span>
+    </div>
+    
+    <div class="alert alert-success mb-3">
+      <small><strong>성과:</strong> 무중단 전환 성공 | 응답속도 40% 개선 | 장애 복구 시간 90% 단축 | 월 운영비 35% 절감</small>
+    </div>
+    
+    <details>
+      <summary class="btn btn-sm btn-outline-info mb-0" style="cursor: pointer;">상세 내용 보기</summary>
+      <div class="mt-3 ps-3 border-start border-info border-3">
+        <h6>💡 프로젝트 배경</h6>
+        <p>입사 후 첫 프로젝트로, Docker/Kubernetes 지식이 거의 없는 상태에서 시작했지만
+        실제 운영 중인 서비스를 다루며 클라우드 인프라의 전 과정을 경험할 수 있었습니다.</p>
+        
+        <h6>🎯 핵심 과제</h6>
+        <p><strong>1. Blue-Green Deployment</strong></p>
+        <ul>
+          <li>DNS 가중치 라우팅으로 트래픽 점진적 이동 (10% → 50% → 100%)</li>
+          <li>실시간 모니터링으로 오류율 체크</li>
+          <li>문제 발생 시 즉시 롤백 가능하도록 준비</li>
+        </ul>
+        
+        <p><strong>2. 데이터베이스 동기화</strong></p>
+        <ul>
+          <li>Azure DMS 활용 실시간 복제로 데이터 일관성 보장</li>
+          <li>자동화된 데이터 무결성 체크 스크립트 작성</li>
+          <li>결과: 데이터 손실 0건</li>
+        </ul>
+        
+        <p><strong>3. Kubernetes 환경 구축</strong></p>
+        <ul>
+          <li>VM 기반 → 컨테이너 기반 전환</li>
+          <li>HA 구성 (replicas: 3, rollingUpdate 전략)</li>
+          <li>Pod 리소스 최적화 및 Health Check 설정</li>
+        </ul>
+        
+        <h6>📊 성과 지표</h6>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>항목</th>
+              <th>AS-IS</th>
+              <th>TO-BE</th>
+              <th>개선율</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>평균 응답 시간</td>
+              <td>1,200ms</td>
+              <td>720ms</td>
+              <td class="text-success"><strong>40% ↓</strong></td>
+            </tr>
+            <tr>
+              <td>장애 복구 시간</td>
+              <td>60분</td>
+              <td>5분</td>
+              <td class="text-success"><strong>92% ↓</strong></td>
+            </tr>
+            <tr>
+              <td>월 인프라 비용</td>
+              <td>100만원</td>
+              <td>65만원</td>
+              <td class="text-success"><strong>35% ↓</strong></td>
+            </tr>
+            <tr>
+              <td>배포 소요 시간</td>
+              <td>3시간</td>
+              <td>10분</td>
+              <td class="text-success"><strong>94% ↓</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="alert alert-warning mt-3">
+          <strong>🤔 가장 힘들었던 점</strong>
+          <p class="mb-0">배포 후 특정 API만 간헐적으로 타임아웃이 발생하는 문제가 있었습니다.
+          3일 동안 로그를 분석한 결과, Azure Application Gateway의 타임아웃 설정이 
+          백엔드 처리 시간보다 짧게 설정되어 있었던 것이 원인이었습니다. 
+          이 경험을 통해 <strong>네트워크 계층에 대한 이해의 중요성</strong>을 깨달았고,
+          이후 AZ-204 시험 준비를 하게 된 계기가 되었습니다.</p>
+        </div>
+        
+        <div class="alert alert-info mt-3">
+          <strong>😊 느낀점</strong>
+          <p class="mb-0">입사 직후 던져진 큰 프로젝트였지만, 오히려 <strong>실전에서 배우는 것이 가장 빠른 성장</strong>이라는 것을 느꼈습니다.
+          특히 실패의 가치, 문서화의 중요성, 협업의 중요성을 깨달았고, 이 프로젝트 이후 "클라우드 엔지니어"로서의 자신감이 생겼습니다.</p>
+        </div>
+      </div>
+    </details>
+    
+    <a href="https://globalshop.kt.com/global/globalMain.do" class="btn btn-sm btn-primary mt-3" target="_blank">
+      <i class="fas fa-external-link-alt"></i> 운영 사이트
+    </a>
+  </div>
+</div>
 
 ### 하이소피 - AI 기반 리뷰 피드백 시스템
 
@@ -397,129 +495,12 @@ order: 4
           <p class="mb-0">SSAFY 프로젝트를 단순히 끝내지 않고, 실무에서 사용되는 DevOps 기술을 적용하여 
           클라우드 네이티브 애플리케이션으로 발전시키며 업무 역량 향상에 큰 도움이 되었습니다.</p>
         </div>
-        
-        <a href="https://github.com/JourneyJinni" class="btn btn-sm btn-dark mt-2" target="_blank">
-          <i class="fab fa-github"></i> GitHub Repository
-        </a>
       </div>
     </details>
-  </div>
-</div>
-
-### KT 외국인샵 Azure Migration
-
-<div class="card mb-4 shadow">
-  <div class="card-body">
-    <div class="d-flex justify-content-between align-items-start mb-3">
-      <div>
-        <h5 class="card-title mb-1">Azure 클라우드 전환</h5>
-        <p class="text-muted mb-0"><small>2024.01 ~ 2024.03 | KT Corporation | Cloud Migration Engineer</small></p>
-      </div>
-      <span class="badge bg-secondary">완료</span>
-    </div>
     
-    <p class="mb-3">Azure AKS 환경 마이그레이션 프로젝트 (실제 운영 중인 대고객 서비스)</p>
-    
-    <div class="mb-3">
-      <span class="badge bg-success me-1">Kubernetes</span>
-      <span class="badge bg-success me-1">AKS</span>
-      <span class="badge bg-info me-1">Azure Key Vault</span>
-      <span class="badge bg-warning text-dark me-1">App AppGW</span>
-      <span class="badge bg-secondary">Kustomization</span>
-    </div>
-    
-    <div class="alert alert-success mb-3">
-      <small><strong>성과:</strong>  안정화된 배포 프로세스 구축 | 장애 복구 시간 90% 단축 | 민감정보 일원화</small>
-    </div>
-    
-    <details>
-      <summary class="btn btn-sm btn-outline-info mb-0" style="cursor: pointer;">상세 내용 보기</summary>
-      <div class="mt-3 ps-3 border-start border-info border-3">
-        <h6>💡 프로젝트 배경</h6>
-        <p>입사 후 첫 프로젝트로, Docker/Kubernetes 지식이 거의 없는 상태에서 시작했지만
-        실제 운영 중인 서비스를 다루며 클라우드 인프라의 전 과정을 경험할 수 있었습니다.</p>
-        
-        <h6>🎯 핵심 과제</h6>
-        <p><strong>1. CI/CD 파이프라인 구축</strong></p>
-        <ul>
-          <li>기존 수동 배포 프로세스를 자동 빌드/배포 환경 구축</li>
-          <li>Staging 환경 기반 Git Action을 통한 자동 빌드 환경 구축</li>
-          <li>Staging 환경 기반 Git Action을 통한 자동 빌드 환경 구축</li>
-          <li>문제 발생 시 즉시 롤백 가능하도록 준비</li>
-        </ul>
-        
-        <p><strong>2. 데이터베이스 동기화</strong></p>
-        <ul>
-          <li>Azure DMS 활용 실시간 복제로 데이터 일관성 보장</li>
-          <li>자동화된 데이터 무결성 체크 스크립트 작성</li>
-          <li>결과: 데이터 손실 0건</li>
-        </ul>
-        
-        <p><strong>3. Kubernetes 환경 구축</strong></p>
-        <ul>
-          <li>VM 기반 → 컨테이너 기반 전환</li>
-          <li>HA 구성 (replicas: 3, rollingUpdate 전략)</li>
-          <li>Pod 리소스 최적화 및 Health Check 설정</li>
-        </ul>
-        
-        <h6>📊 성과 지표</h6>
-        <table class="table table-sm">
-          <thead>
-            <tr>
-              <th>항목</th>
-              <th>AS-IS (KT Cloud)</th>
-              <th>TO-BE (Azure)</th>
-              <th>개선율</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>평균 응답 시간</td>
-              <td>1,200ms</td>
-              <td>720ms</td>
-              <td class="text-success"><strong>40% ↓</strong></td>
-            </tr>
-            <tr>
-              <td>장애 복구 시간</td>
-              <td>60분</td>
-              <td>5분</td>
-              <td class="text-success"><strong>92% ↓</strong></td>
-            </tr>
-            <tr>
-              <td>월 인프라 비용</td>
-              <td>100만원</td>
-              <td>65만원</td>
-              <td class="text-success"><strong>35% ↓</strong></td>
-            </tr>
-            <tr>
-              <td>배포 소요 시간</td>
-              <td>3시간</td>
-              <td>10분</td>
-              <td class="text-success"><strong>94% ↓</strong></td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <div class="alert alert-warning mt-3">
-          <strong>가장 힘들었던 점</strong>
-          <p class="mb-0">배포 후 특정 API만 간헐적으로 타임아웃이 발생하는 문제가 있었습니다.
-          3일 동안 로그를 분석한 결과, Azure Application Gateway의 타임아웃 설정이 
-          백엔드 처리 시간보다 짧게 설정되어 있었던 것이 원인이었습니다. 
-          이 경험을 통해 <strong>네트워크 계층에 대한 이해의 중요성</strong>을 깨달았고,
-          이후 AZ-204 시험 준비를 하게 된 계기가 되었습니다.</p>
-        </div>
-        
-        <div class="alert alert-info mt-3">
-          <strong>느낀점</strong>
-          <p class="mb-0">입사 직후 던져진 큰 프로젝트였지만, 오히려 <strong>실전에서 배우는 것이 가장 빠른 성장</strong>이라는 것을 느꼈습니다.
-          특히 실패의 가치, 문서화의 중요성, 협업의 중요성을 깨달았고, 이 프로젝트 이후 "클라우드 엔지니어"로서의 자신감이 생겼습니다.</p>
-        </div>
-        
-        <a href="https://globalshop.kt.com/global/globalMain.do" class="btn btn-sm btn-primary mt-2" target="_blank">
-          <i class="fas fa-external-link-alt"></i> 운영 사이트
-        </a>
-      </div>
-    </details>
+    <a href="https://github.com/JourneyJinni" class="btn btn-sm btn-dark mt-3" target="_blank">
+      <i class="fab fa-github"></i> GitHub Repository
+    </a>
   </div>
 </div>
 
@@ -560,7 +541,7 @@ order: 4
         </ul>
         
         <div class="alert alert-success mt-3">
-          <strong>느낀점</strong>
+          <strong>😊 느낀점</strong>
           <p class="mb-0">실제 사용자가 있는 앱을 3년간 운영하면서, 버그 수정, 기능 개선, 
           iOS 버전 업데이트 대응 등 앱 개발 실무와 유사한 경험을 쌓을 수 있었습니다.</p>
         </div>
@@ -585,7 +566,7 @@ order: 4
     <div class="d-flex justify-content-between align-items-start mb-3">
       <div>
         <h5 class="card-title mb-1">백준 크롬 확장 프로그램</h5>
-        <p class="text-muted mb-0"><small>2023.03 ~ 2023.06 | 교내 오픈소스프로젝트 (3인)</small></p>
+        <p class="text-muted mb-0"><small>2023.03 ~ 2023.06 | 교내 OSS (3인)</small></p>
       </div>
       <span class="badge bg-secondary">완료</span>
     </div>
@@ -617,9 +598,14 @@ order: 4
 
 ## 📝 기술 블로그
 
-<div class="mb-3">
+<div class="list-group mb-3">
 {% for post in site.posts limit:5 %}
-- [{{ post.title }}]({{ post.url | relative_url }}) <small class="text-muted">{{ post.date | date: "%Y.%m.%d" }}</small>
+  <a href="{{ post.url | relative_url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">{{ post.title }}</div>
+    </div>
+    <span class="badge bg-secondary rounded-pill">{{ post.date | date: "%Y.%m.%d" }}</span>
+  </a>
 {% endfor %}
 </div>
 
@@ -684,4 +670,7 @@ order: 4
 }
 </style>
 
+---
 
+> 함께 성장할 수 있는 기회가 있다면 언제든 연락 주세요! 😊
+{: .prompt-tip }
