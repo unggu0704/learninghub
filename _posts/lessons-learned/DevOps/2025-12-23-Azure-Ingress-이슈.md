@@ -22,7 +22,7 @@ image:
 
 현재 서비스의 네트워크 구조는 간단하게 아래와 같이 이루어져 있습니다.
 
-![image.png]({{ site.baseurl }}{{ page.url }}/img/azure4041.png)
+![image.png]({{ site.baseurl }}{{ page.url }}/img/azure4042.png)
 
 이번에 말썽을 부린건 Ingress 이 친구가 원인이였습니다. 
 쿠버네티스의 리소스인 Ingress는 HTTP/HTTPS 트래픽 라우팅 규칙을 정의하는 기능을 가지고 있지만, 이런 Ingress 자체가 기능을 제공하는 주체가 아닌, 그 상위 리소스인인 **Ingress Controller**가 실제 기능을 가지고 수행합니다.
@@ -56,7 +56,7 @@ spec:
 
 Ingress Controller의 최종 목표는 `nginx.conf`의 최종 조립이라고 볼 수 있습니다.
 
-![image.png]({{ site.baseurl }}{{ page.url }}/img/azure4042.png)
+![image.png]({{ site.baseurl }}{{ page.url }}/img/azure4041.png)
 
 kube-api가 Ingress를 비롯해 관련된 secret, svc, cm 등을 관리하며 변화를 감지하는데 `Ingress.yml`의 변화가 발생하면 kube-api는 이 변화를 Work Queue에 추가하여 새로운 `nginx.conf`를 생성하여 최종적으로 이 파일을 바탕으로 새로운 Ingress Controller는 동작합니다.
 
