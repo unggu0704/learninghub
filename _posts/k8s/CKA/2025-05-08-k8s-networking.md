@@ -68,13 +68,13 @@ kubectl expose deployment myapp --port=80 --target-port=8080 --name=myapp-servic
 
 Address Record라고 불리는 이 식은 도메인 이름을 IP 주소로 바꿔주는 것으로 
 
-`unggu.xyz`→ `142.250.206.46`
+`unggu0704.github.io/learninghub/`→ `142.250.206.46`
 
 라면 `142.250.206.46` 가 A-레코드라고 불린다. 
 
 **CNAME 레코드**
 
-[`unggu.xyz`](http://unggu.xyz) → `unggg0704.github.io`
+[`unggu0704.github.io/learninghub/`](http://unggu0704.github.io/learninghub/) → `unggg0704.github.io`
 
 특정 도메인에 대한 alias로 IP + Port를 알고 싶으면 이 친구에게 물어보라는 방식이다.
 
