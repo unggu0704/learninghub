@@ -412,24 +412,24 @@ order: 4
   <div class="card-body">
     <div class="d-flex justify-content-between align-items-start mb-3">
       <div>
-        <h5 class="card-title mb-1">레거시 시스템 클라우드 전환</h5>
+        <h5 class="card-title mb-1">Azure 클라우드 전환</h5>
         <p class="text-muted mb-0"><small>2024.01 ~ 2024.03 | KT Corporation | Cloud Migration Engineer</small></p>
       </div>
       <span class="badge bg-secondary">완료</span>
     </div>
     
-    <p class="mb-3">KT Cloud에서 Azure AKS 환경으로의 무중단 마이그레이션 프로젝트 (실제 운영 중인 대고객 서비스)</p>
+    <p class="mb-3">Azure AKS 환경 마이그레이션 프로젝트 (실제 운영 중인 대고객 서비스)</p>
     
     <div class="mb-3">
       <span class="badge bg-success me-1">Kubernetes</span>
       <span class="badge bg-success me-1">AKS</span>
-      <span class="badge bg-info me-1">Azure MySQL</span>
-      <span class="badge bg-warning text-dark me-1">App Gateway</span>
-      <span class="badge bg-secondary">Helm</span>
+      <span class="badge bg-info me-1">Azure Key Vault</span>
+      <span class="badge bg-warning text-dark me-1">App AppGW</span>
+      <span class="badge bg-secondary">Kustomization</span>
     </div>
     
     <div class="alert alert-success mb-3">
-      <small><strong>성과:</strong> 무중단 전환 성공 | 응답속도 40% 개선 | 장애 복구 시간 90% 단축 | 월 운영비 35% 절감</small>
+      <small><strong>성과:</strong>  안정화된 배포 프로세스 구축 | 장애 복구 시간 90% 단축 | 민감정보 일원화</small>
     </div>
     
     <details>
@@ -440,10 +440,11 @@ order: 4
         실제 운영 중인 서비스를 다루며 클라우드 인프라의 전 과정을 경험할 수 있었습니다.</p>
         
         <h6>🎯 핵심 과제</h6>
-        <p><strong>1. Blue-Green Deployment</strong></p>
+        <p><strong>1. CI/CD 파이프라인 구축</strong></p>
         <ul>
-          <li>DNS 가중치 라우팅으로 트래픽 점진적 이동 (10% → 50% → 100%)</li>
-          <li>실시간 모니터링으로 오류율 체크</li>
+          <li>기존 수동 배포 프로세스를 자동 빌드/배포 환경 구축</li>
+          <li>Staging 환경 기반 Git Action을 통한 자동 빌드 환경 구축</li>
+          <li>Staging 환경 기반 Git Action을 통한 자동 빌드 환경 구축</li>
           <li>문제 발생 시 즉시 롤백 가능하도록 준비</li>
         </ul>
         
@@ -500,7 +501,7 @@ order: 4
         </table>
         
         <div class="alert alert-warning mt-3">
-          <strong>🤔 가장 힘들었던 점</strong>
+          <strong>가장 힘들었던 점</strong>
           <p class="mb-0">배포 후 특정 API만 간헐적으로 타임아웃이 발생하는 문제가 있었습니다.
           3일 동안 로그를 분석한 결과, Azure Application Gateway의 타임아웃 설정이 
           백엔드 처리 시간보다 짧게 설정되어 있었던 것이 원인이었습니다. 
@@ -509,7 +510,7 @@ order: 4
         </div>
         
         <div class="alert alert-info mt-3">
-          <strong>😊 느낀점</strong>
+          <strong>느낀점</strong>
           <p class="mb-0">입사 직후 던져진 큰 프로젝트였지만, 오히려 <strong>실전에서 배우는 것이 가장 빠른 성장</strong>이라는 것을 느꼈습니다.
           특히 실패의 가치, 문서화의 중요성, 협업의 중요성을 깨달았고, 이 프로젝트 이후 "클라우드 엔지니어"로서의 자신감이 생겼습니다.</p>
         </div>
@@ -559,7 +560,7 @@ order: 4
         </ul>
         
         <div class="alert alert-success mt-3">
-          <strong>😊 느낀점</strong>
+          <strong>느낀점</strong>
           <p class="mb-0">실제 사용자가 있는 앱을 3년간 운영하면서, 버그 수정, 기능 개선, 
           iOS 버전 업데이트 대응 등 앱 개발 실무와 유사한 경험을 쌓을 수 있었습니다.</p>
         </div>
@@ -584,7 +585,7 @@ order: 4
     <div class="d-flex justify-content-between align-items-start mb-3">
       <div>
         <h5 class="card-title mb-1">백준 크롬 확장 프로그램</h5>
-        <p class="text-muted mb-0"><small>2023.03 ~ 2023.06 | 교내 OSS (3인)</small></p>
+        <p class="text-muted mb-0"><small>2023.03 ~ 2023.06 | 교내 오픈소스프로젝트 (3인)</small></p>
       </div>
       <span class="badge bg-secondary">완료</span>
     </div>
@@ -683,7 +684,4 @@ order: 4
 }
 </style>
 
----
 
-> 함께 성장할 수 있는 기회가 있다면 언제든 연락 주세요! 😊
-{: .prompt-tip }
