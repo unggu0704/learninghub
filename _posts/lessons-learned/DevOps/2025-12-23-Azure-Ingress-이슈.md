@@ -1,7 +1,7 @@
 ---
-title: AKS에서 Key Vault의 비밀 가져오기
+title: Azure환경에서 Ingress 라우팅 실패로 404 발생한 이야기
 author: "unggu"
-date: 2025-03-17 19:12:42 +0800
+date: 2025-11-27 19:12:42 +0800
 categories: [lessons-learned, DevOps]
 tags: [Azure, AKS, Kubernets, Container, DevOps, Key Vault]
 render_with_liquid: true
@@ -17,9 +17,8 @@ image:
 
 저는 귀국과 동시에 약간의 눈치와 함께 왜 이런 서비스의 Slient Failure이 발생했는지 집중적으로 조사하였고 이 과정에서 얻은 Lesson Learned을 정리해 보겠습니다.
 
---- 
 
-### 구조 및 개념 설명
+## 구조 및 개념 설명
 
 현재 서비스의 네트워크 구조는 간단하게 아래와 같이 이루어져 있습니다.
 
@@ -156,3 +155,9 @@ serviceaccount
     실제로 reload 후 Nginx pod에서 지속적으로 `WARN` 등급의 log가 발생함을 확인하였습니다. 이를 App Insight등을 통해 capture 할 수 있는 방인이 필요해보입니다.
 
     또한 Azure에서 이런 문법에 대해 fast failure를 제공해주지 않기에 CI/CD 파이프라인에 유효성 검증을 하는 절차를 추가하는 것도 좋은 방법이 될 수 있을 것입니다.
+
+
+## 끝으로...
+
+IT 서비스는 언제나 위태롭고 1년간 무사히 움직이다 하필.. 놀러가거나 방심할 때 터지는거 같다.
+아프지말고 무럭무럭 있어주렴 [서비스](https://globalshop.kt.com)야...
