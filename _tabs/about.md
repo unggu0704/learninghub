@@ -54,6 +54,8 @@ order: 4
     </div>
   </div>
 
+  <br><br><br>
+
   <div class="position-relative">
     <div class="card border-success shadow-sm">
       <div class="card-header bg-success text-white">
@@ -212,12 +214,14 @@ order: 4
     <div class="row g-4">
       <div class="col-12">
         <h6 class="text-primary mb-3">
-          <i class="fas fa-code"></i> Backend & API
+          <i class="fas fa-code"></i> Languaga & Framework
         </h6>
         <ul class="list-unstyled ms-3">
           <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Java</li>
           <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Spring Framework/Spring Boot</li>
           <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>RESTful API</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Swift/SwiftUI</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Javascript</li>
         </ul>
       </div>
       <div class="col-md-6">
@@ -275,14 +279,16 @@ order: 4
   <div class="card-body">
     <div class="d-flex justify-content-between align-items-start mb-3">
       <div>
-        <h5 class="card-title mb-1">레거시 시스템 Azure 클라우드 전환</h5>
-        <p class="text-muted mb-0"><small>2024.01 ~ 2024.03 | KT Corporation | Cloud Migration Engineer</small></p>
+        <h5 class="card-title mb-1">Azure 클라우드 환경전환</h5>
+        <p class="text-muted mb-0"><small>2024.10 ~ 2025.03 | KT DS | Devops</small></p>
       </div>
       <span class="badge bg-secondary">완료</span>
     </div>
     
-    <p class="mb-3">KT Cloud에서 Azure AKS 환경으로의 무중단 마이그레이션 프로젝트 (실제 운영 중인 대고객 서비스)</p>
+    <p class="mb-3">KT Cloud에서 Azure AKS 환경으로의 마이그레이션 프로젝트 (대고객 서비스)</p>
     
+    devops
+
     <div class="mb-3">
       <span class="badge bg-success me-1">Kubernetes</span>
       <span class="badge bg-success me-1">AKS</span>
@@ -292,7 +298,7 @@ order: 4
     </div>
     
     <div class="alert alert-success mb-3">
-      <small><strong>성과:</strong> 무중단 전환 성공 | 응답속도 40% 개선 | 장애 복구 시간 90% 단축 | 월 운영비 35% 절감</small>
+      <small><strong>성과:</strong> 무중단 전환 성공 | 일원화된 보안 설정 | 안정적인 배포 환경 구축 | 장애 복구 시간 90% 단축 </small>
     </div>
     
     <details>
@@ -300,28 +306,41 @@ order: 4
       <div class="mt-3 ps-3 border-start border-info border-3">
         <h6>💡 프로젝트 배경</h6>
         <p>입사 후 첫 프로젝트로, Docker/Kubernetes 지식이 거의 없는 상태에서 시작했지만
-        실제 운영 중인 서비스를 다루며 클라우드 인프라의 전 과정을 경험할 수 있었습니다.</p>
+        해당 프로젝트를 진행하며 클라우드 인프라의 전 과정을 경험할 수 있었습니다.</p>
         
         <h6>🎯 핵심 과제</h6>
-        <p><strong>1. Blue-Green Deployment</strong></p>
+        <p><strong>1. CI/CD 파이프라인 구축</strong></p>
         <ul>
-          <li>DNS 가중치 라우팅으로 트래픽 점진적 이동 (10% → 50% → 100%)</li>
-          <li>실시간 모니터링으로 오류율 체크</li>
-          <li>문제 발생 시 즉시 롤백 가능하도록 준비</li>
+          <li>Git Action을 통한 멀티 빌드 환경 구축 (사내 저장소 이용)</li>
+          <li>Kustomization + Gitops 방식의 yaml 저장</li>
+          <li>ArgoCD 구성을 통해 안정적인 CD 환경 구축</li>
         </ul>
         
-        <p><strong>2. 데이터베이스 동기화</strong></p>
-        <ul>
-          <li>Azure DMS 활용 실시간 복제로 데이터 일관성 보장</li>
-          <li>자동화된 데이터 무결성 체크 스크립트 작성</li>
-          <li>결과: 데이터 손실 0건</li>
-        </ul>
-        
-        <p><strong>3. Kubernetes 환경 구축</strong></p>
+        <p><strong>2. Kubernetes 환경 구축</strong></p>
         <ul>
           <li>VM 기반 → 컨테이너 기반 전환</li>
           <li>HA 구성 (replicas: 3, rollingUpdate 전략)</li>
           <li>Pod 리소스 최적화 및 Health Check 설정</li>
+        </ul>
+
+        <p><strong>3. 전환에 따른 데이터 동기화</strong></p>
+        <ul>
+          <li>점진적 DNS 전환을 통한 무중단 전환</li>
+          <li>DB Data mig를 통해 실시간 데이터 이관</li>
+          <li>결과: 데이터 손실 0건</li>
+        </ul>
+
+        <p><strong>4. 모니터링 환경 구축</strong></p>
+        <ul>
+          <li>JVM에 Agent 설치를 통한 Azure Monitor 연결</li>
+          <li>Alert rule 및 Action Group 설정을 통한 실시간 알림 체계 구축</li>
+        </ul>
+
+        <p><strong>5. 비밀/권한 설정</strong></p>
+        <ul>
+          <li>CI/CD 전과정의 비밀(Git Token, 저장소 Token, Azure Token) Key Vualt 연결</li>
+          <li>Secret <-> Azure Key Vault 설정을 톨한 소스내 민감정보 관리 </li>
+          <li>관리 ID/Ferdeation 설정 및 RBAC 설정 관리</li>
         </ul>
         
         <h6>📊 성과 지표</h6>
@@ -336,16 +355,16 @@ order: 4
           </thead>
           <tbody>
             <tr>
-              <td>평균 응답 시간</td>
-              <td>1,200ms</td>
-              <td>720ms</td>
-              <td class="text-success"><strong>40% ↓</strong></td>
-            </tr>
-            <tr>
               <td>장애 복구 시간</td>
               <td>60분</td>
               <td>5분</td>
               <td class="text-success"><strong>92% ↓</strong></td>
+            </tr>
+            <tr>
+              <td>장애 건수</td>
+              <td>2회/년</td>
+              <td>0회/년</td>
+              <td class="text-success"><strong>100% ↓</strong></td>
             </tr>
             <tr>
               <td>월 인프라 비용</td>
@@ -355,9 +374,9 @@ order: 4
             </tr>
             <tr>
               <td>배포 소요 시간</td>
-              <td>3시간</td>
+              <td>30분</td>
               <td>10분</td>
-              <td class="text-success"><strong>94% ↓</strong></td>
+              <td class="text-success"><strong>33% ↓</strong></td>
             </tr>
           </tbody>
         </table>
