@@ -13,13 +13,14 @@ order: 4
     <p class="text-muted mb-2">Backend Developer & DevOps Engineer</p>
     <p class="mb-0">
       <i class="fas fa-envelope text-primary"></i>
-      <a href="mailto:kyuhyeong.kim@kt.com" class="text-decoration-none">kyuhyeong.kim@kt.com</a>
+      <a href="mailto:kyuhyeong.kim@kt.com" class="text-decoration-none">kyuhung1001@gmail.com</a>
     </p>
   </div>
 </div>
 
 > Spring 기반 클라우드 네이티브 애플리케이션과 DevOps 문화에 관심이 많은 주니어 개발자입니다.  
-> 최근 Kubernetes 환경에서 안정적이고 확장 가능한 시스템을 설계하고 개발하는데 집중하고 있습니다.
+> 알맞은 기술과 구조로 소프트웨어를 설계하고, 이를 통해 코드를 다듬어 좋은 산출물을 만드는 것을 목표로 하고 있습니다.  
+> 최근에는 Kubernetes 환경에서 안정적이고 확장 가능한 시스템을 설계하고 개발하는 데 집중하고 있습니다.
 {: .prompt-info }
 
 ---
@@ -54,7 +55,7 @@ order: 4
     </div>
   </div>
 
-  <br><br><br>
+  <br>
 
   <div class="position-relative">
     <div class="card border-success shadow-sm">
@@ -312,13 +313,12 @@ order: 4
         <p><strong>1. CI/CD 파이프라인 구축</strong></p>
         <ul>
           <li>Git Action을 통한 멀티 빌드 환경 구축 (사내 저장소 이용)</li>
-          <li>Kustomization + Gitops 방식의 yaml 저장</li>
           <li>ArgoCD 구성을 통해 안정적인 CD 환경 구축</li>
         </ul>
         
         <p><strong>2. Kubernetes 환경 구축</strong></p>
         <ul>
-          <li>VM 기반 → 컨테이너 기반 전환</li>
+          <li>Kustomization + Gitops 방식의 yaml 저장</li>
           <li>HA 구성 (replicas: 3, rollingUpdate 전략)</li>
           <li>Pod 리소스 최적화 및 Health Check 설정</li>
         </ul>
@@ -339,7 +339,7 @@ order: 4
         <p><strong>5. 비밀/권한 설정</strong></p>
         <ul>
           <li>CI/CD 전과정의 비밀(Git Token, 저장소 Token, Azure Token) Key Vualt 연결</li>
-          <li>Secret <-> Azure Key Vault 설정을 톨한 소스내 민감정보 관리 </li>
+          <li>Secret <-> Azure Key Vault 설정을 통한 소스내 민감정보 관리 </li>
           <li>관리 ID/Ferdeation 설정 및 RBAC 설정 관리</li>
         </ul>
         
@@ -374,8 +374,8 @@ order: 4
             </tr>
             <tr>
               <td>배포 소요 시간</td>
-              <td>30분</td>
-              <td>10분</td>
+              <td>15분</td>
+              <td>5분</td>
               <td class="text-success"><strong>33% ↓</strong></td>
             </tr>
           </tbody>
@@ -383,17 +383,17 @@ order: 4
         
         <div class="alert alert-warning mt-3">
           <strong>🤔 가장 힘들었던 점</strong>
-          <p class="mb-0">배포 후 특정 API만 간헐적으로 타임아웃이 발생하는 문제가 있었습니다.
-          3일 동안 로그를 분석한 결과, Azure Application Gateway의 타임아웃 설정이 
-          백엔드 처리 시간보다 짧게 설정되어 있었던 것이 원인이었습니다. 
-          이 경험을 통해 <strong>네트워크 계층에 대한 이해의 중요성</strong>을 깨달았고,
-          이후 AZ-204 시험 준비를 하게 된 계기가 되었습니다.</p>
+          <p class="mb-0">배포 후 특정 pod가 간헐적으로 시작하지 못하는 문제가 있었습니다.
+          로그를 분석한 결과, pod의 startupProbe가 너무 낮게 설정되 있던 것이 원인이였습니다.
+          현재는 자연스럽게 분석이 가능하지만 당시에는 k8s에 대한 이해가 거의 전무하던 시절이라 해당 이슈를 잘 이해하지 못하였습니다.
+          그렇기에 당시 <strong>쿠버네티스에 대한 이해의 중요성</strong>을 깨달았고,
+          이후 CKA 시험 준비를 하게 된 계기가 되었습니다.</p>
         </div>
         
         <div class="alert alert-info mt-3">
           <strong>😊 느낀점</strong>
-          <p class="mb-0">입사 직후 던져진 큰 프로젝트였지만, 오히려 <strong>실전에서 배우는 것이 가장 빠른 성장</strong>이라는 것을 느꼈습니다.
-          특히 실패의 가치, 문서화의 중요성, 협업의 중요성을 깨달았고, 이 프로젝트 이후 "클라우드 엔지니어"로서의 자신감이 생겼습니다.</p>
+          <p class="mb-0">입사 직후 던져진 큰 프로젝트였지만, 오히려 <strong>실전에서 배우고 느끼는 것이 가장 빠른 성장</strong>이라는 것을 느꼈습니다.
+          특히 실패의 가치, 문서화의 중요성, 협업의 중요성을 깨달았고, 이 프로젝트 이후 "Devops 엔지니어"로서의 자신감이 생겼습니다.</p>
         </div>
       </div>
     </details>
@@ -411,9 +411,9 @@ order: 4
     <div class="d-flex justify-content-between align-items-start mb-3">
       <div>
         <h5 class="card-title mb-1">소상공인을 위한 AI 리뷰 관리 솔루션</h5>
-        <p class="text-muted mb-0"><small>2025.05 ~ 진행중 | 사내 교육 MVP (6인) | Backend & DevOps</small></p>
+        <p class="text-muted mb-0"><small>2025.05 ~ 2025.07 | 사내 교육 MVP (6인) | Backend & DevOps</small></p>
       </div>
-      <span class="badge bg-success">진행중</span>
+      <span class="badge bg-success">완료</span>
     </div>
     
     <p class="mb-3">다양한 플랫폼의 리뷰를 자동 수집·분석하고, ChatGPT API를 활용한 맞춤형 실행계획을 통해 매장 운영 개선을 지원하는 MSA 기반 웹 서비스</p>
@@ -456,7 +456,7 @@ order: 4
         <div class="alert alert-info mt-3">
           <strong>🛠 학습 성과</strong>
           <p class="mb-0">MSA 및 클라우드 디자인 패턴에 대한 이론 학습 후, 2주간의 Sprint를 통해 실제 MVP로 구현하며 
-          Cloud Native 애플리케이션 개발의 전 과정을 체험했습니다. 현재 서비스에서 클라우드 디자인패턴을 통해 해결할 수 있는 포인트를 모색하고 있습니다.</p>
+          Cloud Native 애플리케이션 개발의 전 과정을 체험했습니다. 이를 바탕으로 실무에서 발생하는 이슈를 디자인패턴을 통해 해결할 수 있는 포인트를 모색하고 있습니다.</p>
         </div>
         
         <a href="https://github.com/ktds-garage-04" class="btn btn-sm btn-dark mt-2" target="_blank">
@@ -474,7 +474,7 @@ order: 4
     <div class="d-flex justify-content-between align-items-start mb-3">
       <div>
         <h5 class="card-title mb-1">여행을 지니다 + 여행을 추천하다</h5>
-        <p class="text-muted mb-0"><small>2024.05 ~ 2024.06 | SSAFY (2인) | Full-Stack</small></p>
+        <p class="text-muted mb-0"><small>2024.05 ~ 2024.06 | SSAFY (2인) | Web</small></p>
       </div>
       <span class="badge bg-secondary">완료</span>
     </div>
@@ -512,7 +512,7 @@ order: 4
         <div class="alert alert-success mt-3">
           <strong>🛠 학습 성과</strong>
           <p class="mb-0">SSAFY 프로젝트를 단순히 끝내지 않고, 실무에서 사용되는 DevOps 기술을 적용하여 
-          클라우드 네이티브 애플리케이션으로 발전시키며 업무 역량 향상에 큰 도움이 되었습니다.</p>
+          클라우드 네이티브 애플리케이션으로 발전시키며 실무 역량 향상에 큰 도움이 되었습니다.</p>
         </div>
         <a href="https://github.com/JourneyJinni" class="btn btn-sm btn-dark mt-3" target="_blank">
           <i class="fab fa-github"></i> GitHub Repository
@@ -530,7 +530,7 @@ order: 4
     <div class="d-flex justify-content-between align-items-start mb-3">
       <div>
         <h5 class="card-title mb-1">나주시 버스 도착 정보 제공 앱</h5>
-        <p class="text-muted mb-0"><small>2023.03 ~ 현재 | 개인 프로젝트 | iOS</small></p>
+        <p class="text-muted mb-0"><small>2023.03 ~ 현재 | 개인 프로젝트 | iOS App</small></p>
       </div>
       <span class="badge bg-success">운영중</span>
     </div>
@@ -584,7 +584,7 @@ order: 4
     <div class="d-flex justify-content-between align-items-start mb-3">
       <div>
         <h5 class="card-title mb-1">백준 크롬 확장 프로그램</h5>
-        <p class="text-muted mb-0"><small>2023.03 ~ 2023.06 | 교내 OSS (3인)</small></p>
+        <p class="text-muted mb-0"><small>2023.03 ~ 2023.06 | 교내 오픈소스 프로젝트 (3인)</small></p>
       </div>
       <span class="badge bg-secondary">완료</span>
     </div>
@@ -631,7 +631,6 @@ order: 4
   <i class="fas fa-archive"></i> 전체 포스트 보기
 </a>
 
----
 
 ## 📞 Contact
 
