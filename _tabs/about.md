@@ -343,12 +343,12 @@ order: 4
     
     <div class="mb-3">
       <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#project1Details" aria-expanded="false">
-        <i class="fas fa-plus-circle me-2"></i>상세 내용 보기
+        <i class="fas fa-chevron-down me-2"></i>상세 내용 보기
       </button>
     </div>
     
     <div class="collapse" id="project1Details">
-      <div class="card card-body border-primary mt-3">
+      <div class="card card-body bg-light mt-3">
         <h6 class="fw-bold text-primary">
           <i class="fas fa-lightbulb me-2"></i>프로젝트 배경
         </h6>
@@ -506,13 +506,13 @@ order: 4
     </div>
     
     <div class="mb-3">
-      <button class="btn btn-outline-success w-100" type="button" data-bs-toggle="collapse" data-bs-target="#project2Details" aria-expanded="false">
-        <i class="fas fa-plus-circle me-2"></i>상세 내용 보기
+      <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#project2Details" aria-expanded="false">
+        <i class="fas fa-chevron-down me-2"></i>상세 내용 보기
       </button>
     </div>
     
     <div class="collapse" id="project2Details">
-      <div class="card card-body border-success mt-3">
+      <div class="card card-body bg-light mt-3">
         <h6 class="fw-bold text-success">
           <i class="fas fa-star me-2"></i>주요 기능
         </h6>
@@ -599,13 +599,13 @@ order: 4
     </div>
     
     <div class="mb-3">
-      <button class="btn btn-outline-info w-100" type="button" data-bs-toggle="collapse" data-bs-target="#project3Details" aria-expanded="false">
-        <i class="fas fa-plus-circle me-2"></i>상세 내용 보기
+      <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#project3Details" aria-expanded="false">
+        <i class="fas fa-chevron-down me-2"></i>상세 내용 보기
       </button>
     </div>
     
     <div class="collapse" id="project3Details">
-      <div class="card card-body border-info mt-3">
+      <div class="card card-body bg-light mt-3">
         <h6 class="fw-bold text-info">
           <i class="fas fa-lightbulb me-2"></i>프로젝트 배경
         </h6>
@@ -682,13 +682,13 @@ order: 4
     </div>
     
     <div class="mb-3">
-      <button class="btn btn-outline-warning w-100" type="button" data-bs-toggle="collapse" data-bs-target="#project4Details" aria-expanded="false">
-        <i class="fas fa-plus-circle me-2"></i>상세 내용 보기
+      <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#project4Details" aria-expanded="false">
+        <i class="fas fa-chevron-down me-2"></i>상세 내용 보기
       </button>
     </div>
     
     <div class="collapse" id="project4Details">
-      <div class="card card-body border-warning mt-3">
+      <div class="card card-body bg-light mt-3">
         <h6 class="fw-bold text-warning">
           <i class="fas fa-lightbulb me-2"></i>개발 동기
         </h6>
@@ -767,13 +767,13 @@ order: 4
     </div>
     
     <div class="mb-3">
-      <button class="btn btn-outline-secondary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#project5Details" aria-expanded="false">
-        <i class="fas fa-plus-circle me-2"></i>상세 내용 보기
+      <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#project5Details" aria-expanded="false">
+        <i class="fas fa-chevron-down me-2"></i>상세 내용 보기
       </button>
     </div>
     
     <div class="collapse" id="project5Details">
-      <div class="card card-body border-secondary mt-3">
+      <div class="card card-body bg-light mt-3">
         <h6 class="fw-bold text-secondary">
           <i class="fas fa-hands-helping me-2"></i>기여 내용
         </h6>
@@ -798,7 +798,38 @@ order: 4
   </div>
 </div>
 
+<script>
+// Collapse 열릴 때 chevron 아이콘 회전
+document.addEventListener('DOMContentLoaded', function() {
+  const collapseElements = document.querySelectorAll('[data-bs-toggle="collapse"]');
+  
+  collapseElements.forEach(function(element) {
+    const targetId = element.getAttribute('data-bs-target');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      targetElement.addEventListener('shown.bs.collapse', function() {
+        const icon = element.querySelector('.fa-chevron-down');
+        if (icon) {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        }
+      });
+      
+      targetElement.addEventListener('hidden.bs.collapse', function() {
+        const icon = element.querySelector('.fa-chevron-up');
+        if (icon) {
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        }
+      });
+    }
+  });
+});
+</script>
+
 ---
+
 
 
 ## 📝 기술 블로그
