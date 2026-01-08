@@ -885,7 +885,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
     </div>
     <div class="col-6 col-md-3">
-      <a href="https://unggu.xyz" class="text-decoration-none d-block" target="_blank">
+      <a href="https://unggu.dev" class="text-decoration-none d-block" target="_blank">
         <div class="card h-100 border-success shadow-sm hover-shadow">
           <div class="card-body text-center py-4">
             <i class="fas fa-blog fa-2x text-success mb-2"></i>
