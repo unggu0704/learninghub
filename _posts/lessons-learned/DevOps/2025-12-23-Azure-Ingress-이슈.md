@@ -3,14 +3,14 @@ title: Azure환경에서 Ingress 라우팅 실패로 404 발생한 이야기
 author: "unggu"
 date: 2025-11-27 19:12:42 +0800
 categories: [lessons-learned, DevOps]
-tags: [Azure, AKS, Kubernets, Container, DevOps, Key Vault]
+tags: [Azure, AKS, Kubernets, Container, DevOps]
 render_with_liquid: true
 comments: true
 image:
   path: assets\img\metaimg\azure_404.png
 ---
 
-2025년 10월 4일 파리의 한 숙소에서 아침을 맞이하고 눈을 떳을 때, 핸드폰에 다수의 알람과 부재중 전화가 찍혀있던 경험이 어제와 같이 생생합니다.
+2025년 10월 4일 외국여행 중 핸드폰에 다수의 알람과 부재중 전화가 찍혀있던 경험이 어제와 같이 생생합니다.
 
 저의 서비스가 자는 시간 동안 (한국 기준 오전 10시 경)에 웹 사이트 접속 불가 화면이 발생하면서 이상 징후가 발생하였고 이를 해결하기 위해 유관부서 및 팀원분들이 열심히.. 원인을 파악한 일화가 있습니다.
 당시에는 Ingress의 라우팅 실패로 인한 서비스 장애로 결론 내렸고, 결국 Ingress의 특정 어노테이션을 제거함으로써, 제가 자는동안(?) 모든 상황은 다행히도 해결 되었습니다.
