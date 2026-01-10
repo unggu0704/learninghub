@@ -41,7 +41,7 @@ String ipAddress = request.getRemoteAddr();
 
 ## X-Forwarded-For (XFF) 헤더의 사용
 
-![image.png]({{ site.baseurl }}{{ page.url }}/img/azure4041.png)
+![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fw0iYZ%2FbtsdzBTv9Id%2FkWABhIvQraporzX256wWYK%2Fimg.png)
 
 프록시나 L7 Load Balancer 환경에서는
 Client IP 식별을 위해 X-Forwarded-For(XFF) 헤더를 사용하는 것이 일반적입니다.
@@ -107,9 +107,9 @@ WAS에 도달하기 전에 값이 변경되었음을 알 수 있습니다.
 
 원인을 추적해보면 Nginx Ingress Controller가 XFF 헤더를 일부 조작하는걸 알 수 있습니다.
 
-> https://techcommunity.microsoft.com/blog/azurestackblog/notes-from-the-field-ingress-controller-troubleshooting-of-x-forwarded-for-heade/3753946
+> [notes-from-the-field-ingress-controller-troubleshooting-of-x-forwarded-for-heade](https://techcommunity.microsoft.com/blog/azurestackblog/notes-from-the-field-ingress-controller-troubleshooting-of-x-forwarded-for-heade/3753946)
 
-> https://github.com/kubernetes/ingress-nginx/issues/5970#issuecomment-879855750
+> [ngress-nginx/issues/5970](https://github.com/kubernetes/ingress-nginx/issues/5970#issuecomment-879855750)
 
 
 ## Client IP 흐름 정리
@@ -166,7 +166,8 @@ System.out.println("클라이언트 IP: " + clientIp);
 - 보안 분석 / SIEM 도구
 
 예를 들어 모니터링 tool에서 XFF 헤더를 가져가서 ClientIP로 인지 해버릴수가 있습니다.
-만약 일반적인 Nginx Ingress Controller였다면, 신뢰할 수 있는 IP대역의 XFF 헤더를 바꾸지 말라고 지정할 수 있었겠지만, Azure의 App-rotung Nginx에서는 이러한 설정을 할 수 가 없습니다.
+
+만약 일반적인 Nginx였다면, 신뢰할 수 있는 IP대역 설정이 가능하였겠지만, Azure의 App-rotung Nginx에서는 이러한 설정은 제힌되어 있습니다.
 
 그래서 우선 서비스 내 Ingress의 어노테이션을 활용해 이 설정을 오버라이딩 시도해보겠습니다.
 ```
@@ -175,7 +176,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-set-headers: "X-Forwarded-For $http_x_forwarded_for";
 ```
 
-위 설정을 할 때 Azure에서 제공되는 Nginx면 `{`, `}`와 같은 금지된 문법은 invaild syntax가 발생하기에 주의해야합니다.
+위 설정을 할 때 Azure Nginx는 `{`, `}`와 같은 금지된 문법은 invaild syntax가 발생하기에 주의해야합니다.
 
 **Invaild Syntax 문법을 사용한 예**
 ```
@@ -188,6 +189,7 @@ metadata:
 ```
 해당 설정을 통해 문제가 되었던 자세한 이야기는 아래 글에서 확인이 가능합니다.
 
+ > [Azure환경에서 Ingress 라우팅 실패로 404 발생한 이야기](https://unggu.dev/lessons-learned/devops/Azure-Ingress-%EC%9D%B4%EC%8A%88/)
 
 서비스 내 Ingress에 적용하고 상위 Ingress Controller의 Nginx Pod내 `nginx.conf`를 확인하여 설정이 잘 올라갔는지 체크합니다.
 
@@ -212,7 +214,9 @@ proxy_set_headers "X-Forwarded-For $http_x_forwarded_for";
 
 정상적으로 `nginx.conf` 에 반영되었지만 여전히 xff 헤더에 대해 원하는 결과를 얻지 못하였습니다.
 
-저는 Ingress Annotaion을 통한 Proxy_set_header의 설정 자체가 정상적으로 작동하는지 의심스러웠고 이를 테스트 하기 위해 아래와 같은 테스트를 시도했습니다.
+**테스트**
+
+Ingress Annotaion을 통한 `Proxy_set_header`의 설정 자체가 정상적으로 작동하는지 의심스러웠고 이를 테스트 하기 위해 아래와 같은 테스트를 시도했습니다.
 
 1. AppGW에서 `test`라는 이름의 Custom Header를 생성
 2. 서비스 내 Ingress의 `proxy_set_header`를 통해 해당 Custom Header를 변조 시도
@@ -220,7 +224,9 @@ proxy_set_headers "X-Forwarded-For $http_x_forwarded_for";
 
 
 **AppGW내 Custom Header 추가**
+
 ![image.png]({{ site.baseurl }}{{ page.url }}/img/image.png)
+
 **Ingress 어노테이션 추가**
 ```
 metadata:
@@ -253,12 +259,13 @@ metadata:
 `10:28:28,926 INFO [stdout] (default task-7) test: 1.1.1.1`
 `10:28:28,926 INFO [stdout] (default task-7) X-Forwarded-For: {AppGW IP}
 ```
-정상적으로 `proxy_set`을 통해 커스텀 헤더는 조작을 확인하였습니다
+정상적으로 `proxy_set`을 통해 커스텀 헤더는 조작을 확인하였습니다.
+
 다만, 정작 중요한 XFF 헤더는 여전히 조작할 수 없었습니다.
 
 아마 `lua` 등의 스크립트에서 더 강력한 제어를 통해 위변조를 막은것으로 추정하며 다른 방식이 필요할듯 합니다.
 
-### 믿을 수 있는 header 설정하기 (use-forwarded-headers)
+### 방법1. 믿을 수 있는 header 설정하기 (use-forwarded-headers) (실패)
 
 `nginx.ingress.kubernetes.io/use-forwarded-headers: "true"` 어노테이션을 적용했으나, 이 설정은 이전 프록시의 X-Forwarded-For 헤더를 신뢰하여 전달하는 기능만 제공합니다.
 
@@ -267,16 +274,19 @@ metadata:
 따라서 Application Gateway를 통해 들어온 요청의 실제 클라이언트 IP를 얻을 수 없었습니다.
 
 
-### Java Agent 오버라이딩
+### 방법2. Java Agent 오버라이딩 (실패)
 
 현재 Applcation Insgiht(Azure 모니터)는 Agent Jar 형태로 WAS가 빌드 되어질 때, 함께 기동하는 식으로 구성되어 있습니다. 
 
 이 Jar를 오버라이딩 하는 방안을 생각해보았지만 아래 공식문서에서 Agent 3.x 버전부터는 `TelemetryInitializer`를 사용하지 않고 자동화된 방안으로 데이터를 수집한다고 나와있어 불가능 하다고합니다. 
-> https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-upgrade-from-2x
+> [java-standalone-upgrade-from-2x](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-upgrade-from-2x)
 
 ### 우회 방안
 
-XFF헤더는 Nginx가 강력하게 제어하고 Java Agent 설정도 막혀있음을 확인했습니다. 하지만 다른 Custom 헤더는 느슨한 방식으로 제어함도 알았습니다. 
+XFF헤더는 Nginx가 강력하게 제어하고 Java Agent 설정도 막혀있음을 확인했습니다. 
+
+하지만 다른 Custom 헤더는 느슨한 방식으로 제어함도 알았습니다. 
+
 그렇기에 실제 Client IP를 표준 XFF헤더가 아닌 별도의 헤더를 통해 뒤로 넘겨 이를 Azure 모니터가 Custom 헤더로 수집하도록 설정을 할 수 있습니다. (별도의 컬럼으로 저장됨)
 
 ```
@@ -301,24 +311,29 @@ requests
 
 이를 통해 모니터링 툴에서 여전히 AppGW IP(잘못된 IP)로 보이지만, 커스텀 헤더를 추가 조회함으로써 실제 Client IP를 추가 조회는 가능합니다.
 
-현재로써는 Azure 모니터 수집 로직 수정 및 Nginx 영역의 제어가 불가능하다고 판단하여, 이러한 방법으로 조치가 최선이라고 생각되지만, 추후 다른 방법 또는 Azure의 업데이트를 통해 더 나은 방향으로 개선됨을 기대합니다.
+현재로써는 이러한 방법이 최선이라고 생각되지만, 추후 다른 방법 또는 Azure의 업데이트를 통해 더 나은 방향으로 개선됨을 기대합니다.
 
 ### 번외. 다른 모니터링 툴은?
 
 **Datadog** 
-환경변수 `DD_TRACE_CLIENT_IP_HEADER`로 커스텀 헤더 직접 지정 가능. `
+
+환경변수 `DD_TRACE_CLIENT_IP_HEADER`로 커스텀 헤더 직접 지정 가능. 
 
 **WhaTap** 
+
 설정 옵션 `trace_http_client_ip_header_key`로 커스텀 헤더 직접 지정 가능. 
 
 **Elastic APM** 
+
 커스텀 헤더 지원 안 함. Forwarded, X-Real-IP, X-Forwarded-For 3개만 하드코딩되어 있고 추가/변경 불가.
 
 **Application Insights** 
+
 커스텀 헤더 지원 안 함. X-Forwarded-For만 사용하며 마지막 IP만 수집. Java Agent에서 헤더 선택 불가.
 
 **Jennifer** 
-WAS 레벨에서 설정된 헤더 지원으로 추정
+
+WAS 레벨에서 설정된 헤더를 바라보는것으로 추정
 
 
 
