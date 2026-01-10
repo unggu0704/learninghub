@@ -46,8 +46,8 @@ order: 4
         <div class="alert alert-success mb-0">
           <strong>주요 성과:</strong>
           <ul class="mb-0 mt-2">
-            <li>KT 대고객 서비스 Azure Migration 무중단 전환</li>
-            <li>배포 시간 83% 단축 (30분 → 5분)</li>
+            <li>KT 대고객 서비스 Azure Migration</li>
+            <li>배포 시간 단축 (20분 → 5분)</li>
             <li>장애 발생률 100% 감소 (연 2건 → 0건)</li>
           </ul>
         </div>
@@ -327,16 +327,12 @@ order: 4
           <small class="text-muted">전환 성공</small>
         </div>
         <div class="col-6 col-md-3">
-          <strong class="d-block fs-5 text-success">83%↓</strong>
+          <strong class="d-block fs-5 text-success">20분 -> 5분</strong>
           <small class="text-muted">배포 시간</small>
         </div>
         <div class="col-6 col-md-3">
-          <strong class="d-block fs-5 text-success">100%↓</strong>
+          <strong class="d-block fs-5 text-success">2건 -> 0건</strong>
           <small class="text-muted">장애 발생률</small>
-        </div>
-        <div class="col-6 col-md-3">
-          <strong class="d-block fs-5 text-success">35%↓</strong>
-          <small class="text-muted">인프라 비용</small>
         </div>
       </div>
     </div>
