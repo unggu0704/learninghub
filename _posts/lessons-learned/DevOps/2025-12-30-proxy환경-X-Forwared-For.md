@@ -69,8 +69,8 @@ System.out.println("클라이언트 IP: " + clientIp);
 클라이언트 IP: {AppGW IP} 
 ```
     
-서버는 Client IP를 기대했지만
-실제로는 Application Gateway의 IP 대역만 확인됩니다.
+서버는 표준이 XFF 헤더에서 추출하였기에 실제 Client IP를 기대했지만
+실제로는 Application Gateway의 IP 대역(Proxy)이 확인됩니다.
 
 
 ## 🤔 왜 이런 현상이 발생할까?
@@ -79,10 +79,10 @@ System.out.println("클라이언트 IP: " + clientIp);
 
 Microsoft 공식 문서에 따르면
 
-Application Gateway는 자신이 바라본 Client의 TCP IP를 자동으로 X-Forwarded-For 헤더에 삽입합니다.
+Application Gateway는 자신이 바라본 Client의 TCP IP를 자동으로 X-Forwarded-For 헤더에 올바르게 삽입합니다.
 (별도의 Rewrite Rule 불필요)
 
-> https://learn.microsoft.com/en-us/azure/application-gateway/how-application-gateway-works
+> [how-application-gateway-works?](https://learn.microsoft.com/en-us/azure/application-gateway/how-application-gateway-works)
 
 
 ###  WAS에 도달한 Header 확인
@@ -90,13 +90,13 @@ Application Gateway는 자신이 바라본 Client의 TCP IP를 자동으로 X-Fo
 WAS에 모든 Header를 추가하는 로직을 추가한 뒤 확인한 결과는 다음과 같습니다.
 
 ```
-    X-Original-Forwarded-For: {Client IP}:{Port}
+    X-Original-Forwarded-For: {Client IP}:{Port} <- 이건 뭐지?
     X-Real-IP: {AppGW IP}
     X-Forwarded-For: {AppGW IP}
 ```
 
 로그 내용을 정리하면 아래와 같습니다.
-*
+
 - 실제 Client IP는 **X-Original-Forwarded-For** 에 존재
 - X-Forwarded-For 는 **AppGW IP**로 변경됨
 
@@ -105,9 +105,15 @@ WAS에 도달하기 전에 값이 변경되었음을 알 수 있습니다.
 
 ### Nginx Ingress Controller의 동작
 
-원인을 추적해보면 Nginx Ingress Controller가 XFF 헤더를 일부 조작하는걸 알 수 있습니다.
+현재 아키텍쳐를 다시 보면 
 
-> [notes-from-the-field-ingress-controller-troubleshooting-of-x-forwarded-for-heade](https://techcommunity.microsoft.com/blog/azurestackblog/notes-from-the-field-ingress-controller-troubleshooting-of-x-forwarded-for-heade/3753946)
+![image.png]({{ site.baseurl }}{{ page.url }}/img/azure4042.png)
+
+AppGW와 Pod 사이 Ingress(Nginx)가 존재함을 확인할 수 있습니다. 
+
+그리고 결국 이 친구가 XFF헤더를 일부 조작하는 것을 파악하였습니다.
+
+> [notes-from-the-field-ingress-controller-troubleshooting-of-x-forwarded-for-header](https://techcommunity.microsoft.com/blog/azurestackblog/notes-from-the-field-ingress-controller-troubleshooting-of-x-forwarded-for-heade/3753946)
 
 > [ngress-nginx/issues/5970](https://github.com/kubernetes/ingress-nginx/issues/5970#issuecomment-879855750)
 
@@ -116,14 +122,14 @@ WAS에 도달하기 전에 값이 변경되었음을 알 수 있습니다.
 
 ### 1. Application Gateway
 
-Client 요청 수신 시 XFF 헤더
+Client 요청 수신 시 XFF 헤더에 정상적으로 Client IP를 삽입해서 뒤로 넘깁니다. (Ingress에게...)
 ```
 X-Forwarded-For: {Client IP}
 ```
 
 ### 2. Nginx Ingress Controller
 
-Nginx는 외부에서 전달된 XFF를 신뢰하지 않습니다.
+Nginx 입장에서는 외부에서 전달된 XFF를 신뢰하지 않습니다.
 (XFF는 조작 가능하다고 판단)
 
 따라서 다음과 같은 처리를 수행합니다.
@@ -165,18 +171,23 @@ System.out.println("클라이언트 IP: " + clientIp);
 - Azure Monitor / Application Insights
 - 보안 분석 / SIEM 도구
 
-예를 들어 모니터링 tool에서 XFF 헤더를 가져가서 ClientIP로 인지 해버릴수가 있습니다.
+예를 들어 모니터링 툴에서 XFF 헤더를 가져가서 ClientIP로 인지 해버릴수가 있습니다.
 
-만약 일반적인 Nginx였다면, 신뢰할 수 있는 IP대역 설정이 가능하였겠지만, Azure의 App-rotung Nginx에서는 이러한 설정은 제힌되어 있습니다.
+만약 일반적인 Nginx였다면, 신뢰할 수 있는 IP대역 설정이 가능하지만 
+
+Azure의 App-rotung Nginx에서는 이러한 설정은 제힌되어 있습니다.
 
 그래서 우선 서비스 내 Ingress의 어노테이션을 활용해 이 설정을 오버라이딩 시도해보겠습니다.
+
+**proxy-set-headers를 사용하여 헤더 rewrite**
+
 ```
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/proxy-set-headers: "X-Forwarded-For $http_x_forwarded_for";
 ```
 
-위 설정을 할 때 Azure Nginx는 `{`, `}`와 같은 금지된 문법은 invaild syntax가 발생하기에 주의해야합니다.
+위 설정을 할 때 Azure Nginx는 `{`, `}`와 같은 금지된 문법은 Invaild syntax가 발생하기에 주의해야합니다.
 
 **Invaild Syntax 문법을 사용한 예**
 ```
@@ -225,7 +236,7 @@ Ingress Annotaion을 통한 `Proxy_set_header`의 설정 자체가 정상적으�
 
 **AppGW내 Custom Header 추가**
 
-![image.png]({{ site.baseurl }}{{ page.url }}/img/image.png)
+![image.png]({{ site.baseurl }}{{ page.url }}/img/image.png)_test라는 헤더를 `1.1.1.1`로 설정_
 
 **Ingress 어노테이션 추가**
 ```
@@ -270,8 +281,6 @@ metadata:
 `nginx.ingress.kubernetes.io/use-forwarded-headers: "true"` 어노테이션을 적용했으나, 이 설정은 이전 프록시의 X-Forwarded-For 헤더를 신뢰하여 전달하는 기능만 제공합니다.
 
 실제 클라이언트 IP를 정확히 추출하려면 `proxy-real-ip-cidr`을 통해 신뢰할 수 있는 프록시 IP 대역을 지정해야 하지만, Azure 관리형 Nginx는 ConfigMap 수정을 지원하지 않아 이 설정이 불가능합니다.
-
-따라서 Application Gateway를 통해 들어온 요청의 실제 클라이언트 IP를 얻을 수 없었습니다.
 
 
 ### 방법2. Java Agent 오버라이딩 (실패)

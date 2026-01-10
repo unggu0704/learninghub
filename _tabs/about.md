@@ -109,7 +109,7 @@ order: 4
     <div class="card h-100 border-info">
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-info">NHN Academy</h6>
-        <p class="card-text mb-0">Java/Servlet & 올바른 SW 설계법</p>
+        <p class="card-text mb-0">Software Construction </p>
       </div>
     </div>
   </div>
@@ -333,6 +333,10 @@ order: 4
         <div class="col-6 col-md-3">
           <strong class="d-block fs-5 text-success">2건 -> 0건</strong>
           <small class="text-muted">장애 발생률</small>
+        </div>
+        <div class="col-6 col-md-3">
+          <strong class="d-block fs-5 text-success">CI/CD 구축</strong>
+          <small class="text-muted">GitOps 기반</small>
         </div>
       </div>
     </div>
