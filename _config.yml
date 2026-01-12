@@ -45,12 +45,13 @@ social:
 
 # Site Verification Settings
 webmaster_verifications:
-  google: # fill in your Google verification code
+  google: si4uIguXvdqQRfWJjb0DIds8Gh583F_9cTRqT4CvHnY
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
   baidu: # fill in your Baidu verification code
   facebook: # fill in your Facebook verification code
+  naver: d49a154d5cf0da3be5c9cbed2b2a4992a91a0ccb
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
@@ -58,7 +59,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: # fill in your Google Analytics ID
+    id: G-S2HLMJS0QE
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:

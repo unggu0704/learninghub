@@ -306,13 +306,16 @@ order: 4
           <i class="fab fa-microsoft me-1"></i>Azure
         </span>
         <span class="badge bg-info me-2 mb-2 px-3 py-2">
-          <i class="fas fa-database me-1"></i>MySQL
+          <i class="fas fa-database me-1"></i>PostgreSQL
         </span>
         <span class="badge bg-warning text-dark me-2 mb-2 px-3 py-2">
           <i class="fas fa-network-wired me-1"></i>App Gateway
         </span>
         <span class="badge bg-secondary me-2 mb-2 px-3 py-2">
-          <i class="fas fa-ship me-1"></i>Helm
+          <i class="fas fa-ship me-1"></i>Kustomize
+        </span>
+        <span class="badge bg-secondary me-2 mb-2 px-3 py-2">
+           <i class="fas fa-gauge-high"></i>Azure Monitor
         </span>
       </div>
     </div>
