@@ -2,6 +2,7 @@
 title: Introduce | 김규형
 icon: fas fa-info-circle
 order: 4
+hidden: true
 ---
 
 # 👋 안녕하세요 김규형입니다
@@ -273,7 +274,7 @@ order: 4
 ---
 ## 🚀 프로젝트
 
-### KT 외국인샵 Azure Migration
+### KT 대고객 서비스 Azure Migration
 
 <div class="card mb-5 border-primary shadow-sm">
   <div class="card-header bg-primary text-white">
@@ -457,10 +458,6 @@ order: 4
         </div>
       </div>
     </div>
-    
-    <a href="https://globalshop.kt.com/global/globalMain.do" class="btn btn-primary mt-3" target="_blank">
-      <i class="fas fa-external-link-alt me-2"></i>운영 사이트 바로가기
-    </a>
   </div>
 </div>
 
