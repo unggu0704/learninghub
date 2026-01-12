@@ -168,3 +168,5 @@ serviceaccount
 IT 서비스는 언제나 위태롭고 1년간 무사히 움직이다 하필.. 놀러가거나 방심할 때 터지는거 같습니다.
 
 아프지말고 무럭무럭 있어주렴 [서비스](https://globalshop.kt.com)야...
+
+© 2025 unggu. All rights reserved.

@@ -35,6 +35,7 @@
             <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
           </a>
         </li>
+      {% endunless %} 
         <!-- .nav-item -->
       {% endfor %}
     </ul>
