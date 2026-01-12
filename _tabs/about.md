@@ -1,15 +1,15 @@
 ---
-title: Introduce
+title: Introduce | 김규형
 icon: fas fa-info-circle
 order: 4
 ---
 
-# 👋 안녕하세요, 김규형입니다
+# 👋 안녕하세요 김규형입니다
 
 <div class="d-flex align-items-center mb-4 p-4 bg-light rounded shadow-sm">
   <img src="/assets/img/favicons/me.jpeg" class="rounded-circle me-3 shadow" width="100" alt="Profile">
   <div>
-    <h3 class="mb-1">김규형 (Unggu)</h3>
+    <h2 class="mb-1">김규형 (Unggu)</h2>
     <p class="text-muted mb-2">Backend Developer & DevOps Engineer</p>
     <p class="mb-0">
       <i class="fas fa-envelope text-primary"></i>
@@ -109,7 +109,7 @@ order: 4
     <div class="card h-100 border-info">
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-info">NHN Academy</h6>
-        <p class="card-text mb-0">Software Construction </p>
+        <p class="card-text mb-0">Java/Servlet 기반 Software Engineering 원칙</p>
       </div>
     </div>
   </div>
