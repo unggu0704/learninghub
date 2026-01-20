@@ -10,7 +10,7 @@ image:
   path: assets\img\metaimg\azure_404.png
 ---
 
-Ingress의 라우팅 실패로 인한 서비스 장애로 결론 내렸습니다. Azure 환경에서 Ingress의 특정 어노테이션은 예기지 못한 동작 유발할 수 있습니다. (라우팅 실패)
+Azure 환경에서 Ingress의 특정 어노테이션은 예기지 못한 동작 유발할 수 있습니다. (라우팅 실패)
 
 이 글에서는 실제 사례를 통해 Ingress의 Silent Failure가 발생했는지 집중적으로 조사하고, 이 과정에서 얻은 Lesson Learned를 정리해 보겠습니다.
 
