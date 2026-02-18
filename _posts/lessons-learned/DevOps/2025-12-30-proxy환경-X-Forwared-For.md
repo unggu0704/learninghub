@@ -1,5 +1,5 @@
 ---
-title: Proxy 환경(AppGW, Nginx)에서 X-Forwarded-For 헤더 사용기
+title: "[Azure AKS] Proxy 환경에서 X-Forwarded-For 헤더가 AppGW IP로 변경되는 문제"
 author: "unggu"
 date: 2025-12-24 19:12:42 +0800
 categories: [lessons-learned, DevOps]
@@ -345,7 +345,7 @@ requests
 WAS 레벨에서 설정된 헤더를 바라보는것으로 추정
 
 
-
+© 2026 unggu. All rights reserved.
 
 
 

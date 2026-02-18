@@ -49,7 +49,7 @@ A 서비스가 장애가 나더라도 그동안 A가 보낸 메세지는 Event h
 ## Azure EventHub를 사용하여 pub-sub 패턴 구현하기
 
 
-MVP 프로젝트 하이소피 (Spring Boot기반 MSA 프로젝트) 어플리케이션에서 Azure Eventhub를 연동하여 pub-sub 패턴을 구현한 예시를 확인해보도록 하겠습니다. 
+MVP 프로젝트 어플리케이션에서 Azure Eventhub를 연동하여 pub-sub 패턴을 구현한 예시를 확인해보도록 하겠습니다. 
 
 해당 서비스의 아키텍쳐는 아래와 같습니다.
 
@@ -65,7 +65,9 @@ Java 코드를 설정하기 전에 Event Hub 연동을 위한 연결 Key(Connect
 Connection String은 Azure Portal에서 확인할 수 있습니다.
 
 해당 Connection String는 민감한 정보이기에 Secret을 통해 관리합니다.
+
 **secret.yml**
+
 ```
 apiVersion: v1
 kind: Secret
@@ -78,7 +80,9 @@ data:
 ```
 
 이 secret을  deployment에게 주입해줍니다.
+
 **deployment.yml**
+
 ```
 env:
   - name: AZURE_EVENTHUB_CONNECTION_STRING
@@ -178,6 +182,7 @@ payload.put("timestamp", System.currentTimeMillis());
 
 
 **3. 이벤트 발행**
+
 여러 이벤트를 한번에 전송 가능한 EventDataBatch를 통해 EventHub로 데이터를 전송합니다.
 ```
     // 3. 발행

@@ -1,5 +1,5 @@
 ---
-title: Azure환경에서 Ingress 라우팅 실패로 404 발생한 이야기
+title: "[AKS 장애 사례] Azure Ingress Annotation 중괄호 문법 제한과 404 에러"
 author: "unggu"
 date: 2025-11-27 19:12:42 +0800
 categories: [lessons-learned, DevOps]
@@ -10,12 +10,9 @@ image:
   path: assets\img\metaimg\azure_404.png
 ---
 
-2025년 10월 4일 외국여행 중 핸드폰에 다수의 알람과 부재중 전화가 찍혀있던 경험이 어제와 같이 생생합니다.
+Azure 환경에서 Ingress의 특정 어노테이션은 예기지 못한 동작 유발할 수 있습니다. (라우팅 실패)
 
-저의 서비스가 자는 시간 동안 (한국 기준 오전 10시 경)에 웹 사이트 접속 불가 화면이 발생하면서 이상 징후가 발생하였고 이를 해결하기 위해 유관부서 및 팀원분들이 열심히.. 원인을 파악한 일화가 있습니다.
-당시에는 Ingress의 라우팅 실패로 인한 서비스 장애로 결론 내렸고, 결국 Ingress의 특정 어노테이션을 제거함으로써, 제가 자는동안(?) 모든 상황은 다행히도 해결 되었습니다.
-
-저는 귀국과 동시에 약간의 눈치와 함께 왜 이런 서비스의 Slient Failure이 발생했는지 집중적으로 조사하였고 이 과정에서 얻은 Lesson Learned을 정리해 보겠습니다.
+이 글에서는 실제 사례를 통해 Ingress의 Silent Failure가 발생했는지 집중적으로 조사하고, 이 과정에서 얻은 Lesson Learned를 정리해 보겠습니다.
 
 
 ## 구조 및 개념 설명
@@ -24,7 +21,8 @@ image:
 
 ![image.png]({{ site.baseurl }}{{ page.url }}/img/azure4042.png)
 
-이번에 말썽을 부린건 Ingress 이 친구가 원인이였습니다. 
+저희가 이번에 자세하게 알아볼 것은 Ingress라는 쿠버네티스 리소스입니다.
+
 쿠버네티스의 리소스인 Ingress는 HTTP/HTTPS 트래픽 라우팅 규칙을 정의하는 기능을 가지고 있지만, 이런 Ingress 자체가 기능을 제공하는 주체가 아닌, 그 상위 리소스인인 **Ingress Controller**가 실제 기능을 가지고 수행합니다.
 ```
 apiVersion: networking.k8s.io/v1
@@ -45,7 +43,7 @@ spec:
   controller: k8s.io/ingress-nginx  # 실제 Controller 식별자
   ```
 
-이런 Controller에는 Nginx, HAProxy 등 다양한 컨트롤러가 존재하지만 AKS는 기본적으로 **Application Routing Add-on** 플러그인의 **Managed NGINX Ingress Controller**를 기본으로 제공합니다.
+이런 Controller에는 Nginx, HAProxy 등 다양한 컨트롤러가 존재하지만, AKS는 기본적으로 **Application Routing Add-on** 플러그인의 **Managed NGINX Ingress Controller**를 기본으로 제공합니다.
 
 이 관리형 Ingress는 기본적으로 내부 nginx Deployment/Pod(Nginx)/ConfigMap(NGINX 설정)/Secret(TLS) 등 라우팅에 필요한 모든 정보를 가지고 있습니다.
 
@@ -80,7 +78,7 @@ kube-api가 Ingress를 비롯해 관련된 secret, svc, cm 등을 관리하며 �
 
 ## 타임 테이블
 
-10/4부터 약 10일 전 9/24쯤  Ingress에 Annotaion 추가 작업이 있었습니다.
+실제 장애 발생 이전 Ingress에 Annotaion 추가 작업이 있었습니다.
 
 ```
 annotations:
@@ -110,11 +108,13 @@ serviceaccount
 
 즉 해당 설정은 Invaild syntax로 정상적으로 reload되지 못하였고, Ingress는 이전 `nginx.conf` 기반으로 롤백하여 서비스 되었습니다. 
 
-그리고 시간이 흘러.. 10/4에 Azure의 App-routing Manenged 영역의 작업이 있었고 이로 인해 nginx pod가 강제 재기동(restart) 되어졌습니다. (Azure측 별도 공지X)
+그리고 시간이 흘러(약 10일 이상) Azure의 App-routing Manenged 영역의 작업이 있었고 이로 인해 nginx pod가 강제 재기동(restart) 되어졌습니다. (Azure측 별도 공지X)
  
  Invaild Syntax를 가지고 있던 우리 Ingress는 restart 당시 정상적으로 `nginx.conf`가 생성되지 못하였고, 이는 해당 Ingress 리소스 자체가 생성되지 못하는 영향을 발생시켰습니다.
 
 -> **라우팅 실패로 인한 404 에러 발생**
+
+결국 이 이슈는 금지된 Annotation을 제거하고 재배포하는 것으로 해결은 되었습니다.
 
 ## 장애 대응적 관점
 
@@ -124,14 +124,15 @@ serviceaccount
 
 **환경의 통일성 관리**
 
-  Ingress Annotaion을 변경할려고 한것은 AppGW에서 넘어온 xff 헤더에 대한 값을 변조시킬 필요가 있었기 떄문입니다. 이런 AppGW 환경은 운영 환경에서만 적용이 되어 있었기 때문에 이런 반영은 다른 환경에서 충분한 검토를 할 기회가 없었습니다. 
+  Ingress Annotaion을 변경할려고 한것은 AppGW에서 넘어온 X-Forwarded-For 헤더에 대한 값을 변조시킬 필요가 있었기 떄문입니다. 
+  이런 AppGW 환경은 운영 환경에서만 적용이 되어 있었기 때문에 이런 반영은 다른 환경에서 충분한 검토를 할 기회가 없었습니다. 
   
-  이를 통해 개발/디버그/운영 환경에서의 환경 통일이 필요할듯 보입니다. 
-  (현재는 예산의 이유로 운영환경에만 설치되어 있음)
+  이를 통해 다양한 환경에서의 인프라 통일이 필요할듯 보입니다. 
 
 **운영은 언제나 clean해야 한다**
 
-  운영 반영 이후 해당 설정을 통해 만족할만한 결과를 얻지 못했습니다. (Ingress는 실제로 롤백됨으로 설정이 먹히지 않음)
+  운영 반영 이후 해당 설정을 통해 만족할만한 결과를 얻지 못했습니다. 
+  (Ingress는 실제로 롤백됨으로 설정이 먹히지 않음)
   
   하지만 단순히 서비스 점검 결과 이상없음으로 해당 설정을 원복하지 않고 운영환경에 그대로 남겨두었습니다. 운영환경에서는 언제나 clean한 형상관리가 필요할듯 보입니다.
 
@@ -165,6 +166,6 @@ serviceaccount
 
 ## 끝으로...
 
-IT 서비스는 언제나 위태롭고 1년간 무사히 움직이다 하필.. 놀러가거나 방심할 때 터지는거 같습니다.
+IT 서비스는 언제나 위태롭고 예기치 못할 동작을 대비해야한다..
 
-아프지말고 무럭무럭 있어주렴 [서비스](https://globalshop.kt.com)야...
+© 2025 unggu. All rights reserved.

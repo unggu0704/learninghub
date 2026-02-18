@@ -1,15 +1,16 @@
 ---
-title: Introduce
+title: Introduce | 김규형
 icon: fas fa-info-circle
 order: 4
+hidden: true
 ---
 
-# 👋 안녕하세요, 김규형입니다
+# 👋 안녕하세요 김규형입니다
 
 <div class="d-flex align-items-center mb-4 p-4 bg-light rounded shadow-sm">
   <img src="/assets/img/favicons/me.jpeg" class="rounded-circle me-3 shadow" width="100" alt="Profile">
   <div>
-    <h3 class="mb-1">김규형 (Unggu)</h3>
+    <h2 class="mb-1">김규형 (Unggu)</h2>
     <p class="text-muted mb-2">Backend Developer & DevOps Engineer</p>
     <p class="mb-0">
       <i class="fas fa-envelope text-primary"></i>
@@ -109,7 +110,7 @@ order: 4
     <div class="card h-100 border-info">
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-info">NHN Academy</h6>
-        <p class="card-text mb-0">Software Construction </p>
+        <p class="card-text mb-0">Java/Servlet 기반 Software Engineering 원칙</p>
       </div>
     </div>
   </div>
@@ -273,7 +274,7 @@ order: 4
 ---
 ## 🚀 프로젝트
 
-### KT 외국인샵 Azure Migration
+### KT 대고객 서비스 Azure Migration
 
 <div class="card mb-5 border-primary shadow-sm">
   <div class="card-header bg-primary text-white">
@@ -367,14 +368,14 @@ order: 4
         <p><strong>1. CI/CD 파이프라인 구축</strong></p>
         <ul>
           <li>Git Action을 통한 멀티 빌드 환경 구축 (사내 저장소 이용)</li>
-          <li>ArgoCD 구성을 통해 안정적인 CD 환경 구축</li>
+          <li>ArgoCD 구성을 통해 안정적인 배포 환경 구축</li>
         </ul>
         
         <p><strong>2. Kubernetes 환경 구축</strong></p>
         <ul>
-          <li>Kustomization + Gitops 방식의 yaml 저장</li>
-          <li>HA 구성 (replicas: 3, rollingUpdate 전략)</li>
-          <li>Pod 리소스 최적화 및 Health Check 설정</li>
+          <li>Kustomization + Gitops 방식의 yaml 관리</li>
+          <li>HorizontalPodAutoscaler 구성 (CPU 기반 replica 조정, rollingUpdate 전략)</li>
+          <li>Pod 리소스 설정 및 Health Check 설정</li>
         </ul>
 
         <p><strong>3. 전환에 따른 데이터 동기화</strong></p>
@@ -386,13 +387,14 @@ order: 4
 
         <p><strong>4. 모니터링 환경 구축</strong></p>
         <ul>
-          <li>JVM에 Agent 설치를 통한 Azure Monitor 연결</li>
+          <li>JVM에 Agent 설치를 통한 Azure Monitor 구성</li>
           <li>Alert rule 및 Action Group 설정을 통한 실시간 알림 체계 구축</li>
+          <li>Log sampling 적용을 통한 LAW 데이터 수집량 감소 및 비용 최적화</li>
         </ul>
 
         <p><strong>5. 비밀/권한 설정</strong></p>
         <ul>
-          <li>CI/CD 전과정의 비밀(Git Token, 저장소 Token, Azure Token) Key Vault 연결</li>
+          <li>CI/CD 민감정보(Git Token, Azure Container Registry Token) Key Vault 관리</li>
           <li>Secret ↔ Azure Key Vault 설정을 통한 소스내 민감정보 관리</li>
           <li>관리 ID/Federation 설정 및 RBAC 설정 관리</li>
         </ul>
@@ -409,7 +411,6 @@ order: 4
                 <th>항목</th>
                 <th>AS-IS</th>
                 <th>TO-BE</th>
-                <th>개선율</th>
               </tr>
             </thead>
             <tbody>
@@ -417,25 +418,21 @@ order: 4
                 <td>장애 복구 시간</td>
                 <td>60분</td>
                 <td>5분</td>
-                <td class="text-success"><strong>92% ↓</strong></td>
               </tr>
               <tr>
                 <td>장애 건수</td>
                 <td>2회/년</td>
                 <td>0회/년</td>
-                <td class="text-success"><strong>100% ↓</strong></td>
               </tr>
               <tr>
                 <td>월 인프라 비용</td>
                 <td>100만원</td>
                 <td>65만원</td>
-                <td class="text-success"><strong>35% ↓</strong></td>
               </tr>
               <tr>
                 <td>배포 소요 시간</td>
                 <td>15분</td>
                 <td>5분</td>
-                <td class="text-success"><strong>67% ↓</strong></td>
               </tr>
             </tbody>
           </table>
@@ -457,10 +454,6 @@ order: 4
         </div>
       </div>
     </div>
-    
-    <a href="https://globalshop.kt.com/global/globalMain.do" class="btn btn-primary mt-3" target="_blank">
-      <i class="fas fa-external-link-alt me-2"></i>운영 사이트 바로가기
-    </a>
   </div>
 </div>
 
@@ -517,7 +510,7 @@ order: 4
     <div class="collapse" id="project2Details">
       <div class="card card-body bg-light mt-3">
         <h6 class="fw-bold text-success">
-          <i class="fas fa-star me-2"></i>주요 기능
+          <i class="fas fa-star me-2"></i>주요 기능 
         </h6>
         <ul>
           <li><strong>자동 리뷰 수집:</strong> 데이터 크롤링을 통한 다양한 플랫폼 리뷰 통합 관리</li>
@@ -535,7 +528,7 @@ order: 4
         <p><strong>1. MSA 환경 구축</strong></p>
         <ul>
           <li>각 도메인별 독립적인 서비스 분리 (리뷰 수집, 분석, 알림 등)</li>
-          <li>Azure Event Hub(Kafka) 기반 비동기 이벤트 통신</li>
+          <li>Azure Event Hub(Kafka) 기반 서비스간 비동기 이벤트 통신</li>
           <li>PostgreSQL DB 서비스별 격리</li>
         </ul>
         
