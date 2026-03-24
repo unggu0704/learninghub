@@ -6,7 +6,7 @@ tags: [Algorithm, DP]
 render_with_liquid: true
 comments: true
 ---
-# knapsack (배낭 문제)
+# knapsack (배낭 문제) 
 
 ### 배낭문제란?
 
