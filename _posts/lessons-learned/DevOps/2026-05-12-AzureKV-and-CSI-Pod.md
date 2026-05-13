@@ -40,6 +40,47 @@ _기존 connection-string을 추가_
 
 이전에 Pod내 /mnt/secrets에 값은 저장하였지만 이 값을 환경변수로 사용할려면 추가적인 작업이 필요합니다.
 
+### SecretProviderClass에 가져올 Secret 명시
+
+
+SecretProviderClass는 지정한 CSI 드라이버를 사용해 Key Vault로 비밀을 가져올지 지정하면서 어떤 비밀을 가져올지도 지정을 해야합니다.
+
+아래 yaml은 Key Vault의 두가지 비밀 decrypt-key, applicationsinsight-connection-string를 가져온다고 선언하였습니다.
+
+```yaml
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: my-secret-provider
+spec:
+  provider: azure
+  parameters:
+    usePodIdentity: "false"  
+    clientID: "<AKS_MANAGED_IDENTITY_CLIENT_ID>"   # key-vault 접근 가능한 UAMI의 client ID
+    keyvaultName: <KEY_VAULT_NAME>   # key-vault명
+    cloudName: ""                       
+    objects: |
+      array:
+        - |
+          objectName: decrypt-key # Key Vault에 지정된 이름
+          objectType: secret
+          objectVersion: ""
+        - |
+          objectName: applicationsinsight-connection-string # Key Vault에 지정된 이름
+          objectType: secret
+          objectVersion: ""
+    tenantId: "<TENANT_ID>"   # tenantID
+  secretObjects:
+    - secretName: my-secret   
+      type: Opaque
+      data:
+        - objectName: decrypt-key # Key Vault에 지정된 이름
+          key: DECRYPT-KEY  # 환경변수로 사용할 이름
+        - objectName: applicationsinsight-connection-string
+          key: APPLICATIONINSIGHTS_CONNECTION_STRING
+```
+          
+CSI Driver는 Pod가 재기동 되어질 때, 이 SecretProviderClass를 읽고 Pod의 지정된 Volume인 /mnt/secret-store에 저장하고 이를 기반한 Secret 리소스를 생성합니다
 
 
 #### SPC가 생성한 Secret 리소스
