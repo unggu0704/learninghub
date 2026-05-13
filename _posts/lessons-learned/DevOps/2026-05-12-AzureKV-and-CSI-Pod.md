@@ -1,4 +1,18 @@
+---
+title: Key Vault의 비밀을 환경 변수로 사용하기
+author: "unggu"
+date: 2026-05-12 19:12:42 +0800
+categories: [lessons-learned, DevOps]
+tags: [Azure, AKS, Kubernets, Container, DevOps, Key Vault]
+render_with_liquid: true
+comments: true
+image:
+  path: assets\img\metaimg\azure204\keyvault.png
+---
+
 이전 글에서는 Key Vault와 AKS간의 UMI 설정과 Pod안의 Volume으로 Mount까지 진행하였습니다. 
+
+> 
 
 이번에는 실제 소스코드 내 민감정보를 KV에 저장하고 이걸 WAS 내 환경 변수(ENV)로 사용하기 위한 방법을 알아겠습니다.
 
@@ -20,7 +34,7 @@ data:
 
 소스 코드 내 하드코딩 되어져 있는 이 정보를 삭제하고 Azure Key Vault내 비밀을 하나 만들어 값을 저장해줍니다.
 
-기존 connection-string을 추가하였다.
+_기존 connection-string을 추가_
 
 이 값은 WAS내에서 사용되는 중요한 값이기에, 환경변수(ENV)로 저장이 되어야합니다.  
 
