@@ -27,6 +27,7 @@ data:
 이전에 Pod내 /mnt/secrets에 값은 저장하였지만 이 값을 환경변수로 사용할려면 추가적인 작업이 필요합니다.
 
 
+
 #### SPC가 생성한 Secret 리소스
 ```
 [root:~]$ k describe secret my-secret
@@ -39,7 +40,6 @@ Type:  Opaque
 Data
 ====
 APPLICATIONINSIGHTS_CONNECTION_STRING:  250 bytes
-DECRYPT-KEY:                            16 bytes
 ```
 
 ### Pod에서 Secret 값 사용하기 
@@ -52,7 +52,7 @@ env:
   - name: DECRYPT-KEY
     valueFrom:
       secretKeyRef:
-        name: kv-secret
+        name: my-secret
         key: decrypt-key
 ```
 
@@ -64,7 +64,7 @@ Secret 자체에 여러 값이 있고 이걸 필요한 것만 선별해서 넣�
 ```yaml
 envFrom:
   - secretRef:
-      name: kv-secret
+      name: my-secret
 ```
 
 Secret과 Pod가 1:1 관계일 때 사용합니다. 
