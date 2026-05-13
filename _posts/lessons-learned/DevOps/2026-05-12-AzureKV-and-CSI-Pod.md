@@ -26,9 +26,56 @@ data:
 
 이전에 Pod내 /mnt/secrets에 값은 저장하였지만 이 값을 환경변수로 사용할려면 추가적인 작업이 필요합니다.
 
+
+#### SPC가 생성한 Secret 리소스
+```
+[root:~]$ k describe secret my-secret
+Name:         my-secret
+Labels:       secrets-store.csi.k8s.io/managed=true
+Annotations:  <none>
+
+Type:  Opaque
+
+Data
+====
+APPLICATIONINSIGHTS_CONNECTION_STRING:  250 bytes
+DECRYPT-KEY:                            16 bytes
+```
+
+### Pod에서 Secret 값 사용하기 
+
+Secret의 값들을 환경변수로 사용하기 위해서는 두 가지 방법이 있습니다.
+
+**1. `secretKeyRef`를 활용하여 하나씩 지정**
+```yaml
+env:
+  - name: DECRYPT-KEY
+    valueFrom:
+      secretKeyRef:
+        name: kv-secret
+        key: decrypt-key
+```
+
+Secret 자체에 여러 값이 있고 이걸 필요한 것만 선별해서 넣을 수 있습니다.
+
+하나의 Secret을 여러 Pod가 공유할 때 선별해서 주입이 가능합니다.
+
+**2.`envFrom.secretRef`로 통째로 추가**
+```yaml
+envFrom:
+  - secretRef:
+      name: kv-secret
+```
+
+Secret과 Pod가 1:1 관계일 때 사용합니다. 
+
+모든 Secret의 비밀이 주입되기에 SPC 자체를 주입기로 사용할 수 있어 관리가 편합니다.
+
+서비스의 기준에 맞추어 설정 후 AP 코드에서 해당 ENV를 사용하면 될것 같습니다.
+
 ---
 
-Issue: secret이 정상적으로 생성되었지만 Secret이 갱신되지 않은 현상
+#### Issue: secret이 정상적으로 생성되었지만 Secret이 갱신되지 않은 현상
 
 AKS의 Secret Rotation이 Enabled 되어져 있는지 확인 
 ```
