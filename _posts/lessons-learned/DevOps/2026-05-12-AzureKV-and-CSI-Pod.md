@@ -26,44 +26,28 @@ data:
 
 이전에 Pod내 /mnt/secrets에 값은 저장하였지만 이 값을 환경변수로 사용할려면 추가적인 작업이 필요합니다.
 
-### SecretProviderClass에 가져올 Secret 명시
+---
 
-SecretProviderClass는 지정한 CSI 드라이버를 사용해 Key Vault로 비밀을 가져올지 지정하면서 어떤 비밀을 가져올지도 지정을 해야합니다.  
+Issue: secret이 정상적으로 생성되었지만 Secret이 갱신되지 않은 현상
 
-아래 yaml은 Key Vault의 두가지 비밀 `decrypt-key`, `applicationsinsight-connection-string`를 가져온다고 선언하였습니다.
-
-```yaml
-apiVersion: secrets-store.csi.x-k8s.io/v1
-kind: SecretProviderClass
-metadata:
-  name: my-secret-provider
-spec:
-  provider: azure
-  parameters:
-    usePodIdentity: "false"  
-    clientID: "<AKS_MANAGED_IDENTITY_CLIENT_ID>"   # key-vault 접근 가능한 UAMI의 client ID
-    keyvaultName: <KEY_VAULT_NAME>   # key-vault명
-    cloudName: ""                       
-    objects: |
-      array:
-        - |
-          objectName: decrypt-key # Key Vault에 지정된 이름
-          objectType: secret
-          objectVersion: ""
-        - |
-          objectName: applicationsinsight-connection-string # Key Vault에 지정된 이름
-          objectType: secret
-          objectVersion: ""
-    tenantId: "<TENANT_ID>"   # tenantID
-  secretObjects:
-    - secretName: my-secret   
-      type: Opaque
-      data:
-        - objectName: decrypt-key # Key Vault에 지정된 이름
-          key: DECRYPT-KEY  # 환경변수로 사용할 이름
-        - objectName: applicationsinsight-connection-string
-          key: APPLICATIONINSIGHTS_CONNECTION_STRING
+AKS의 Secret Rotation이 Enabled 되어져 있는지 확인 
 ```
+az aks show -g <리소스-그룹명> -n <클러스터명> --query "addonProfiles.azureKeyvaultSecretsProvider.config"
+```
+
+`config` 부분이 `null`인 경우 SPC가 Pod의 Volume에 저장은 하지만 Secret 자체의 Sync가 되지 않는 현상이 발생합니다.
+
+이럴 경우 아래 명령어를 통해 AKS의 Secret Rotation을 활성화 해주면 해결됩니다.
+```
+az aks update \
+--resource-group <리소스-그룹명> \
+--name <클러스터명> \
+--enable-secret-rotation \
+--rotation-poll-interval 2m
+```
+
+
+
 
 
 
