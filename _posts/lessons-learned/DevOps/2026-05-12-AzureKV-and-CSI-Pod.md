@@ -12,11 +12,12 @@ image:
 
 이전 글에서는 Key Vault와 AKS간의 UMI 설정과 Pod안의 Volume으로 Mount까지 진행하였습니다. 
 
-> 
+> [AKS와 Azure Key Vault](https://unggu.dev/azure/azure%20공부/AKS와KeyVault/)
 
-이번에는 실제 소스코드 내 민감정보를 KV에 저장하고 이걸 WAS 내 환경 변수(ENV)로 사용하기 위한 방법을 알아겠습니다.
+이번에는 실제 소스코드 내 민감정보를 KV에 저장하고 이걸 서비스내 환경 변수(ENV)로 사용하기 위한 방법을 알아보겠습니다.
 
-`serviceName/dir1/dir2/amuguna.yaml`에 하드코딩 되어 있는 민감 정보가 검출되어 이를 Key Vault로 이관해야한다고 합니다.
+Azure Monitor의 연결 변수(`connectionString`)이 `ConfigMap`내 하드코딩 되어 있어 이를 Key Vault로 이관해야하는 상황을 가정합니다.
+
 ```yaml
 data:
   SPRING_PROFILES_ACTIVE: prd
@@ -34,18 +35,17 @@ data:
 
 소스 코드 내 하드코딩 되어져 있는 이 정보를 삭제하고 Azure Key Vault내 비밀을 하나 만들어 값을 저장해줍니다.
 
-_기존 connection-string을 추가_
+![image.png]({{ site.baseurl }}{{ page.url }}/img/portal.png)_connection-string을 추가_
 
 이 값은 WAS내에서 사용되는 중요한 값이기에, 환경변수(ENV)로 저장이 되어야합니다.  
 
-이전에 Pod내 /mnt/secrets에 값은 저장하였지만 이 값을 환경변수로 사용할려면 추가적인 작업이 필요합니다.
+이전에 Pod내 지정된 Volume내 `/mnt/secrets`에 값은 저장하였지만 이 값을 환경변수로 사용할려면 추가적인 작업이 필요합니다.
 
 ### SecretProviderClass에 가져올 Secret 명시
 
+SecretProviderClass는 지정한 CSI 드라이버를 사용해 Key Vault로 비밀을 가져올지 지정하면서 어떤 비밀을 가져올지도 지정 가능합니다.
 
-SecretProviderClass는 지정한 CSI 드라이버를 사용해 Key Vault로 비밀을 가져올지 지정하면서 어떤 비밀을 가져올지도 지정을 해야합니다.
-
-아래 yaml은 Key Vault의 두가지 비밀 decrypt-key, applicationsinsight-connection-string를 가져온다고 선언하였습니다.
+아래 yaml은 Key Vault의 두가지 비밀 `decrypt-key`, `applicationsinsight-connection-string`를 가져온다고 선언하였습니다.
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -80,7 +80,7 @@ spec:
           key: APPLICATIONINSIGHTS_CONNECTION_STRING
 ```
           
-CSI Driver는 Pod가 재기동 되어질 때, 이 SecretProviderClass를 읽고 Pod의 지정된 Volume인 /mnt/secret-store에 저장하고 이를 기반한 Secret 리소스를 생성합니다
+CSI Driver는 Pod가 재기동 되어질 때, 이 SecretProviderClass를 읽고 Pod의 지정된 Volume인 `/mnt/secret-store`에 저장하고 이를 기반한 Secret 리소스를 생성합니다
 
 
 #### SPC가 생성한 Secret 리소스
@@ -126,7 +126,17 @@ Secret과 Pod가 1:1 관계일 때 사용합니다.
 
 모든 Secret의 비밀이 주입되기에 SPC 자체를 주입기로 사용할 수 있어 관리가 편합니다.
 
-서비스의 기준에 맞추어 설정 후 AP 코드에서 해당 ENV를 사용하면 될것 같습니다.
+서비스의 기준에 맞추어 원하는 방식대로 설정하여 사용하면 될듯합니다.
+
+#### 타임라인 정리
+
+최종적으로 Azure Key Vault에서 컨테이너네 환경변수까지 주입되는 타임라인은 아래와 같이 정리 가능합니다.
+
+1. CSI Driver가 Azure Key Vault에서 값을 가져온다.
+2. Pod가 기동되어질 때, Pod내 지정된 Volume에 정의된 값을 Mount한다.
+3. volume의 값을 기반으로 Secret 리소스가 생성됨
+4. kublet이 모든 준비를 확인한다. (Volume, Secret 등...)
+5. 컨테이너를 기동하면서 Secret의 값을 환경변수로 설정한다.
 
 ---
 
