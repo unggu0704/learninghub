@@ -14,7 +14,7 @@ image:
 
 > [AKS와 Azure Key Vault](https://unggu.dev/azure/azure%20공부/AKS와KeyVault/)
 
-이번에는 실제 소스코드 내 민감정보를 KV에 저장하고 이걸 서비스내 환경 변수(ENV)로 사용하기 위한 방법을 알아보겠습니다.
+이번에는 실제 소스코드 내 민감정보를 비밀 저장소에 저장하고 이걸 서비스내 환경 변수(ENV)로 사용하기 위한 방법을 알아보겠습니다.
 
 Azure Monitor의 연결 변수(`connectionString`)이 `ConfigMap`내 하드코딩 되어 있어 이를 Key Vault로 이관해야하는 상황을 가정합니다.
 
@@ -39,13 +39,13 @@ data:
 
 이 값은 WAS내에서 사용되는 중요한 값이기에, 환경변수(ENV)로 저장이 되어야합니다.  
 
-이전에 Pod내 지정된 Volume내 `/mnt/secrets`에 값은 저장하였지만 이 값을 환경변수로 사용할려면 추가적인 작업이 필요합니다.
+이전에 Pod내 지정된 Volume내 `/mnt/secrets`에 값은 저장하였지만, 이 값을 환경변수로 사용할려면 추가적인 작업이 필요합니다.
 
 ### SecretProviderClass에 가져올 Secret 명시
 
 SecretProviderClass는 지정한 CSI 드라이버를 사용해 Key Vault로 비밀을 가져올지 지정하면서 어떤 비밀을 가져올지도 지정 가능합니다.
 
-아래 yaml은 Key Vault의 두가지 비밀 `decrypt-key`, `applicationsinsight-connection-string`를 가져온다고 선언하였습니다.
+아래 `yaml`은 Key Vault의 두가지 비밀 `decrypt-key`, `applicationsinsight-connection-string`를 가져온다고 선언하였습니다.
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
