@@ -20,7 +20,7 @@ Azure 환경에서 모든 인프라에 대한 인증은 과거  Azure Active Dir
 
 Azure Portal을 비롯한 MS 시스템에 로그인을 하게 되면 아래와 같은 인증 창을 볼 수 있습니다.
 
-![image]({{ site.baseurl }}{{ page.url }}/image/entraid.png)
+![image]({{ site.baseurl }}{{ page.url }}/image/entraid.png)_익숙한 MS로그인 화면_
 
 모든 인증은 Entra ID와 통한다는 말과 비슷하게 이것 또한 Entra ID의 일부분인 SSO 인증의 일부로 Azure 관련 접근을 위해 사람(ID/Password)를 통해 인증을 요구합니다. 
 
@@ -30,9 +30,11 @@ az login
 
 ### App Registration
 
-사용자가 SSO를 통해 Azure 리소스에 접근하듯, 외부 서비스가 Azure 리소스에 접근이 필요할 떄가 있습니다. 
+사용자가 SSO를 통해 외부에서 Azure 리소스에 접근하듯, 외부 서비스가 Azure 리소스에 접근이 필요할 떄가 있습니다. 
 
-그럴 때 **App Registration**를 사용합니다. App Registration는 테넌트 단위의 객체이기에 같은 구독이 아닌 다른 구독 / 외부 서비스에서Service Principal를 통해 `az login`을 직접 한 것과 같은 효과를 내며 접근이 가능합니다.
+그럴 때 **App Registration**를 사용합니다. App Registration는 테넌트 단위의 객체이기에 같은 구독이 아닌 다른 구독 / 외부 서비스에서 `az login`을 직접 한 것과 같은 효과를 내며 접근이 가능합니다.
+
+단, 이를 위해서 **Service Principal**라는 실제 권한이 할당되는 인스턴스가 필요합니다.
 
 #### Service Principal
 
@@ -61,7 +63,10 @@ credential = ClientSecretCredential(
 이것들은 각각 아래와 같은 의미로 사용됩니다.
 
 - AZURE_TENANT_ID → "어느 Entra ID 테넌트냐" 
--  AZURE_CLIENT_트 내 다른 Azure 리소스에 인증할 때 사용한다는 점이 Service Principal과 비슷합니다.
+- AZURE_CLIENT_ID -> "어느 Client ID"
+
+
+ 내 다른 Azure 리소스에 인증할 때 사용한다는 점이 Service Principal과 비슷합니다.
 
 다만, 자격증명을 직접 관리하지 않고, **Azure에서 관리하며 같은 구독 내 한정되어 사용한다는 점**에 있어서 차이점이 존재합니다.
 
