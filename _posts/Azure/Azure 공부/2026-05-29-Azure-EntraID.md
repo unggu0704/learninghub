@@ -1,5 +1,5 @@
 ---
-title: [Azure] Azure Entra ID
+title: "[Azure] Azure Entra ID"
 author: "unggu"
 date: 2026-05-29 19:12:42 +0800
 categories: [Azure, Azure 공부]
