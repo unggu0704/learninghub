@@ -7,7 +7,7 @@ tags: [Azure, AKS, EntraID, Key Vault]
 render_with_liquid: true
 comments: true
 image:
-  path: assets/img/metaimg/azure204/featured-image.png
+  path: assets/img/metaimg/azure204/entraidentraidsuum.png
 ---
 
 
@@ -23,6 +23,8 @@ Azure Portal을 비롯한 MS 시스템에 로그인을 하게 되면 아래와 �
 ![image]({{ site.baseurl }}{{ page.url }}/image/entraid.png)_익숙한 MS로그인 화면_
 
 모든 인증은 Entra ID와 통한다는 말과 비슷하게 이것 또한 Entra ID의 일부분인 SSO 인증의 일부로 Azure 관련 접근을 위해 사람(ID/Password)를 통해 인증을 요구합니다. 
+
+흔히 az cli에 접근하기 위해 사용하는 아래 명령어도 동일한 Entra ID 인증을 사용하는 방식입니다.
 
 ```
 az login
