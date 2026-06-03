@@ -7,7 +7,7 @@ tags: [Azure, AKS, EntraID, Key Vault]
 render_with_liquid: true
 comments: true
 image:
-  path: assets/img/metaimg/azure204/entraidsuum.png
+  path: assets/img/metaimg/entraidsuum.png
 ---
 
 
