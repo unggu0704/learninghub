@@ -60,16 +60,35 @@ credential = ClientSecretCredential(
 )
 ```
 
-이것들은 각각 아래와 같은 의미로 사용됩니다.
-
-- AZURE_TENANT_ID → "어느 Entra ID 테넌트냐" 
-- AZURE_CLIENT_ID -> "어느 Client ID"
 
 
- 내 다른 Azure 리소스에 인증할 때 사용한다는 점이 Service Principal과 비슷합니다.
+- `AZURE_TENANT_ID` → "어느 Entra ID 테넌트냐" (KT 테넌트 전체에 1개, 고정값)
+- `AZURE_CLIENT_ID` → "어떤 App Registration이냐" (App Registration 생성 시 자동 발급, 고정값)
+- `AZURE_CLIENT_SECRET` → "비밀번호" (직접 생성, 만료기간 있음 / 1년·2년 등 설정 가능)
 
-다만, 자격증명을 직접 관리하지 않고, **Azure에서 관리하며 같은 구독 내 한정되어 사용한다는 점**에 있어서 차이점이 존재합니다.
+인증 흐름은 아래와 같습니다.
 
-즉 Service Principal는 범위가 훨씬 넓지만 이 값이 유출되지 않도록 언제나 주의해야합니다.
+1. 코드 실행 (어디서든)
+2. `login.microsoftonline.com/{tenant_id}/oauth2/token` 에 POST 요청
+3. `client_id` + `client_secret`를 통한 검증
+4. Bearer Token 발급 (1시간 유효)
+5. Azure 리소스 (LAW, Storage 등) 접근
 
-(유출 시에는 외부에서 악의적인 목적으로 Azure 리소스에 접근 가능)
+이 흐름에서 **호출 위치는 전혀 관계없습니다.** 외부 테넌트 AKS, 로컬 PC, 다른 클라우드 어디서든 동일하게 동작합니다.
+
+### 관리 ID와의 비교
+
+관리ID(Managed Identity)는 Azure 컴퓨팅 리소스(VM, AKS 등)에 직접 부여하는 신원으로, 테넌트 내 다른 Azure 리소스에 인증할 때 사용한다는 점이 Service Principal과 비슷합니다.
+
+다만 아래와 같은 차이점이 존재합니다.
+
+- **자격증명 관리**: Service Principal은 Client Secret을 직접 생성하고 만료를 관리해야 하지만, **Managed Identity는 Azure가 자동으로 관리**하며 Secret 자체가 존재하지 않습니다.
+- **사용 범위**: Service Principal은 호출 위치에 관계없이 어디서든 사용 가능하지만, Managed Identity는 해당 **Azure 리소스(VM, AKS 등)에서만 토큰 요청**이 가능합니다.
+- **보안**: Service Principal은 Secret이 유출될 경우 외부에서 악의적으로 Azure 리소스에 접근이 가능하지만, **Managed Identity는 Secret이 없으므로 유출 위험 자체가 없습니다.**
+
+즉 Managed Identity가 보안상 유리하지만,  해당 테넌트 내부 리소스에서만 사용 가능하다는 제약이 있습니다.
+
+외부에서 접근시에는 Service Principal을 사용해야 합니다.
+
+다만 유출시에는 보안상 치명적일 수 있음을 명시해야합니다.
+
