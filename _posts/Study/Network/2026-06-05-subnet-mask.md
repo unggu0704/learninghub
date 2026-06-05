@@ -6,6 +6,8 @@ categories: [Study, Network]
 tags: [Network]
 render_with_liquid: true
 comments: true
+image:
+    path: assets/img/metaimg/subnet.png
 ---
 
 방화벽 설정 및 IP 관련 작업을 하다보면 `192.168.1.1/24` 같은 표기를 자주 마주치게 됩니다. 
