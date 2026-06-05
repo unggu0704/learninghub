@@ -1,5 +1,5 @@
 ---
-title: AKS에서 Key Vault의 비밀 가져오기
+title: "[Azue] AKS에서 Key Vault의 비밀 가져오기"
 author: "unggu"
 date: 2025-03-17 19:12:42 +0800
 categories: [Azure, Azure 공부]
