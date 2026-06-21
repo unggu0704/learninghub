@@ -1,5 +1,5 @@
 ---
-title: Key Vault의 비밀을 환경 변수로 사용하기
+title: "[Azure] Key Vault의 비밀을 환경 변수로 사용하기"
 author: "unggu"
 date: 2026-05-12 19:12:42 +0800
 categories: [lessons-learned, DevOps]
