@@ -8,7 +8,7 @@ hidden: true
 # 👋 안녕하세요 김규형입니다
 
 <div class="d-flex align-items-center mb-4 p-4 bg-light rounded shadow-sm">
-  <img src="/assets/img/favicons/me.jpeg" class="rounded-circle me-3 shadow" width="100" alt="Profile">
+  <img src="/assets/img/favicons/me.png" class="rounded-circle me-3 shadow" width="100" alt="Profile">
   <div>
     <h2 class="mb-1">김규형 (Unggu)</h2>
     <p class="text-muted mb-2">Backend Developer & DevOps Engineer</p>
