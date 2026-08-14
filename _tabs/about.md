@@ -8,7 +8,7 @@ hidden: true
 # 👋 안녕하세요 김규형입니다
 
 <div class="d-flex align-items-center mb-4 p-4 bg-light rounded shadow-sm">
-  <img src="/assets/img/favicons/me.png" class="rounded-circle me-3 shadow" width="100" alt="Profile">
+  <img src="/assets/img/favicons/me.jpg" class="rounded-circle me-3 shadow" width="100" alt="Profile">
   <div>
     <h2 class="mb-1">김규형 (Unggu)</h2>
     <p class="text-muted mb-2">Backend Developer & DevOps Engineer</p>
@@ -49,7 +49,10 @@ hidden: true
           <ul class="mb-0 mt-2">
             <li>KT 대고객 서비스 Azure Migration</li>
             <li>배포 시간 단축 (20분 → 5분)</li>
+            <li>장애 발생률 감소 (연 2건 → 0건)</li>
             <li>장애 발생률 100% 감소 (연 2건 → 0건)</li>
+            <li>메모리 압박 개선 <a href="https://unggu.dev/lessons-learned/java/jvm/Memory-압박-해결/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>SPOF(Redis) 개선 <a href="https://unggu.dev/lessons-learned/tech/redis/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
           </ul>
         </div>
       </div>
