@@ -47,12 +47,11 @@ hidden: true
         <div class="alert alert-success mb-0">
           <strong>주요 성과:</strong>
           <ul class="mb-0 mt-2">
-            <li>KT 대고객 서비스 Azure Migration</li>
-            <li>배포 시간 단축 (20분 → 5분)</li>
-            <li>장애 발생률 감소 (연 2건 → 0건)</li>
-            <li>장애 발생률 100% 감소 (연 2건 → 0건)</li>
-            <li>메모리 압박 개선 <a href="https://unggu.dev/lessons-learned/java/jvm/Memory-압박-해결/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
-            <li>SPOF(Redis) 개선 <a href="https://unggu.dev/lessons-learned/tech/redis/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>배포 자동화를 통해 배포 시간 단축 및 장애 원복 시간 감소</li>
+            <li>JVM 메모리 분석 및 GC 튜닝 <a href="https://unggu.dev/lessons-learned/java/jvm/Memory-압박-해결/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>Key Vault 기반 시크릿·권한 관리 체계 구축 <a href="https://unggu.dev/lessons-learned/devops/AzureKV-and-CSI-Pod/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>Nginx Ingress 트러블슈팅 <a href="https://unggu.dev/lessons-learned/devops/Azure-Ingress-이슈/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>Proxy 환경 내 모니터링 환경 구축 <a href="https://unggu.dev/lessons-learned/devops/proxy환경-X-Forwared-For/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
           </ul>
         </div>
       </div>
@@ -76,9 +75,11 @@ hidden: true
         <div class="alert alert-info mb-0">
           <strong>주요 성과:</strong>
           <ul class="mb-0 mt-2">
-            <li>SR/VOC 대응률 100% 달성</li>
-            <li>스모크 테스트 자동화로 점검 시간 70% 단축</li>
-            <li>JMeter & K8s 활용 부하테스트 도구 개발</li>
+            <li>SR/VOC 대응 개발 작업 수행</li>
+            <li>전체 주문건을 하나의 화면에 볼 수 있는 모니터링 도구 개발</li>
+            <li>대용량 트래픽에 따른 시스템 개선 작업</li>
+            <li>Redis 단일장애지점(SPOF) 개선 <a href="https://unggu.dev/lessons-learned/tech/redis/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>Azure Event Hub 기반 Pub-Sub 패턴 설계 <a href="https://unggu.dev/devops/container/Pub-Sub-패턴과-Azure-Event-Hub/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
           </ul>
         </div>
       </div>
