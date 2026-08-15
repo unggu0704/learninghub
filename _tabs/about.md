@@ -20,8 +20,8 @@ hidden: true
 </div>
 
 > Spring 기반 클라우드 네이티브 애플리케이션과 DevOps 문화에 관심이 많은 주니어 개발자입니다.  
-> 알맞은 기술과 구조로 소프트웨어를 설계하고, 이를 통해 코드를 다듬어 좋은 산출물을 만드는 것을 목표로 하고 있습니다.  
-> 최근에는 Kubernetes 환경에서 안정적이고 확장 가능한 시스템을 설계하고 개발하는 데 집중하고 있습니다.
+> 알맞은 기술과 구조로 소프트웨어를 설계하고, 이를 통해 좋은 산출물을 만드는 것을 목표로 하고 있습니다.  
+> Azure 환경 마이그레이션 및 운영을 담당했으며, JVM 메모리 누수·프록시 헤더 이슈·Ingress 설정 장애 등 프로덕션 이슈를 직접 트러블슈팅하며 안정적인 시스템을 만들어가고 있습니다.
 {: .prompt-info }
 
 ---
@@ -45,10 +45,9 @@ hidden: true
           <li>레거시 시스템의 클라우드 마이그레이션 수행</li>
         </ul>
         <div class="alert alert-success mb-0">
-          <strong>주요 성과:</strong>
+          <strong>주요 내용:</strong>
           <ul class="mb-0 mt-2">
             <li>배포 자동화를 통해 배포 시간 단축 및 장애 원복 시간 감소</li>
-            <li>JVM 메모리 분석 및 GC 튜닝 <a href="https://unggu.dev/lessons-learned/java/jvm/Memory-압박-해결/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
             <li>Key Vault 기반 시크릿·권한 관리 체계 구축 <a href="https://unggu.dev/lessons-learned/devops/AzureKV-and-CSI-Pod/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
             <li>Nginx Ingress 트러블슈팅 <a href="https://unggu.dev/lessons-learned/devops/Azure-Ingress-이슈/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
             <li>Proxy 환경 내 모니터링 환경 구축 <a href="https://unggu.dev/lessons-learned/devops/proxy환경-X-Forwared-For/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
@@ -73,11 +72,12 @@ hidden: true
           <li>백오피스 시스템 운영 효율화 및 개선</li>
         </ul>
         <div class="alert alert-info mb-0">
-          <strong>주요 성과:</strong>
+          <strong>주요 내용:</strong>
           <ul class="mb-0 mt-2">
             <li>SR/VOC 대응률 100% 달성</li>
             <li>외부 연동 로직을 트랜잭션에서 분리해 대용량 트래픽 처리 성능 개선</li>
             <li>Redis 단일  장애지점(SPOF) 개선 <a href="https://unggu.dev/lessons-learned/tech/redis/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>JVM 메모리 분석 및 GC 튜닝 <a href="https://unggu.dev/lessons-learned/java/jvm/Memory-압박-추적/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a> <a href="https://unggu.dev/lessons-learned/java/jvm/Memory-압박-해결/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
             <li>Azure Event Hub 기반 Pub-Sub 패턴 설계 <a href="https://unggu.dev/devops/container/Pub-Sub-패턴과-Azure-Event-Hub/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
           </ul>
         </div>
@@ -435,9 +435,11 @@ hidden: true
         
         <div class="alert alert-warning mt-3">
           <strong><i class="fas fa-exclamation-triangle me-2"></i>가장 힘들었던 점</strong>
-          <p class="mb-0 mt-2">AppGW의 X-Forwarded-For 헤더를 Nginx Ingress가 바라보는 AppGW IP로 덮어써서, 이를 우회하려 Ingress annotation에 헤더 재작성 설정을 추가했습니다.
+          <p class="mb-0 mt-2">AppGW의 X-Forwarded-For 헤더를 Nginx Ingress가 바라보는 AppGW IP로 덮어써서, 이를 우회하려 Ingress annotation에 헤더 재작성 설정을 추가한적이 있습니다.
+
           이때 Azure 관리형 Nginx에서 중괄호가 금지 문법인 걸 몰라 설정이 조용히 롤백된 채 운영되다가, 약 10일 뒤 Azure 측 강제 재기동으로 nginx.conf 생성이 실패해 <strong>서비스 전면 404 장애</strong>로 번졌습니다.
-          Annotation 제거로 긴급 복구했고, Client IP는 Azure Monitor 커스텀 헤더 수집으로 대체했습니다. 이 경험으로 관리형 서비스는 편리함 뒤에 제한의 영역이 있다는 것, 그 제약을 미리 생각해야하는 것을 꺠닫게 되었습니다.</p>
+
+          설정 제거로 긴급 복구했고 Client IP는 Azure Monitor 커스텀 헤더 수집으로 대체했습니다. 이 경험으로 관리형 서비스는 편리함 뒤에 제한의 영역이 있다는 것, 그 제약을 미리 생각해야하는 것을 꺠닫게 되었습니다.</p>
           <div class="mt-2">
             <a href="https://unggu.dev/lessons-learned/devops/proxy환경-X-Forwared-For/" target="_blank" class="d-inline-block me-3"><i class="fas fa-link me-1"></i>XFF 이슈 글 보기</a>
             <a href="https://unggu.dev/lessons-learned/devops/Azure-Ingress-이슈/" target="_blank" class="d-inline-block"><i class="fas fa-link me-1"></i>404 장애 글 보기</a>
@@ -446,8 +448,8 @@ hidden: true
         
         <div class="alert alert-info">
           <strong><i class="fas fa-smile me-2"></i>느낀점</strong>
-          <p class="mb-0 mt-2">입사 직후 던져진 큰 프로젝트였지만, 오히려 <strong>실전에서 배우고 느끼는 것이 가장 빠른 성장</strong>이라는 것을 느꼈습니다.
-          특히 실패의 가치, 문서화의 중요성, 협업의 중요성을 깨달았고, 이 프로젝트 이후 서비스 운영까지 진행하며 "DevOps 엔지니어"로서의 새로운 커리어를 얻게되었습니다.</p>
+          <p class="mb-0 mt-2">입사 직후 던져진 큰 프로젝트였지만, 오히려 <strong>실전에서 배우고 느끼는 것이 가장 빠른 성장</strong>임을 느꼈습니다.
+          실패의 가치, 문서화의 중요성, 협업의 중요성을 깨달았고, 이 프로젝트 이후 서비스 운영까지 진행하며 "DevOps 엔지니어"로서의 경험을 쌓아가고 있습니다.</p>
         </div>
       </div>
     </div>
@@ -463,7 +465,7 @@ hidden: true
         <h5 class="mb-1 fw-bold">
           <i class="fas fa-robot me-2"></i>소상공인을 위한 AI 리뷰 관리 솔루션
         </h5>
-        <small>2025.05 ~ 2025.07 | 사내 교육 MVP (6인) | Backend & DevOps</small>
+        <small>2025.05 ~ 2025.07 | 사내 교육 및 프로젝트 | Backend & DevOps</small>
       </div>
       <span class="badge bg-light text-dark px-3 py-2">완료</span>
     </div>
@@ -522,9 +524,10 @@ hidden: true
           <i class="fas fa-bullseye me-2"></i>기술적 구현
         </h6>
         
-        <p><strong>1. MSA 환경 구축</strong></p>
+        <p><strong>1. MSA 환경 구축 및 서비스 개발</strong></p>
         <ul>
           <li>각 도메인별 독립적인 서비스 분리 (리뷰 수집, 분석, 알림 등)</li>
+          <li>기획 담당자와 협업하여 요구사항에 따른 서비스 개발</li>
           <li>Azure Event Hub(Kafka) 기반 서비스간 비동기 이벤트 통신</li>
           <li>PostgreSQL DB 서비스별 격리</li>
         </ul>
@@ -626,7 +629,7 @@ hidden: true
         <div class="alert alert-success mt-3">
           <strong><i class="fas fa-graduation-cap me-2"></i>학습 성과</strong>
           <p class="mb-0 mt-2">SSAFY 프로젝트를 단순히 끝내지 않고, 실무에서 사용되는 DevOps 기술을 적용하여 
-          클라우드 네이티브 애플리케이션으로 발전시키며 실무 역량 향상에 큰 도움이 되었습니다.</p>
+          클라우드 네이티브 애플리케이션으로 발전시키며 앞서 진행한 Azure Migration 업무 실무 역량 향상에 큰 도움이 되었습니다.</p>
         </div>
         
         <a href="https://github.com/JourneyJinni" class="btn btn-dark mt-3" target="_blank">
@@ -646,10 +649,10 @@ hidden: true
         <h5 class="mb-1 fw-bold">
           <i class="fas fa-bus me-2"></i>나주시 버스 도착 정보 제공 앱
         </h5>
-        <small>2023.03 ~ 현재 | 개인 프로젝트 | iOS App</small>
+        <small>2023.03 ~ 2026.01 | 개인 프로젝트 | iOS App</small>
       </div>
       <span class="badge bg-success px-3 py-2">
-        <i class="fas fa-circle me-1"></i>운영중
+        <i class="fas fa-circle me-1"></i>완료
       </span>
     </div>
   </div>
@@ -697,7 +700,7 @@ hidden: true
         <ul>
           <li>공공 API 직접 호출로 별도 백엔드 서버 불필요</li>
           <li>CoreData를 활용한 로컬 데이터 캐싱</li>
-          <li>운영 비용 0원으로 3년간 서비스 제공</li>
+          <li>인프라 비용 0원으로 3년간 서비스 제공</li>
           <li>Google AdMob을 통한 수익화 실현</li>
         </ul>
         
