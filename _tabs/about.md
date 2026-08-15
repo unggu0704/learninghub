@@ -75,7 +75,7 @@ hidden: true
         <div class="alert alert-info mb-0">
           <strong>주요 성과:</strong>
           <ul class="mb-0 mt-2">
-            <li>SR/VOC 대응 개발 작업 수행</li>
+            <li>SR/VOC 대응 개발 수행</li>
             <li>전체 주문건을 하나의 화면에 볼 수 있는 모니터링 도구 개발</li>
             <li>대용량 트래픽에 따른 시스템 개선 작업</li>
             <li>Redis 단일장애지점(SPOF) 개선 <a href="https://unggu.dev/lessons-learned/tech/redis/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
@@ -444,11 +444,11 @@ hidden: true
         
         <div class="alert alert-warning mt-3">
           <strong><i class="fas fa-exclamation-triangle me-2"></i>가장 힘들었던 점</strong>
-          <p class="mb-0 mt-2">배포 후 특정 pod가 간헐적으로 시작하지 못하는 문제가 있었습니다.
-          로그를 분석한 결과, pod의 startupProbe가 너무 낮게 설정되어 있던 것이 원인이었습니다.
-          현재는 자연스럽게 분석이 가능하지만 당시에는 k8s에 대한 이해가 거의 전무하던 시절이라 해당 이슈를 잘 이해하지 못하였습니다.
-          그렇기에 당시 <strong>쿠버네티스에 대한 이해의 중요성</strong>을 깨달았고,
-          이후 CKA 시험 준비를 하게 된 계기가 되었습니다.</p>
+          <p class="mb-0 mt-2">모니터링 로그상 접속 IP가 실제 고객 IP가 아닌 <strong>Application Gateway의 IP로 고정 수집</strong>되는 문제가 있었습니다.
+          원인을 추적한 결과, AppGW는 X-Forwarded-For 헤더에 정상적으로 Client IP를 담아 보냈지만, 그 뒤단의 Nginx Ingress Controller가 보안상 이유로 이 헤더를 신뢰하지 않고 자신이 본 AppGW IP로 덮어쓰고 있었습니다.
+          Azure 관리형 Nginx는 ConfigMap 수정이 막혀 있어 일반적인 trusted-proxy 설정도 적용할 수 없었고, 결국 Ingress가 별도로 남기는 원본 헤더를 Azure Monitor가 커스텀 헤더로 수집하도록 구성해 KQL 쿼리로 실제 Client IP를 조회하는 우회 방식으로 해결했습니다.
+          이 과정에서 <strong>프록시 체인마다 헤더를 다르게 신뢰·가공한다는 것</strong>과 <strong>관리형 서비스의 설정 제약을 감안한 설계의 중요성</strong>을 깨달았습니다.</p>
+          <a href="https://unggu.dev/lessons-learned/devops/proxy환경-X-Forwared-For/" target="_blank" class="d-inline-block mt-2"><i class="fas fa-link me-1"></i>관련 글 보기</a>
         </div>
         
         <div class="alert alert-info">
