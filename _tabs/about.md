@@ -75,10 +75,9 @@ hidden: true
         <div class="alert alert-info mb-0">
           <strong>주요 성과:</strong>
           <ul class="mb-0 mt-2">
-            <li>SR/VOC 대응 개발 수행</li>
-            <li>전체 주문건을 하나의 화면에 볼 수 있는 모니터링 도구 개발</li>
-            <li>대용량 트래픽에 따른 시스템 개선 작업</li>
-            <li>Redis 단일장애지점(SPOF) 개선 <a href="https://unggu.dev/lessons-learned/tech/redis/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>SR/VOC 대응률 100% 달성</li>
+            <li>외부 연동 로직을 트랜잭션에서 분리해 대용량 트래픽 처리 성능 개선</li>
+            <li>Redis 단일  장애지점(SPOF) 개선 <a href="https://unggu.dev/lessons-learned/tech/redis/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
             <li>Azure Event Hub 기반 Pub-Sub 패턴 설계 <a href="https://unggu.dev/devops/container/Pub-Sub-패턴과-Azure-Event-Hub/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
           </ul>
         </div>
@@ -371,35 +370,27 @@ hidden: true
         
         <p><strong>1. CI/CD 파이프라인 구축</strong></p>
         <ul>
-          <li>Git Action을 통한 멀티 빌드 환경 구축 (사내 저장소 이용)</li>
-          <li>ArgoCD 구성을 통해 안정적인 배포 환경 구축</li>
+          <li>Git Action을 통한 환경에 따른 멀티 빌드 환경 구축 (사내 저장소 이용)</li>
+          <li>ArgoCD 기반 안정적인 배포 환경 구축</li>
         </ul>
         
         <p><strong>2. Kubernetes 환경 구축</strong></p>
         <ul>
           <li>Kustomization + Gitops 방식의 yaml 관리</li>
-          <li>HorizontalPodAutoscaler 구성 (CPU 기반 replica 조정, rollingUpdate 전략)</li>
+          <li>Ngin Ingress 기반 라우팅 정책 수립 및 TLS 설정</li>
           <li>Pod 리소스 설정 및 Health Check 설정</li>
         </ul>
 
-        <p><strong>3. 전환에 따른 데이터 동기화</strong></p>
+        <p><strong>3. 모니터링 환경 구축</strong></p>
         <ul>
-          <li>점진적 DNS 전환을 통한 무중단 전환</li>
-          <li>DB Data mig를 통해 실시간 데이터 이관</li>
-          <li>결과: 데이터 손실 0건</li>
-        </ul>
-
-        <p><strong>4. 모니터링 환경 구축</strong></p>
-        <ul>
-          <li>JVM에 Agent 설치를 통한 Azure Monitor 구성</li>
+          <li>Java Agent 기반 Azure Monitor 환경 구축</li>
           <li>Alert rule 및 Action Group 설정을 통한 실시간 알림 체계 구축</li>
           <li>Log sampling 적용을 통한 LAW 데이터 수집량 감소 및 비용 최적화</li>
         </ul>
 
-        <p><strong>5. 비밀/권한 설정</strong></p>
+        <p><strong>4. 비밀/권한 설정</strong></p>
         <ul>
-          <li>CI/CD 민감정보(Git Token, Azure Container Registry Token) Key Vault 관리</li>
-          <li>Secret ↔ Azure Key Vault 설정을 통한 소스내 민감정보 관리</li>
+          <li>Key Vault 연동을 통한 CI/CD 및 소스 코드 내 민감정보를 Secret으로 관리</li>
           <li>관리 ID/Federation 설정 및 RBAC 설정 관리</li>
         </ul>
         
@@ -420,13 +411,13 @@ hidden: true
             <tbody>
               <tr>
                 <td>장애 복구 시간</td>
-                <td>60분</td>
+                <td>30분</td>
                 <td>5분</td>
               </tr>
               <tr>
                 <td>장애 건수</td>
-                <td>2회/년</td>
-                <td>0회/년</td>
+                <td>5회/년</td>
+                <td>1회/년</td>
               </tr>
               <tr>
                 <td>월 인프라 비용</td>
@@ -444,17 +435,19 @@ hidden: true
         
         <div class="alert alert-warning mt-3">
           <strong><i class="fas fa-exclamation-triangle me-2"></i>가장 힘들었던 점</strong>
-          <p class="mb-0 mt-2">모니터링 로그상 접속 IP가 실제 고객 IP가 아닌 <strong>Application Gateway의 IP로 고정 수집</strong>되는 문제가 있었습니다.
-          원인을 추적한 결과, AppGW는 X-Forwarded-For 헤더에 정상적으로 Client IP를 담아 보냈지만, 그 뒤단의 Nginx Ingress Controller가 보안상 이유로 이 헤더를 신뢰하지 않고 자신이 본 AppGW IP로 덮어쓰고 있었습니다.
-          Azure 관리형 Nginx는 ConfigMap 수정이 막혀 있어 일반적인 trusted-proxy 설정도 적용할 수 없었고, 결국 Ingress가 별도로 남기는 원본 헤더를 Azure Monitor가 커스텀 헤더로 수집하도록 구성해 KQL 쿼리로 실제 Client IP를 조회하는 우회 방식으로 해결했습니다.
-          이 과정에서 <strong>프록시 체인마다 헤더를 다르게 신뢰·가공한다는 것</strong>과 <strong>관리형 서비스의 설정 제약을 감안한 설계의 중요성</strong>을 깨달았습니다.</p>
-          <a href="https://unggu.dev/lessons-learned/devops/proxy환경-X-Forwared-For/" target="_blank" class="d-inline-block mt-2"><i class="fas fa-link me-1"></i>관련 글 보기</a>
+          <p class="mb-0 mt-2">AppGW의 X-Forwarded-For 헤더를 Nginx Ingress가 바라보는 AppGW IP로 덮어써서, 이를 우회하려 Ingress annotation에 헤더 재작성 설정을 추가했습니다.
+          이때 Azure 관리형 Nginx에서 중괄호가 금지 문법인 걸 몰라 설정이 조용히 롤백된 채 운영되다가, 약 10일 뒤 Azure 측 강제 재기동으로 nginx.conf 생성이 실패해 <strong>서비스 전면 404 장애</strong>로 번졌습니다.
+          Annotation 제거로 긴급 복구했고, Client IP는 Azure Monitor 커스텀 헤더 수집으로 대체했습니다. 이 경험으로 관리형 서비스는 편리함 뒤에 제한의 영역이 있다는 것, 그 제약을 미리 생각해야하는 것을 꺠닫게 되었습니다.</p>
+          <div class="mt-2">
+            <a href="https://unggu.dev/lessons-learned/devops/proxy환경-X-Forwared-For/" target="_blank" class="d-inline-block me-3"><i class="fas fa-link me-1"></i>XFF 이슈 글 보기</a>
+            <a href="https://unggu.dev/lessons-learned/devops/Azure-Ingress-이슈/" target="_blank" class="d-inline-block"><i class="fas fa-link me-1"></i>404 장애 글 보기</a>
+          </div>
         </div>
         
         <div class="alert alert-info">
           <strong><i class="fas fa-smile me-2"></i>느낀점</strong>
           <p class="mb-0 mt-2">입사 직후 던져진 큰 프로젝트였지만, 오히려 <strong>실전에서 배우고 느끼는 것이 가장 빠른 성장</strong>이라는 것을 느꼈습니다.
-          특히 실패의 가치, 문서화의 중요성, 협업의 중요성을 깨달았고, 이 프로젝트 이후 "DevOps 엔지니어"로서의 자신감이 생겼습니다.</p>
+          특히 실패의 가치, 문서화의 중요성, 협업의 중요성을 깨달았고, 이 프로젝트 이후 서비스 운영까지 진행하며 "DevOps 엔지니어"로서의 새로운 커리어를 얻게되었습니다.</p>
         </div>
       </div>
     </div>
@@ -734,69 +727,6 @@ hidden: true
   </div>
 </div>
 
-### BOJ-Extended - 오픈소스 기여
-
-<div class="card mb-5 border-secondary shadow-sm">
-  <div class="card-header bg-secondary text-white">
-    <div class="d-flex justify-content-between align-items-center">
-      <div>
-        <h5 class="mb-1 fw-bold">
-          <i class="fas fa-code-branch me-2"></i>백준 크롬 확장 프로그램
-        </h5>
-        <small>2023.03 ~ 2023.06 | 교내 오픈소스 프로젝트 (3인)</small>
-      </div>
-      <span class="badge bg-light text-dark px-3 py-2">완료</span>
-    </div>
-  </div>
-  
-  <div class="card-body">
-    <p class="mb-3">알고리즘 문제풀이 사이트 Chrome Extension에 타이머 기능 추가 (Git Flow, PR, 코드 리뷰 경험)</p>
-    
-    <div class="mb-4">
-      <h6 class="text-muted mb-3">
-        <i class="fas fa-layer-group me-2"></i>기술 스택
-      </h6>
-      <div class="p-3 bg-light rounded">
-        <span class="badge bg-warning text-dark me-2 mb-2 px-3 py-2">
-          <i class="fab fa-js me-1"></i>JavaScript
-        </span>
-        <span class="badge bg-secondary me-2 mb-2 px-3 py-2">
-          <i class="fab fa-chrome me-1"></i>Chrome API
-        </span>
-      </div>
-    </div>
-    
-    <div class="mb-3">
-      <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#project5Details" aria-expanded="false">
-        <i class="fas fa-chevron-down me-2"></i>상세 내용 보기
-      </button>
-    </div>
-    
-    <div class="collapse" id="project5Details">
-      <div class="card card-body bg-light mt-3">
-        <h6 class="fw-bold text-secondary">
-          <i class="fas fa-hands-helping me-2"></i>기여 내용
-        </h6>
-        <p>알고리즘 문제를 풀 때 시간 측정이 필요한 사용자를 위해 <strong>타이머 기능</strong>을 추가하는 오픈소스 기여 프로젝트</p>
-        
-        <hr>
-        
-        <h6 class="fw-bold text-secondary">
-          <i class="fas fa-bullseye me-2"></i>학습 성과
-        </h6>
-        <ul>
-          <li><strong>오픈소스 협업 경험:</strong> Git Flow, PR, 코드 리뷰 프로세스 학습</li>
-          <li><strong>Chrome Extension API:</strong> 브라우저 확장 프로그램 개발 경험</li>
-          <li><strong>JavaScript 심화:</strong> DOM 조작, 이벤트 처리, 로컬 스토리지 활용</li>
-        </ul>
-        
-        <a href="https://github.com/unggu0704/boj-extended" class="btn btn-dark mt-3" target="_blank">
-          <i class="fab fa-github me-2"></i>GitHub Repository
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
 // Collapse 열릴 때 chevron 아이콘 회전
