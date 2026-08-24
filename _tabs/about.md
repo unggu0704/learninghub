@@ -51,6 +51,7 @@ hidden: true
             <li>Key Vault 기반 시크릿·권한 관리 체계 구축 <a href="https://unggu.dev/lessons-learned/devops/AzureKV-and-CSI-Pod/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
             <li>Nginx Ingress 트러블슈팅 <a href="https://unggu.dev/lessons-learned/devops/Azure-Ingress-이슈/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
             <li>Proxy 환경 내 모니터링 환경 구축 <a href="https://unggu.dev/lessons-learned/devops/proxy환경-X-Forwared-For/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>Nginx Ingress -> API Gateway 이관 작업 <a href="https://unggu.dev/k8s/cka/Gateway/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
           </ul>
         </div>
       </div>
