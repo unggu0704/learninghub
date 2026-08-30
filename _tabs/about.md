@@ -421,11 +421,6 @@ hidden: true
                 <td>1회/년</td>
               </tr>
               <tr>
-                <td>월 인프라 비용</td>
-                <td>100만원</td>
-                <td>65만원</td>
-              </tr>
-              <tr>
                 <td>배포 소요 시간</td>
                 <td>15분</td>
                 <td>5분</td>
