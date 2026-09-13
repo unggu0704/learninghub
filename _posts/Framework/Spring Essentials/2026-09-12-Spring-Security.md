@@ -7,7 +7,7 @@ tags: [Spring]
 render_with_liquid: true
 comments: true
 image: 
-  path: https://www.dariawan.com/media/images/tech-spring-security.width-1024.png
+  path: assets/img/metaimg/spring-security.png
 ---
 
 Spring Security는 Spring 내에서 인증 파이프라인을 제공하는, 필수적으로 사용되는 Spring 관련 라이브러리입니다.
