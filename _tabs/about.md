@@ -31,6 +31,32 @@ hidden: true
 <div class="position-relative ps-4 mb-5">
   <div class="position-absolute top-0 start-0 bottom-0" style="width: 2px; background: linear-gradient(to bottom, #0d6efd, #198754);"></div>
   
+  <div class="position-relative">
+    <div class="card border-success shadow-sm">
+      <div class="card-header bg-success text-white">
+        <h5 class="mb-0">Software Engineer @ KT DS</h5>
+        <small>2024.07 ~ 현재</small>
+      </div>
+      <div class="card-body">
+        <ul class="mb-3">
+          <li>KT 대고객 e-커머스 시스템 개발 및 ITO 운영</li>
+          <li>고객 SR(Service Request) 및 VOC 대응을 위한 Java/Spring 기반 기능 개발</li>
+          <li>BO 모니터링 자동화 기능 설계·구현 (스케줄러 기반)</li>
+        </ul>
+        <div class="alert alert-info mb-0">
+          <strong>주요 내용:</strong>
+          <ul class="mb-0 mt-2">
+            <li>SR/VOC 대응률 100% 달성</li>
+            <li>외부 연동 로직을 트랜잭션에서 분리하는 구조 개선 설계 (대용량 트래픽 처리 시 병목 지점 식별 및 해소 방안 도출)</li>
+            <li>단일 장애점(SPOF)이던 Redis 캐시 구조를 Failover·Circuit Breaker 패턴으로 재설계 <a href="https://unggu.dev/lessons-learned/tech/redis/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>JVM GC 로그 분석으로 Old Gen 누적 원인을 규명해 OOM 재발 방지 (IHOP·메모리 limit 재산정) <a href="https://unggu.dev/lessons-learned/java/jvm/Memory-압박-추적/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a> <a href="https://unggu.dev/lessons-learned/java/jvm/Memory-압박-해결/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+            <li>Azure Event Hub(Kafka) 기반 Pub-Sub 패턴 설계 <a href="https://unggu.dev/devops/container/Pub-Sub-패턴과-Azure-Event-Hub/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="mb-5 position-relative">
     <div class="card border-primary shadow-sm">
       <div class="card-header bg-primary text-white">
@@ -61,31 +87,6 @@ hidden: true
 
   <br>
 
-  <div class="position-relative">
-    <div class="card border-success shadow-sm">
-      <div class="card-header bg-success text-white">
-        <h5 class="mb-0">Software Engineer @ KT DS</h5>
-        <small>2024.07 ~ 현재</small>
-      </div>
-      <div class="card-body">
-        <ul class="mb-3">
-          <li>KT 대고객 e-커머스 시스템 개발 및 ITO 운영</li>
-          <li>고객 SR(Service Request) 및 VOC 대응을 위한 Java/Spring 기반 기능 개발</li>
-          <li>BO 모니터링 자동화 기능 설계·구현 (스케줄러 기반)</li>
-        </ul>
-        <div class="alert alert-info mb-0">
-          <strong>주요 내용:</strong>
-          <ul class="mb-0 mt-2">
-            <li>SR/VOC 대응률 100% 달성</li>
-            <li>외부 연동 로직을 트랜잭션에서 분리하는 구조 개선 설계 (대용량 트래픽 처리 시 병목 지점 식별 및 해소 방안 도출)</li>
-            <li>단일 장애점(SPOF)이던 Redis 캐시 구조를 Failover·Circuit Breaker 패턴으로 재설계 <a href="https://unggu.dev/lessons-learned/tech/redis/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
-            <li>JVM GC 로그 분석으로 Old Gen 누적 원인을 규명해 OOM 재발 방지 (IHOP·메모리 limit 재산정) <a href="https://unggu.dev/lessons-learned/java/jvm/Memory-압박-추적/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a> <a href="https://unggu.dev/lessons-learned/java/jvm/Memory-압박-해결/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
-            <li>Azure Event Hub(Kafka) 기반 Pub-Sub 패턴 설계 <a href="https://unggu.dev/devops/container/Pub-Sub-패턴과-Azure-Event-Hub/" target="_blank" title="관련 글"><i class="fas fa-link ms-1"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 ---
