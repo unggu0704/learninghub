@@ -64,7 +64,7 @@ credential = ClientSecretCredential(
 
 
 
-- `AZURE_TENANT_ID` → "어느 Entra ID 테넌트냐" (KT 테넌트 전체에 1개, 고정값)
+- `AZURE_TENANT_ID` → "어느 Entra ID 테넌트냐" (테넌트 전체에 1개, 고정값)
 - `AZURE_CLIENT_ID` → "어떤 App Registration이냐" (App Registration 생성 시 자동 발급, 고정값)
 - `AZURE_CLIENT_SECRET` → "비밀번호" (직접 생성, 만료기간 있음 / 1년·2년 등 설정 가능)
 
